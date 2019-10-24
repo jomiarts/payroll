@@ -1,8 +1,8 @@
-@extends('layouts.master') 
+@extends('layouts.master')
 @section('content')
 <div class="login-box">
     <div class="login-logo">
-        Laravel Starter
+        Admin
     </div>
     <div class="card">
         <div class="card-body login-card-body">
@@ -11,29 +11,32 @@
             <form action="{{ route('login') }}" method="post">
                 @csrf
                 <div class="input-group mb-3">
-                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
+                        name="email" value="{{ old('email') }}" required autofocus>
                     <div class="input-group-append">
                         <span class="fa fa-envelope input-group-text"></span> @if ($errors->has('email'))
                         <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span> @endif
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span> @endif
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                    <input id="password" type="password"
+                        class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password"
+                        required>
                     <div class="input-group-append">
                         <span class="fa fa-lock input-group-text"></span> @if ($errors->has('password'))
                         <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span> @endif
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span> @endif
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-8">
                         <div class="checkbox icheck">
                             <label>
-                <input type="checkbox"> Remember Me
-              </label>
+                                <input type="checkbox"> Remember Me
+                            </label>
                         </div>
                     </div>
                     <!-- /.col -->
@@ -44,16 +47,7 @@
                 </div>
             </form>
 
-            <div class="social-auth-links text-center mb-3">
-                <p>- OR -</p>
-                <a href="#" class="btn btn-block btn-primary">
-          <i class="fab fa-facebook-f mr-2"></i> Sign in using Facebook
-        </a>
-                <a href="#" class="btn btn-block btn-danger">
-          <i class="fab fa-google-plus-g mr-2"></i> Sign in using Google+
-        </a>
-            </div>
-            <!-- /.social-auth-links -->
+
 
             <p class="mb-1">
                 <a href="#">I forgot my password</a>
