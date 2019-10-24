@@ -12,7 +12,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta name="csrf-token" content={{csrf_token()}}>
 
     <title>Laravel Starter</title>
-    <link rel="stylesheet" href="/css/app.css"></link>
+    <link rel="stylesheet" href="/css/app.css">
+    </link>
     <link rel="stylesheet" href="/dist/plugins/font-awesome/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -40,14 +41,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
     @guest @yield('content') @else
     <div class="wrapper" id="app">
         <!-- Header -->
-    @include('layouts.header')
+        @include('layouts.header')
         <!-- Sidebar -->
-    @include('layouts.sidebar') @yield('content')
+        @include('layouts.sidebar') @yield('content')
         <!-- Footer -->
-    @include('layouts.footer')
+        @include('layouts.footer')
     </div>
     <!-- ./wrapper -->
     @endguest @yield('javascript')
-    
+
 </body>
+
 </html>
