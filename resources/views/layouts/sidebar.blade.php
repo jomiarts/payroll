@@ -22,7 +22,7 @@
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <li class="nav-item has-treeview {!! classActivePath(1,'dashboard') !!}">
-          <a href="{!! route('home') !!}" class="nav-link {!! classActiveSegment(1, 'dashboard') !!}">
+          <a href="{!! route('dashboard') !!}" class="nav-link {!! classActiveSegment(1, 'dashboard') !!}">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Dashboard
@@ -31,7 +31,7 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="{{ route('home') }}" class="nav-link {!! classActiveSegment(2, 'home') !!}">
+              <a href="{{ route('dashboard') }}" class="nav-link {!! classActiveSegment(2, 'dashboard') !!}">
                 <i class="fas fa-circle"></i>
                 <p>Dashboard v1</p>
               </a>

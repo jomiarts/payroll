@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/dashboard/home', 'DashboardController@versionone')->name('home');
+Route::get('/dashboard', 'DashboardController@versionone')->name('dashboard');
 //Route::get('/dashboard/v2', 'DashboardController@versiontwo')->name('v2');
 //Route::get('/dashboard/v3', 'DashboardController@versionthree')->name('v3');
 
@@ -26,7 +26,7 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/dashboard/home', 'DashboardController@versionone')->name('home');
+Route::get('/dashboard', 'DashboardController@versionone')->name('dashboard');
 
 Auth::routes();
 
