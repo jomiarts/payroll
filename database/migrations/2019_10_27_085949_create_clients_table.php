@@ -27,7 +27,9 @@ class CreateClientsTable extends Migration
             $table->string('position');
             $table->string('department');
             $table->string('email_add')->unique();
-
+            $table->string('contact_number');
+            $table->date('schedule_of_cut_off');
+            $table->date('schedule_of_payroll');
             $table->timestamps();
         });
     }
