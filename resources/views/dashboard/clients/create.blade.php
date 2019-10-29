@@ -47,11 +47,20 @@
                     <div class="row">
                         <div class="col-md-6">
 
+                            <!-- Date dd/mm/yyyy -->
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Date of Contract</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1"
-                                    placeholder="Enter email">
+                                <label>Date masks:</label>
+
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'"
+                                        data-mask>
+                                </div>
+                                <!-- /.input group -->
                             </div>
+                            <!-- /.form group -->
 
                         </div>
 
