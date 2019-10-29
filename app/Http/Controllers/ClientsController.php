@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Client;
 
 class ClientsController extends Controller
 {
@@ -14,6 +15,14 @@ class ClientsController extends Controller
     public function index()
     {
         //
+        
+        $clients = Client::all();
+        $data = [
+            'post_title' => 'Clients',
+            'clients' => $clients
+        ];
+     
+        return view('dashboard.all')->with('data', $data);
     }
 
     /**
@@ -24,6 +33,10 @@ class ClientsController extends Controller
     public function create()
     {
         //
+        $data = [
+            'post_title' => 'Add New Client'
+        ];
+        return view('dashboard.create')->with('data', $data); 
     }
 
     /**
@@ -46,6 +59,12 @@ class ClientsController extends Controller
     public function show($id)
     {
         //
+        $client = Client::find($id);
+        $data = [
+            'post_title' => 'Edit Client',
+            'client' => $client
+        ];
+        return view('dashboard.show')->with('data', $data);
     }
 
     /**

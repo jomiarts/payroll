@@ -1,4 +1,4 @@
-@extends('layouts.master') 
+@extends('layouts.master')
 @section('content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -132,7 +132,8 @@
                 <button type="button" class="btn btn-tool" data-widget="collapse">
                   <i class="fa fa-minus"></i>
                 </button>
-                <button type="button" class="btn btn-tool" data-toggle="tooltip" title="Contacts" data-widget="chat-pane-toggle">
+                <button type="button" class="btn btn-tool" data-toggle="tooltip" title="Contacts"
+                  data-widget="chat-pane-toggle">
                   <i class="fa fa-comments"></i>
                 </button>
                 <button type="button" class="btn btn-tool" data-widget="remove"><i class="fa fa-times"></i>
@@ -450,7 +451,8 @@
                 <button type="button" class="btn btn-primary btn-sm daterange" data-toggle="tooltip" title="Date range">
                   <i class="fa fa-calendar"></i>
                 </button>
-                <button type="button" class="btn btn-primary btn-sm" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                <button type="button" class="btn btn-primary btn-sm" data-widget="collapse" data-toggle="tooltip"
+                  title="Collapse">
                   <i class="fa fa-minus"></i>
                 </button>
               </div>
@@ -506,19 +508,22 @@
             <div class="card-footer bg-transparent">
               <div class="row">
                 <div class="col-4 text-center">
-                  <input type="text" class="knob" data-readonly="true" value="20" data-width="60" data-height="60" data-fgColor="#39CCCC">
+                  <input type="text" class="knob" data-readonly="true" value="20" data-width="60" data-height="60"
+                    data-fgColor="#39CCCC">
 
                   <div class="text-white">Mail-Orders</div>
                 </div>
                 <!-- ./col -->
                 <div class="col-4 text-center">
-                  <input type="text" class="knob" data-readonly="true" value="50" data-width="60" data-height="60" data-fgColor="#39CCCC">
+                  <input type="text" class="knob" data-readonly="true" value="50" data-width="60" data-height="60"
+                    data-fgColor="#39CCCC">
 
                   <div class="text-white">Online</div>
                 </div>
                 <!-- ./col -->
                 <div class="col-4 text-center">
-                  <input type="text" class="knob" data-readonly="true" value="30" data-width="60" data-height="60" data-fgColor="#39CCCC">
+                  <input type="text" class="knob" data-readonly="true" value="30" data-width="60" data-height="60"
+                    data-fgColor="#39CCCC">
 
                   <div class="text-white">In-Store</div>
                 </div>
@@ -578,7 +583,7 @@
 </div>
 <!-- /.content-wrapper -->
 @endsection
- 
+
 @section('javascript')
 <!-- jQuery -->
 <script src="/dist/plugins/jquery/jquery.min.js"></script>
