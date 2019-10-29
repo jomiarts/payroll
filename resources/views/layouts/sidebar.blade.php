@@ -56,7 +56,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="pages/charts/flot.html" class="nav-link">
+              <a href="/dashboard/clients/create" class="nav-link">
                 <i class="fa fa-circle-o nav-icon"></i>
                 <p>Add New</p>
               </a>

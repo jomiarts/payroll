@@ -27,10 +27,48 @@
     <!-- /.content-header -->
 
     <!-- Main content -->
+    <!-- Main content -->
     <section class="content">
-        fsdfsdfsdf
+        <div class="container-fluid">
+            <!-- SELECT2 EXAMPLE -->
+            <div class="card card-default">
+                <div class="card-header">
+                    <h3 class="card-title">Client</h3>
+
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-widget="collapse"><i
+                                class="fa fa-minus"></i></button>
+                        <button type="button" class="btn btn-tool" data-widget="remove"><i
+                                class="fa fa-remove"></i></button>
+                    </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Date of Contract</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                    placeholder="Enter email">
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+            </div>
+            <!-- /.card -->
+        </div><!-- /.container-fluid -->
     </section>
-    <!-- / Main content -->
+    <!-- /.content -->
+</div>
+<!-- / Main content -->
 
 </div>
 

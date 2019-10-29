@@ -22,7 +22,7 @@ class ClientsController extends Controller
             'clients' => $clients
         ];
      
-        return view('dashboard.all')->with('data', $data);
+        return view('dashboard.clients.all')->with('data', $data);
     }
 
     /**
@@ -36,7 +36,7 @@ class ClientsController extends Controller
         $data = [
             'post_title' => 'Add New Client'
         ];
-        return view('dashboard.create')->with('data', $data); 
+        return view('dashboard.clients.create')->with('data', $data); 
     }
 
     /**
@@ -64,7 +64,7 @@ class ClientsController extends Controller
             'post_title' => 'Edit Client',
             'client' => $client
         ];
-        return view('dashboard.show')->with('data', $data);
+        return view('dashboard.clients.show')->with('data', $data);
     }
 
     /**
