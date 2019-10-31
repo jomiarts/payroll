@@ -31,7 +31,7 @@
     <section class="content">
         <div class="container-fluid">
             <!-- SELECT2 EXAMPLE -->
-            <form actoin="" method="POST">
+            <form actoin="" method="POST" id="create_client_form">
                 <div class="card card-default">
                     <div class="card-header">
                         <h3 class="card-title">Client</h3>
@@ -56,7 +56,8 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                         </div>
-                                        <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask id="date_of_contract" name="date_of_contract" />
+                                        <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'"
+                                            data-mask id="date_of_contract" name="date_of_contract" />
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -68,17 +69,18 @@
 
                                 <!-- Date dd/mm/yyyy -->
                                 <div class="form-group">
-                                        <label>Date of Termination</label>
-        
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-                                            </div>
-                                            <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask id="date_of_termination" name="date_of_termination" />
+                                    <label>Date of Termination</label>
+
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                         </div>
-                                        <!-- /.input group -->
+                                        <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'"
+                                            data-mask id="date_of_termination" name="date_of_termination" />
                                     </div>
-                                    <!-- /.form group -->
+                                    <!-- /.input group -->
+                                </div>
+                                <!-- /.form group -->
 
                             </div>
                             <!-- /.col -->
@@ -88,14 +90,16 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Company Name</label>
-                                    <input type="text" class="form-control" placeholder="Enter ..." name="company_name" id="company_name" />
+                                    <input type="text" class="form-control" placeholder="Enter ..." name="company_name"
+                                        id="company_name" />
                                 </div>
 
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Company Address</label>
-                                    <input type="text" class="form-control" placeholder="Enter ..." name="company_address" id=""/>
+                                    <input type="text" class="form-control" placeholder="Enter ..."
+                                        name="company_address" id="" />
                                 </div>
                             </div>
                         </div>
@@ -103,13 +107,15 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>BIR TIN Number</label>
-                                    <input type="text" class="form-control" placeholder="Enter ..." id="bir_tin_number" name="bir_tin_number" />
+                                    <input type="text" class="form-control" placeholder="Enter ..." id="bir_tin_number"
+                                        name="bir_tin_number" />
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>PEZA Number</label>
-                                    <input type="text" class="form-control" placeholder="Enter ..." id="peza_number" name="peza_number" />
+                                    <input type="text" class="form-control" placeholder="Enter ..." id="peza_number"
+                                        name="peza_number" />
                                 </div>
                             </div>
                         </div>
@@ -117,13 +123,15 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Official Company No</label>
-                                    <input type="text" class="form-control" placeholder="Enter ..." id="official_company_no" name="official_company_no" />
+                                    <input type="text" class="form-control" placeholder="Enter ..."
+                                        id="official_company_no" name="official_company_no" />
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="company_email">Company Email</label>
-                                    <input type="email" class="form-control" id="company_email" placeholder="Enter email" name="company_email" id="company_email" />
+                                    <input type="email" class="form-control" id="company_email"
+                                        placeholder="Enter email" name="company_email" id="company_email" />
                                 </div>
                             </div>
                         </div>
@@ -134,8 +142,10 @@
                     <div class="card-header">
                         <h3 class="card-title">Contact Person</h3>
                         <div class="card-tools">
-                            <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                            <button type="button" class="btn btn-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+                            <button type="button" class="btn btn-tool" data-widget="collapse"><i
+                                    class="fa fa-minus"></i></button>
+                            <button type="button" class="btn btn-tool" data-widget="remove"><i
+                                    class="fa fa-remove"></i></button>
                         </div>
                     </div><!-- /.card-header -->
                     <div class="card-body">
@@ -143,51 +153,58 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <input type="text" class="form-control" placeholder="Enter ..." id="cpname" name="cpname" />
+                                    <input type="text" class="form-control" placeholder="Enter ..." id="cpname"
+                                        name="cpname" />
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Position</label>
-                                    <input type="text" class="form-control" placeholder="Enter ..." id="cpposition" name="cpposition" />
+                                    <input type="text" class="form-control" placeholder="Enter ..." id="cpposition"
+                                        name="cpposition" />
                                 </div>
                             </div>
                         </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Department</label>
-                                        <input type="text" class="form-control" placeholder="Enter ..." id="cpdepartment" name="cpdepartment" />
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Email Address</label>
-                                        <input type="text" class="form-control" placeholder="Enter ..." id="cpemail_add" name="cpemail_add" />
-                                    </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Department</label>
+                                    <input type="text" class="form-control" placeholder="Enter ..." id="cpdepartment"
+                                        name="cpdepartment" />
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Contact Number</label>
-                                        <input type="text" class="form-control" placeholder="Enter ..." id="cpcontact_no" name="cpcontact_no" />
-                                    </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Email Address</label>
+                                    <input type="text" class="form-control" placeholder="Enter ..." id="cpemail_add"
+                                        name="cpemail_add" />
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Contact Number</label>
+                                    <input type="text" class="form-control" placeholder="Enter ..." id="cpcontact_no"
+                                        name="cpcontact_no" />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div><!-- /.card -->
                 <div class="card card-default">
                     <div class="card-header">
                         <h3 class="card-title">Contract Rate</h3>
                         <div class="card-tools">
-                            <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                            <button type="button" class="btn btn-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+                            <button type="button" class="btn btn-tool" data-widget="collapse"><i
+                                    class="fa fa-minus"></i></button>
+                            <button type="button" class="btn btn-tool" data-widget="remove"><i
+                                    class="fa fa-remove"></i></button>
                         </div>
                     </div><!-- /.card-header -->
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Contract Type</label>
                                     <select class="form-control select2" style="width: 100%;">
@@ -197,9 +214,93 @@
                                     </select>
                                 </div>
                                 <!-- /.form-group -->
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Basic Pay</label>
+                                    <input type="text" name="basic_pay" id="basic_pay" placeholder="Enter ..."
+                                        class="form-control money_format">
                                 </div>
-                            <div class="col-md-4">
-
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Overtime Pay</label>
+                                    <input type="text" name="overtime_pay" id="overtime_pay" placeholder="Enter ..."
+                                        class="form-control money_format">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Night Differential Pay</label>
+                                    <input type="text" name="night_differential_pay" id="night_differential_pay"
+                                        placeholder="Enter ..." class="form-control money_format">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>COLA</label>
+                                    <input type="text" name="cola" id="cola" placeholder="Enter ..."
+                                        class="form-control money_format">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>5 Days Incentive Pay</label>
+                                    <input type="text" name="five_days_incentive_pay" id="five_days_incentive_pay"
+                                        placeholder="Enter ..." class="form-control money_format">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Uniform Allowance</label>
+                                    <input type="text" name="uniform_allowance" id="uniform_allowance"
+                                        placeholder="Enter ..." class="form-control money_format">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>13th Month Pay</label>
+                                    <input type="text" name="thth_month_pay" id="thth_month_pay" placeholder="Enter ..."
+                                        class="form-control money_format">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>SSS Premium</label>
+                                    <input type="text" name="sss_premium" id="sss_premium" placeholder="Enter ..."
+                                        class="form-control money_format">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>PHILHEALTH</label>
+                                    <input type="text" name="philhealth" id="philhealth" placeholder="Enter ..."
+                                        class="form-control money_format">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Insurance Fund</label>
+                                    <input type="text" name="insurance_fund" id="insurance_fund" placeholder="Enter ..."
+                                        class="form-control money_format">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Pag Ibig Fund</label>
+                                    <input type="text" name="pag_ibig_fund" id="pag_ibig_fund" placeholder="Enter ..."
+                                        class="form-control money_format">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -208,8 +309,10 @@
                     <div class="card-header">
                         <h3 class="card-title">Payroll Details</h3>
                         <div class="card-tools">
-                            <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                            <button type="button" class="btn btn-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+                            <button type="button" class="btn btn-tool" data-widget="collapse"><i
+                                    class="fa fa-minus"></i></button>
+                            <button type="button" class="btn btn-tool" data-widget="remove"><i
+                                    class="fa fa-remove"></i></button>
                         </div>
                     </div><!-- /.card-header -->
                     <div class="card-body">
@@ -218,28 +321,27 @@
                                 <!-- Date dd/mm/yyyy -->
                                 <div class="form-group">
                                     <label>Schedule of Cut-off</label>
-        
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                         </div>
-                                        <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask id="schedule_of_cut_off" name="schedule_of_cut_off" />
+                                        <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'"
+                                            data-mask id="schedule_of_cut_off" name="schedule_of_cut_off" />
                                     </div>
                                     <!-- /.input group -->
                                 </div>
-                                    <!-- /.form group -->
+                                <!-- /.form group -->
                             </div>
                             <div class="col-md-6">
-
                                 <!-- Date dd/mm/yyyy -->
                                 <div class="form-group">
                                     <label>Schedule of Payroll</label>
-            
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                         </div>
-                                        <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask id="schedule_of_payroll" name="schedule_of_payroll" />
+                                        <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'"
+                                            data-mask id="schedule_of_payroll" name="schedule_of_payroll" />
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -291,10 +393,12 @@
 <script src="/dist/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
 <script src="/dist/plugins/input-mask/jquery.inputmask.extensions.js"></script>
 <!-- datepicker -->
-<script src="/dist/plugins/datepicker/bootstrap-datepicker.js"></script>qq
+<script src="/dist/plugins/datepicker/bootstrap-datepicker.js"></script>
 <script src="/dist/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 <!-- Slimscroll -->
 <script src="/dist/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- Smart Formatter -->
+<script type="text/javascript" src="/dist/plugins/jquery_smart_form_formatter/jquery.formatCurrency.js"></script>
 <!-- FastClick -->
 <script src="/dist/plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
@@ -307,6 +411,12 @@
 <script>
     $(function() {
         $('[data-mask]').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' });
+        $('.money_format').blur(function()
+            {
+                $('.money_format').formatCurrency({
+                    symbol: 'PHP'
+                });
+            });
        
     });
 </script>
