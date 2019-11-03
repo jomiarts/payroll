@@ -31,11 +31,11 @@
     <section class="content">
         <div class="container-fluid">
             <!-- SELECT2 EXAMPLE -->
-            <form actoin="" method="POST" id="create_client_form">
+            <form action="{{ route('clients.store') }}" method="POST" novalidate>
+                {{ csrf_field() }}
                 <div class="card card-default">
                     <div class="card-header">
                         <h3 class="card-title">Client</h3>
-
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-widget="collapse"><i
                                     class="fa fa-minus"></i></button>
@@ -51,12 +51,11 @@
                                 <!-- Date dd/mm/yyyy -->
                                 <div class="form-group">
                                     <label>Date of Contract</label>
-
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                         </div>
-                                        <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'"
+                                        <input type="text" class="form-control" data-inputmask="'alias': 'dd-mm-yyyy'"
                                             data-mask id="date_of_contract" name="date_of_contract" />
                                     </div>
                                     <!-- /.input group -->
@@ -75,7 +74,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                         </div>
-                                        <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'"
+                                        <input type="text" class="form-control" data-inputmask="'alias': 'dd-mm-yyyy'"
                                             data-mask id="date_of_termination" name="date_of_termination" />
                                     </div>
                                     <!-- /.input group -->
@@ -325,7 +324,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                         </div>
-                                        <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'"
+                                        <input type="text" class="form-control" data-inputmask="'alias': 'dd-mm-yyyy'"
                                             data-mask id="schedule_of_cut_off" name="schedule_of_cut_off" />
                                     </div>
                                     <!-- /.input group -->
@@ -340,7 +339,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                         </div>
-                                        <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'"
+                                        <input type="text" class="form-control" data-inputmask="'alias': 'dd-mm-yyyy'"
                                             data-mask id="schedule_of_payroll" name="schedule_of_payroll" />
                                     </div>
                                     <!-- /.input group -->
@@ -410,7 +409,7 @@
 
 <script>
     $(function() {
-        $('[data-mask]').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' });
+        $('[data-mask]').inputmask('mm-dd-yyyy', { 'placeholder': 'mm/dd/yyyy' });
         $('.money_format').blur(function()
             {
                 $('.money_format').formatCurrency({

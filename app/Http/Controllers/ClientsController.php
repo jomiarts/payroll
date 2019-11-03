@@ -47,6 +47,12 @@ class ClientsController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'date_of_contract' => 'date',
+            'date_of_termination' => 'date',
+            'company_email' => 'email',
+            'cpname' => 'required'
+        ]);
         //
     }
 
