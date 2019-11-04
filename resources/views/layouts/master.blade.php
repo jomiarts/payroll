@@ -48,7 +48,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
         @include('layouts.header')
         <!-- Sidebar -->
         @include('layouts.sidebar') 
-        @include('inc.message')
         @yield('content')
         <!-- Footer -->
         @include('layouts.footer')

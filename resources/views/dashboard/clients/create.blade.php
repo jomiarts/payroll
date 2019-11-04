@@ -5,6 +5,11 @@
 
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -55,10 +60,11 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                         </div>
-                                        <input type="text" class="form-control" data-inputmask="'alias': 'dd-mm-yyyy'"
+                                        <input type="text" class="form-control" data-inputmask="'alias': 'yyyy-mm-dd'"
                                             data-mask id="date_of_contract" name="date_of_contract" />
                                     </div>
                                     <!-- /.input group -->
+                                    <small class="text-danger">{{ $errors->first('date_of_contract') }}</small>
                                 </div>
                                 <!-- /.form group -->
 
@@ -74,10 +80,11 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                         </div>
-                                        <input type="text" class="form-control" data-inputmask="'alias': 'dd-mm-yyyy'"
+                                        <input type="text" class="form-control" data-inputmask="'alias': 'yyyy-mm-dd'"
                                             data-mask id="date_of_termination" name="date_of_termination" />
                                     </div>
                                     <!-- /.input group -->
+                                    <small class="text-danger">{{ $errors->first('date_of_termination') }}</small>
                                 </div>
                                 <!-- /.form group -->
 
@@ -91,6 +98,7 @@
                                     <label>Company Name</label>
                                     <input type="text" class="form-control" placeholder="Enter ..." name="company_name"
                                         id="company_name" />
+                                        <small class="text-danger">{{ $errors->first('company_name') }}</small>
                                 </div>
 
                             </div>
@@ -98,7 +106,8 @@
                                 <div class="form-group">
                                     <label>Company Address</label>
                                     <input type="text" class="form-control" placeholder="Enter ..."
-                                        name="company_address" id="" />
+                                        name="company_address" id="company_address" />
+                                    <small class="text-danger">{{ $errors->first('company_address') }}</small>
                                 </div>
                             </div>
                         </div>
@@ -108,6 +117,7 @@
                                     <label>BIR TIN Number</label>
                                     <input type="text" class="form-control" placeholder="Enter ..." id="bir_tin_number"
                                         name="bir_tin_number" />
+                                    <small class="text-danger">{{ $errors->first('bir_tin_number') }}</small>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -115,6 +125,7 @@
                                     <label>PEZA Number</label>
                                     <input type="text" class="form-control" placeholder="Enter ..." id="peza_number"
                                         name="peza_number" />
+                                    <small class="text-danger">{{ $errors->first('peza_number') }}</small>
                                 </div>
                             </div>
                         </div>
@@ -124,6 +135,7 @@
                                     <label>Official Company No</label>
                                     <input type="text" class="form-control" placeholder="Enter ..."
                                         id="official_company_no" name="official_company_no" />
+                                    <small class="text-danger">{{ $errors->first('official_company_no') }}</small>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -131,6 +143,7 @@
                                     <label for="company_email">Company Email</label>
                                     <input type="email" class="form-control" id="company_email"
                                         placeholder="Enter email" name="company_email" id="company_email" />
+                                    <small class="text-danger">{{ $errors->first('company_email') }}</small>
                                 </div>
                             </div>
                         </div>
@@ -152,15 +165,17 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <input type="text" class="form-control" placeholder="Enter ..." id="cpname"
-                                        name="cpname" />
+                                    <input type="text" class="form-control" placeholder="Enter ..." id="name"
+                                        name="name" />
+                                    <small class="text-danger">{{ $errors->first('name') }}</small>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Position</label>
-                                    <input type="text" class="form-control" placeholder="Enter ..." id="cpposition"
-                                        name="cpposition" />
+                                    <input type="text" class="form-control" placeholder="Enter ..." id="position"
+                                        name="position" />
+                                    <small class="text-danger">{{ $errors->first('position') }}</small>
                                 </div>
                             </div>
                         </div>
@@ -168,15 +183,17 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Department</label>
-                                    <input type="text" class="form-control" placeholder="Enter ..." id="cpdepartment"
-                                        name="cpdepartment" />
+                                    <input type="text" class="form-control" placeholder="Enter ..." id="department"
+                                        name="department" />
+                                    <small class="text-danger">{{ $errors->first('department') }}</small>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Email Address</label>
-                                    <input type="text" class="form-control" placeholder="Enter ..." id="cpemail_add"
-                                        name="cpemail_add" />
+                                    <input type="text" class="form-control" placeholder="Enter ..." id="email_address"
+                                        name="email_address" />
+                                    <small class="text-danger">{{ $errors->first('email_address') }}</small>
                                 </div>
                             </div>
                         </div>
@@ -184,8 +201,9 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Contact Number</label>
-                                    <input type="text" class="form-control" placeholder="Enter ..." id="cpcontact_no"
-                                        name="cpcontact_no" />
+                                    <input type="text" class="form-control" placeholder="Enter ..." id="contact_number"
+                                        name="contact_number" />
+                                    <small class="text-danger">{{ $errors->first('contact_number') }}</small>
                                 </div>
                             </div>
                         </div>
@@ -206,11 +224,12 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Contract Type</label>
-                                    <select class="form-control select2" style="width: 100%;">
+                                    <select class="form-control select2" style="width: 100%;" name="contract_type">
                                         <option selected="selected">--Select Option--</option>
                                         <option>A</option>
                                         <option>B</option>
                                     </select>
+                                    <small class="text-danger">{{ $errors->first('contract_type') }}</small>
                                 </div>
                                 <!-- /.form-group -->
                             </div>
@@ -219,6 +238,7 @@
                                     <label>Basic Pay</label>
                                     <input type="text" name="basic_pay" id="basic_pay" placeholder="Enter ..."
                                         class="form-control money_format">
+                                    <small class="text-danger">{{ $errors->first('basic_pay') }}</small>
                                 </div>
                             </div>
                         </div>
@@ -228,6 +248,7 @@
                                     <label>Overtime Pay</label>
                                     <input type="text" name="overtime_pay" id="overtime_pay" placeholder="Enter ..."
                                         class="form-control money_format">
+                                    <small class="text-danger">{{ $errors->first('overtime_pay') }}</small>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -235,6 +256,7 @@
                                     <label>Night Differential Pay</label>
                                     <input type="text" name="night_differential_pay" id="night_differential_pay"
                                         placeholder="Enter ..." class="form-control money_format">
+                                    <small class="text-danger">{{ $errors->first('night_differential_pay') }}</small>
                                 </div>
                             </div>
                         </div>
@@ -244,6 +266,7 @@
                                     <label>COLA</label>
                                     <input type="text" name="cola" id="cola" placeholder="Enter ..."
                                         class="form-control money_format">
+                                    <small class="text-danger">{{ $errors->first('cola') }}</small>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -251,6 +274,7 @@
                                     <label>5 Days Incentive Pay</label>
                                     <input type="text" name="five_days_incentive_pay" id="five_days_incentive_pay"
                                         placeholder="Enter ..." class="form-control money_format">
+                                    <small class="text-danger">{{ $errors->first('five_days_incentive_pay') }}</small>
                                 </div>
                             </div>
                         </div>
@@ -260,6 +284,7 @@
                                     <label>Uniform Allowance</label>
                                     <input type="text" name="uniform_allowance" id="uniform_allowance"
                                         placeholder="Enter ..." class="form-control money_format">
+                                    <small class="text-danger">{{ $errors->first('uniform_allowance') }}</small>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -267,6 +292,7 @@
                                     <label>13th Month Pay</label>
                                     <input type="text" name="thth_month_pay" id="thth_month_pay" placeholder="Enter ..."
                                         class="form-control money_format">
+                                    <small class="text-danger">{{ $errors->first('thth_month_pay') }}</small>
                                 </div>
                             </div>
                         </div>
@@ -276,6 +302,7 @@
                                     <label>SSS Premium</label>
                                     <input type="text" name="sss_premium" id="sss_premium" placeholder="Enter ..."
                                         class="form-control money_format">
+                                    <small class="text-danger">{{ $errors->first('sss_premium') }}</small>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -283,6 +310,7 @@
                                     <label>PHILHEALTH</label>
                                     <input type="text" name="philhealth" id="philhealth" placeholder="Enter ..."
                                         class="form-control money_format">
+                                    <small class="text-danger">{{ $errors->first('philhealth') }}</small>
                                 </div>
                             </div>
                         </div>
@@ -292,6 +320,7 @@
                                     <label>Insurance Fund</label>
                                     <input type="text" name="insurance_fund" id="insurance_fund" placeholder="Enter ..."
                                         class="form-control money_format">
+                                    <small class="text-danger">{{ $errors->first('insurance_fund') }}</small>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -299,6 +328,7 @@
                                     <label>Pag Ibig Fund</label>
                                     <input type="text" name="pag_ibig_fund" id="pag_ibig_fund" placeholder="Enter ..."
                                         class="form-control money_format">
+                                    <small class="text-danger">{{ $errors->first('pag_ibig_fund') }}</small>
                                 </div>
                             </div>
                         </div>
@@ -324,10 +354,11 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                         </div>
-                                        <input type="text" class="form-control" data-inputmask="'alias': 'dd-mm-yyyy'"
+                                        <input type="text" class="form-control" data-inputmask="'alias': 'yyyy-mm-dd'"
                                             data-mask id="schedule_of_cut_off" name="schedule_of_cut_off" />
                                     </div>
                                     <!-- /.input group -->
+                                    <small class="text-danger">{{ $errors->first('schedule_of_cut_off') }}</small>
                                 </div>
                                 <!-- /.form group -->
                             </div>
@@ -339,10 +370,11 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                         </div>
-                                        <input type="text" class="form-control" data-inputmask="'alias': 'dd-mm-yyyy'"
+                                        <input type="text" class="form-control" data-inputmask="'alias': 'yyyy-mm-dd'"
                                             data-mask id="schedule_of_payroll" name="schedule_of_payroll" />
                                     </div>
                                     <!-- /.input group -->
+                                    <small class="text-danger">{{ $errors->first('schedule_of_payroll') }}</small>
                                 </div>
                                 <!-- /.form group -->
                             </div>
@@ -409,7 +441,7 @@
 
 <script>
     $(function() {
-        $('[data-mask]').inputmask('mm-dd-yyyy', { 'placeholder': 'mm/dd/yyyy' });
+        $('[data-mask]').inputmask('yyyy-mm-dd', { 'placeholder': 'yyyy-mm-dd' });
         $('.money_format').blur(function()
             {
                 $('.money_format').formatCurrency({
