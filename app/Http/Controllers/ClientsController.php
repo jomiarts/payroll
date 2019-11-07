@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Client;
+use App\ClientContactPerson;
 
 class ClientsController extends Controller
 {
@@ -47,7 +48,6 @@ class ClientsController extends Controller
             'company_name' => 'required',
             'company_address' => 'required',
             'company_email' => 'required|email',
-            'email_add' => 'nullable|email',
             'schedule_of_cut_off' => 'nullable|date',
             'schedule_of_payroll' => 'nullable|date'
         ]);
@@ -65,6 +65,11 @@ class ClientsController extends Controller
         $client->schedule_of_cut_off = $request->input('schedule_of_cut_off');
         $client->schedule_of_payroll = $request->input('schedule_of_payroll');
         $client->save();
+
+        $current_client = Client::max('id');
+
+        var_dump($request->input('name'));
+
 
         return redirect('dashboard/clients')->with('success', 'Client Added');
     }
