@@ -6,15 +6,15 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     @if(session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
     @endif
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">{{$data['post_title']}}</h1>
+                    <h1 class="m-0 text-dark">Add New Client</h1>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-6">
@@ -98,7 +98,7 @@
                                     <label>Company Name</label>
                                     <input type="text" class="form-control" placeholder="Enter ..." name="company_name"
                                         id="company_name" />
-                                        <small class="text-danger">{{ $errors->first('company_name') }}</small>
+                                    <small class="text-danger">{{ $errors->first('company_name') }}</small>
                                 </div>
 
                             </div>
@@ -161,50 +161,55 @@
                         </div>
                     </div><!-- /.card-header -->
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Name</label>
-                                    <input type="text" class="form-control" placeholder="Enter ..." id="name"
-                                        name="name" />
-                                    <small class="text-danger">{{ $errors->first('name') }}</small>
+                        <div class="field_wrapper">
+                            <div class="dynamic-more">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Name</label>
+                                            <input type="text" class="form-control" placeholder="Enter ..." id="name"
+                                                name="name[]" />
+                                            <small class="text-danger">{{ $errors->first('name') }}</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Position</label>
+                                            <input type="text" class="form-control" placeholder="Enter ..."
+                                                id="position" name="position[]" />
+                                            <small class="text-danger">{{ $errors->first('position') }}</small>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Position</label>
-                                    <input type="text" class="form-control" placeholder="Enter ..." id="position"
-                                        name="position" />
-                                    <small class="text-danger">{{ $errors->first('position') }}</small>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Department</label>
+                                            <input type="text" class="form-control" placeholder="Enter ..."
+                                                id="department" name="department[]" />
+                                            <small class="text-danger">{{ $errors->first('department') }}</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Email Address</label>
+                                            <input type="text" class="form-control" placeholder="Enter ..."
+                                                id="email_address" name="email_address[]" />
+                                            <small class="text-danger">{{ $errors->first('email_address') }}</small>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Department</label>
-                                    <input type="text" class="form-control" placeholder="Enter ..." id="department"
-                                        name="department" />
-                                    <small class="text-danger">{{ $errors->first('department') }}</small>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Contact Number</label>
+                                            <input type="text" class="form-control" placeholder="Enter ..."
+                                                id="contact_number" name="contact_number[]" />
+                                            <small class="text-danger">{{ $errors->first('contact_number') }}</small>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Email Address</label>
-                                    <input type="text" class="form-control" placeholder="Enter ..." id="email_address"
-                                        name="email_address" />
-                                    <small class="text-danger">{{ $errors->first('email_address') }}</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Contact Number</label>
-                                    <input type="text" class="form-control" placeholder="Enter ..." id="contact_number"
-                                        name="contact_number" />
-                                    <small class="text-danger">{{ $errors->first('contact_number') }}</small>
-                                </div>
+                                <a href="javascript:void(0);" class="add_button" title="Add field">Add Fields</a>
                             </div>
                         </div>
                     </div>
@@ -448,8 +453,37 @@
                     symbol: 'PHP'
                 });
             });
+
+            dynimic_more_fix();
+            
        
     });
+
+    function dynimic_more_fix() {
+        alert('Working'); 
+        var maxField = 10; //Input fields increment limitation
+        var addButton = $('.add_button'); //Add button selector
+        var wrapper = $('.field_wrapper'); //Input field wrapper
+        var fieldHTML = '<div class="dynamic-more"> <div class="row"> <div class="col-md-6"> <div class="form-group"> <label>Name</label> <input type="text" class="form-control" placeholder="Enter ..." id="name" name="name[]"/> <small class="text-danger">{{$errors->first("name")}}</small> </div></div><div class="col-md-6"> <div class="form-group"> <label>Position</label> <input type="text" class="form-control" placeholder="Enter ..." id="position" name="position[]"/> <small class="text-danger">{{$errors->first("position")}}</small> </div></div></div><div class="row"> <div class="col-md-6"> <div class="form-group"> <label>Department</label> <input type="text" class="form-control" placeholder="Enter ..." id="department" name="department[]"/> <small class="text-danger">{{$errors->first("department")}}</small> </div></div><div class="col-md-6"> <div class="form-group"> <label>Email Address</label> <input type="text" class="form-control" placeholder="Enter ..." id="email_address" name="email_address[]"/> <small class="text-danger">{{$errors->first("email_address")}}</small> </div></div></div><div class="row"> <div class="col-md-6"> <div class="form-group"> <label>Contact Number</label> <input type="text" class="form-control" placeholder="Enter ..." id="contact_number" name="contact_number[]"/> <small class="text-danger">{{$errors->first("contact_number")}}</small> </div></div></div><a href="javascript:void(0);" class="remove_button">Remove Fields</a></div>'; //New input field html 
+        var x = 1; //Initial field counter is 1
+
+        //Once add button is clicked
+        $(addButton).click(function(){
+            //Check maximum number of input fields
+            if(x < maxField){ 
+                x++; //Increment field counter
+                $(wrapper).append(fieldHTML); //Add field html
+            }
+        });
+
+        //Once remove button is clicked
+        $(wrapper).on('click', '.remove_button', function(e){
+            e.preventDefault();
+            $(this).parent('div').remove(); //Remove field html
+            x--; //Decrement field counter
+        });
+
+    }
 </script>
 
 

@@ -6,15 +6,15 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     @if(session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
     @endif
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">{{$data['post_title']}}</h1>
+                    <h1 class="m-0 text-dark">Clients</h1>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-6">
@@ -34,7 +34,7 @@
     <!-- Main content -->
     <section class="content">
 
-        @if(count($data['clients']) > 0)
+        @if(count($clients) > 0)
         <div class="card">
             <div class="card-header">
                 <a href="#"><button class="btn btn-primary">Add New</button></a>
@@ -45,23 +45,23 @@
                         <thead>
                             <tr>
                                 <th>Client ID</th>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Department</th>
-                                <th>Email Address</th>
-                                <th>Contact Number</th>
+                                <th>Company name</th>
+                                <th>Date of Contract</th>
+                                <th>Date of Termination</th>
+                                <th>Company Email</th>
+
+
                             </tr>
                         </thead>
                         <tbody>
 
-                            @foreach($data['clients'] as $client)
+                            @foreach($clients as $client)
                             <tr>
                                 <td>{{$client->id}}</td>
-                                <td><a href="/dashboard/clients/{{$client->id}}">{{$client->name}}</a></td>
-                                <td>{{$client->position}}</td>
-                                <td>{{$client->department}}</td>
-                                <td>{{$client->email_add}}</td>
-                                <td>{{$client->contact_number}}</td>
+                                <td><a href="/dashboard/clients/{{$client->id}}">{{$client->company_name}}</a></td>
+                                <td>{{$client->date_of_contract}}</td>
+                                <td>{{$client->date_of_termination}}</td>
+                                <td>{{$client->company_email}}</td>
                             </tr>
                             @endforeach
 
@@ -69,11 +69,10 @@
                         <tfoot>
                             <tr>
                                 <th>Client ID</th>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Department</th>
-                                <th>Email Address</th>
-                                <th>Contact Number</th>
+                                <th>Company name</th>
+                                <th>Date of Contract</th>
+                                <th>Date of Termination</th>
+                                <th>Company Address</th>
                             </tr>
                         </tfoot>
                     </table>
