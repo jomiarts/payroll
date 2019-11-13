@@ -41,6 +41,7 @@ class ClientsController extends Controller
     public function store(Request $request)
     {
 
+        /*
     
         $this->validate($request, [
             'date_of_contract' => 'required|date',
@@ -65,13 +66,26 @@ class ClientsController extends Controller
         $client->schedule_of_cut_off = $request->input('schedule_of_cut_off');
         $client->schedule_of_payroll = $request->input('schedule_of_payroll');
         $client->save();
+      
 
         $current_client = Client::max('id');
+          */
 
-        var_dump($request->input('name'));
+        //return var_dump(count($request->input('contact_person')));
+
+        foreach($request->input('contact_person') as $contact_person) {
+            $ClientContactPerson = new ClientContactPerson;
+            $ClientContactPerson->name = $contact_person['name'];
+            $ClientContactPerson->position = $contact_person['position'];
+            $ClientContactPerson->department = $contact_person['department'];
+            $ClientContactPerson->email = $contact_person['email'];
+            $ClientContactPerson->contact_number = $contact_person['contact_number'];
+            $ClientContactPerson->save();
+
+        }
 
 
-        return redirect('dashboard/clients')->with('success', 'Client Added');
+        //return redirect('dashboard/clients')->with('success', 'Client Added');
     }
 
     /**
