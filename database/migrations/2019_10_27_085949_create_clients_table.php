@@ -19,17 +19,12 @@ class CreateClientsTable extends Migration
             $table->date('date_of_termination');
             $table->string('company_name');
             $table->string('company_address');
-            $table->string('bir_tin_number');
-            $table->string('peza_number');
-            $table->string('official_company_no');
+            $table->string('bir_tin_number')->nullable();
+            $table->string('peza_number')->nullable();
+            $table->string('official_company_no')->nullable();
             $table->string('company_email');
-            $table->string('name');
-            $table->string('position');
-            $table->string('department');
-            $table->string('email_add')->unique();
-            $table->string('contact_number');
-            $table->date('schedule_of_cut_off');
-            $table->date('schedule_of_payroll');
+            $table->date('schedule_of_cut_off')->nullable();
+            $table->date('schedule_of_payroll')->nullable();
             $table->timestamps();
         });
     }

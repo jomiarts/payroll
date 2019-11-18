@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Client;
-use App\ClientContactPerson;
 
 class ClientsController extends Controller
 {
@@ -41,9 +40,9 @@ class ClientsController extends Controller
     public function store(Request $request)
     {
 
+      
         /*
-    
-        $this->validate($request, [
+        $this->       ($request, [
             'date_of_contract' => 'required|date',
             'date_of_termination' => 'required|date',
             'company_name' => 'required',
@@ -68,11 +67,29 @@ class ClientsController extends Controller
         $client->save();
       
 
-        $current_client = Client::max('id');
-          */
+       $current_client = Client::max('id');
+       */
 
-        //return var_dump(count($request->input('contact_person')));
 
+
+       if($request->input('contact_person')) {
+           
+          
+        $this->validate($request, [
+            'contact_person.*.name' => 'required',
+            'contact_person.*.email_address' => 'required|email'
+        ]);
+
+        return 'Working';
+            
+       } else {
+           return 'No';
+       }
+        
+
+        
+
+        /*
         foreach($request->input('contact_person') as $contact_person) {
             $ClientContactPerson = new ClientContactPerson;
             $ClientContactPerson->name = $contact_person['name'];
@@ -83,9 +100,10 @@ class ClientsController extends Controller
             $ClientContactPerson->save();
 
         }
+        */
 
 
-        //return redirect('dashboard/clients')->with('success', 'Client Added');
+        return redirect('dashboard/clients')->with('success', 'Client Added');
     }
 
     /**
