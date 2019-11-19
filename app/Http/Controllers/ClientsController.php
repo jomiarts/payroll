@@ -102,7 +102,7 @@ class ClientsController extends Controller
         */
 
 
-        return redirect('dashboard/clients')->with('success', 'Client Added');
+        //return redirect('dashboard/clients')->with('success', 'Client Added');
     }
 
     /**
