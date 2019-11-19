@@ -410,6 +410,11 @@
             });
 
             dynimic_more_fix();
+            console.log(myFunction().toString());
+            //console.log(getTabNumber("#tab5") + 'dfsdfsdfsdfsdf');
+            
+            
+            //console.log(getUrlVars("x"));
             
        
     });
@@ -426,6 +431,7 @@
             //Check maximum number of input fields
             if(x < maxField){ 
                 $(wrapper).append('<div class="dynamic-more"> <div class="row"> <div class="col-md-6"> <div class="form-group"> <label>Name</label> <input type="text" class="form-control" placeholder="Enter ..." id="name" name="contact_person['+ x +'][name]"/> <small class="text-danger">{{$errors->first("name")}}</small> </div></div><div class="col-md-6"> <div class="form-group"> <label>Position</label> <input type="text" class="form-control" placeholder="Enter ..." id="position" name="contact_person['+ x +'][position]"/> <small class="text-danger">{{$errors->first("position")}}</small> </div></div></div><div class="row"> <div class="col-md-6"> <div class="form-group"> <label>Department</label> <input type="text" class="form-control" placeholder="Enter ..." id="department" name="contact_person['+ x +'][department]"/> <small class="text-danger">{{$errors->first("department")}}</small> </div></div><div class="col-md-6"> <div class="form-group"> <label>Email Address</label> <input type="text" class="form-control" placeholder="Enter ..." id="email_address" name="contact_person['+ x +'][email_address]"/> <small class="text-danger">{{$errors->first("email_address")}}</small> </div></div></div><div class="row"> <div class="col-md-6"> <div class="form-group"> <label>Contact Number</label> <input type="text" class="form-control" placeholder="Enter ..." id="contact_number" name="contact_person['+ x +'][contact_number]"/> <small class="text-danger">{{$errors->first("contact_number")}}</small> </div></div></div><a href="javascript:void(0);" class="remove_button">Remove Fields</a></div>'); //Add field html
+                myFunction();
                 x++; //Increment field counter
             }
         });
@@ -436,6 +442,28 @@
             $(this).parent('div').remove(); //Remove field html
             x--; //Decrement field counter
         });
+
+    }
+
+    function getUrlVars() {
+        var vars = {};
+        var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+            vars[key] = value;
+        });
+        return vars;
+    }
+
+  
+
+    function myFunction() {
+    location.hash = "tab5";
+    return  location.hash;
+    }
+
+    function getTabNumber(input) {
+        var re = new RegExp(/^\d+/);
+        var m = re.exec(input);
+        return m[0];
 
     }
 </script>

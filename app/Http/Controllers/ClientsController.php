@@ -73,8 +73,7 @@ class ClientsController extends Controller
 
 
        if($request->input('contact_person')) {
-           
-          
+    
         $this->validate($request, [
             'contact_person.*.name' => 'required',
             'contact_person.*.email_address' => 'required|email'
