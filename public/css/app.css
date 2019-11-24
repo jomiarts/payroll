@@ -10475,6 +10475,12 @@ a.text-dark:focus {
   margin-top: 20px;
 }
 
+form.cmxform label.error,
+label.error {
+  width: 100%;
+  font-size: 14px;
+}
+
 .navbar-laravel {
   background-color: #fff;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);

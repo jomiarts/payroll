@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Client;
+use App\ClientContactPerson;
+use App\ClientContractRate;
+
+
 
 class ClientsController extends Controller
 {
@@ -40,14 +44,16 @@ class ClientsController extends Controller
     public function store(Request $request)
     {
 
+        return $request->input('basic_pay');
+
       
-        /*
-        $this->       ($request, [
+        $this->validate($request, [
             'date_of_contract' => 'required|date',
             'date_of_termination' => 'required|date',
             'company_name' => 'required',
             'company_address' => 'required',
             'company_email' => 'required|email',
+            'basic_pay' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
             'schedule_of_cut_off' => 'nullable|date',
             'schedule_of_payroll' => 'nullable|date'
         ]);
@@ -66,43 +72,47 @@ class ClientsController extends Controller
         $client->schedule_of_payroll = $request->input('schedule_of_payroll');
         $client->save();
       
+       $current_client_id = Client::max('id');
+       
+       if($current_client_id) {
 
-       $current_client = Client::max('id');
-       */
-
-
-
-       if($request->input('contact_person')) {
+            if($request->input('contact_person')) {
     
-        $this->validate($request, [
-            'contact_person.*.name' => 'required',
-            'contact_person.*.email_address' => 'required|email'
-        ]);
+                $this->validate($request, [
+                    'contact_person.*.name' => 'required',
+                    'contact_person.*.email_address' => 'required|email'
+                ]);
+    
+                foreach($request->input('contact_person') as $contact_person) {
+                    $ClientContactPerson = new ClientContactPerson;
+                    $ClientContactPerson->client_id = $current_client_id;
+                    $ClientContactPerson->name = $contact_person['name'];
+                    $ClientContactPerson->position = $contact_person['position'];
+                    $ClientContactPerson->department = $contact_person['department'];
+                    $ClientContactPerson->email = $contact_person['email_address'];
+                    $ClientContactPerson->contact_number = $contact_person['contact_number'];
+                    $ClientContactPerson->save();
+                } 
+           }
 
-        return 'Working';
-            
-       } else {
-           return 'No';
-       }
-        
-
-        
-
-        /*
-        foreach($request->input('contact_person') as $contact_person) {
-            $ClientContactPerson = new ClientContactPerson;
-            $ClientContactPerson->name = $contact_person['name'];
-            $ClientContactPerson->position = $contact_person['position'];
-            $ClientContactPerson->department = $contact_person['department'];
-            $ClientContactPerson->email = $contact_person['email'];
-            $ClientContactPerson->contact_number = $contact_person['contact_number'];
-            $ClientContactPerson->save();
-
-        }
-        */
-
-
-        //return redirect('dashboard/clients')->with('success', 'Client Added');
+           $ClientContractRate = new ClientContractRate;
+           $ClientContractRate->client_id = $current_client_id;
+           $ClientContractRate->contract_rate_type = $request->input('contract_type');
+           $ClientContractRate->basic_pay = $request->input('basic_pay');
+           $ClientContractRate->overtime_pay = $request->input('overtime_pay');
+           $ClientContractRate->night_differential_pay = $request->input('night_differential_pay');
+           $ClientContractRate->cola = $request->input('cola');
+           $ClientContractRate->five_days_incentive_pay = $request->input('five_days_incentive_pay');
+           $ClientContractRate->uniform_allowance = $request->input('uniform_allowance');
+           $ClientContractRate->uniform_allowance = $request->input('thirteen_month_pay');
+           $ClientContractRate->sss_premium = $request->input('sss_premium');
+           $ClientContractRate->philhealth = $request->input('philhealth');
+           $ClientContractRate->insurance_fund = $request->input('insurance_fund');
+           $ClientContractRate->insurance_fund = $request->input('pag_ibig_fund');
+           $ClientContractRate->save();
+       }     
+       
+        return redirect('dashboard/clients')->with('success', 'Client Added');
     }
 
     /**

@@ -81,7 +81,7 @@
         </div>
 
         @else
-        <p>No Records</p>
+        <h3>No Records</h3>
         @endif
     </section>
     <!-- / Main content -->
