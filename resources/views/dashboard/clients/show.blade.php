@@ -28,22 +28,34 @@
 
     <!-- Main content -->
     <section class="content">
-        <div class="card">
-            <div class="card-header">{{ $client->company_name }}</div>
+        <div class="card card-default">
+            <div class="card-header">
+                <h3 class="card-title">Client</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-widget="collapse"><i
+                            class="fa fa-minus"></i></button>
+                    <button type="button" class="btn btn-tool" data-widget="remove"><i
+                            class="fa fa-remove"></i></button>
+                </div>
+            </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6">
-                        <label for="date_of_contract">Date of Contract</label>
+                        <label>Date of Contract</label>
                         <p>{{ ($client->date_of_contract) ? $client->date_of_contract : 'N/A' }}</p>
                     </div>
                     <div class="col-md-6">
-                        <label for="date_of_termination">Date of Termination</label>
+                        <label>Date of Termination</label>
                         <p>{{ ($client->date_of_termination) ?  $client->date_of_termination : 'N/A' }}</p>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
+                        <label>Company Name</label>
+                        <p>{{ ($client->company_name) ? $client->company_name : 'N/A' }}</p>
+                    </div>
+                    <div class="col-md-6">
                         <label for="company_address">Company Address</label>
                         <p>{{ ($client->company_address) ?  $client->company_address : 'N/A' }}</p>
 
@@ -73,9 +85,43 @@
                 </div>
             </div>
         </div>
+        <div class="card card-default">
+            <div class="card-header">
+                <h3 class="card-title">Contact Person</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    <button type="button" class="btn btn-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="client_table" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Client ID</th>
+                                <th>Company name</th>
+                                <th>Date of Contract</th>
+                                <th>Date of Termination</th>
+                                <th>Company Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Client ID</th>
+                                <th>Company name</th>
+                                <th>Date of Contract</th>
+                                <th>Date of Termination</th>
+                                <th>Company Address</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </section>
     <!-- / Main content -->
-
 </div>
 
 @endsection()
