@@ -9,7 +9,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">{{$data['post_title']}}</h1>
+                    <h1 class="m-0 text-dark"># {{$client->id}}</h1>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-6">
@@ -28,7 +28,51 @@
 
     <!-- Main content -->
     <section class="content">
-        fsdfsdfsdf
+        <div class="card">
+            <div class="card-header">{{ $client->company_name }}</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="date_of_contract">Date of Contract</label>
+                        <p>{{ ($client->date_of_contract) ? $client->date_of_contract : 'N/A' }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="date_of_termination">Date of Termination</label>
+                        <p>{{ ($client->date_of_termination) ?  $client->date_of_termination : 'N/A' }}</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="company_address">Company Address</label>
+                        <p>{{ ($client->company_address) ?  $client->company_address : 'N/A' }}</p>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="bir_tin_number">Bir Tin Number</label>
+                        <p>{{ ($client->bir_tin_number) ?  $client->bir_tin_number : 'N/A' }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="bir_tin_number">Peza Number</label>
+                        <p>{{ ($client->peza_number) ?  $client->peza_number : 'N/A' }}</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="official_company_no">Official Company No.</label>
+                        <p>{{ ($client->official_company_no) ?  $client->official_company_no : 'N/A' }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="company_email">Company Email</label>
+                        <p>{{ ($client->company_email) ?  $client->company_email : 'N/A' }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
     <!-- / Main content -->
 

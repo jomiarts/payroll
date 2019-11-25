@@ -44,9 +44,7 @@ class ClientsController extends Controller
     public function store(Request $request)
     {
 
-        return $request->input('basic_pay');
-
-      
+    
         $this->validate($request, [
             'date_of_contract' => 'required|date',
             'date_of_termination' => 'required|date',
@@ -54,6 +52,16 @@ class ClientsController extends Controller
             'company_address' => 'required',
             'company_email' => 'required|email',
             'basic_pay' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
+            'overtime_pay' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
+            'night_differential_pay' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
+            'cola' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
+            'five_days_incentive_pay' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
+            'uniform_allowance' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
+            'thth_month_pay' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
+            'sss_premium' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
+            'philhealth' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
+            'insurance_fund' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
+            'pag_ibig_fund' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
             'schedule_of_cut_off' => 'nullable|date',
             'schedule_of_payroll' => 'nullable|date'
         ]);
@@ -125,11 +133,8 @@ class ClientsController extends Controller
     {
         //
         $client = Client::find($id);
-        $data = [
-            'post_title' => 'Edit Client',
-            'client' => $client
-        ];
-        return view('dashboard.clients.show')->with('data', $data);
+       
+        return view('dashboard.clients.show')->with('client', $client);
     }
 
     /**

@@ -406,12 +406,12 @@
         $('[data-mask]').inputmask('yyyy-mm-dd', { 'placeholder': 'yyyy-mm-dd' });
         $('.money_format').blur(function() {
             $('.money_format').formatCurrency({
-                symbol: 'PHP'
+                symbol: ''
             });
         });
 
             dynimic_more_fix();
-            //field_validation();
+            field_validation();
               
     });
 
