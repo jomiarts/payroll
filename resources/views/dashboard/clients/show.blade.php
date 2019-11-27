@@ -28,6 +28,8 @@
 
     <!-- Main content -->
     <section class="content">
+        <a href="/dashboard/clients/{{$client->id}}/edit"><button class="btn btn-primary">Edit</button></a>
+        <a href="#"><button class="btn btn-danger">Delete</button></a>
         <div class="card card-default">
             <div class="card-header">
                 <h3 class="card-title">Client</h3>
@@ -89,8 +91,10 @@
             <div class="card-header">
                 <h3 class="card-title">Contact Person</h3>
                 <div class="card-tools">
-                    <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                    <button type="button" class="btn btn-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+                    <button type="button" class="btn btn-tool" data-widget="collapse"><i
+                            class="fa fa-minus"></i></button>
+                    <button type="button" class="btn btn-tool" data-widget="remove"><i
+                            class="fa fa-remove"></i></button>
                 </div>
             </div>
             <div class="card-body">
@@ -98,25 +102,131 @@
                     <table id="client_table" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Client ID</th>
-                                <th>Company name</th>
-                                <th>Date of Contract</th>
-                                <th>Date of Termination</th>
-                                <th>Company Email</th>
+                                <th>Name</th>
+                                <th>Position</th>
+                                <th>Department</th>
+                                <th>Email</th>
+                                <th>Contact Number</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($client_contact_persons as $client_contact_person)
+                            <tr>
+                                <td>{{$client_contact_person->name}}</td>
+                                <td>{{$client_contact_person->position}}</td>
+                                <td>{{$client_contact_person->department}}</td>
+                                <td>{{$client_contact_person->email}}</td>
+                                <td>{{$client_contact_person->contact_number}}</td>
+
+                            </tr>
+                            @endforeach
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>Client ID</th>
-                                <th>Company name</th>
-                                <th>Date of Contract</th>
-                                <th>Date of Termination</th>
-                                <th>Company Address</th>
+                                <th>Name</th>
+                                <th>Position</th>
+                                <th>Department</th>
+                                <th>Email</th>
+                                <th>Contact Number</th>
                             </tr>
-                        </tbody>
+                            </tbody>
                     </table>
+                </div>
+            </div>
+        </div>
+        <div class="card card-default">
+            <div class="card-header">
+                <h3 class="card-title">Contract Rate</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-widget="collapse"><i
+                            class="fa fa-minus"></i></button>
+                    <button type="button" class="btn btn-tool" data-widget="remove"><i
+                            class="fa fa-remove"></i></button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Contract Type</label>
+                        <p>{{ ($client->contract_rate_type) ?  $client->contract_rate_type : 'N/A' }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <label>Basic Pay</label>
+                        <p>{{ ($client->basic_pay) ?  $client->basic_pay : 'N/A' }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Overtime Pay</label>
+                        <p>{{ ($client->overtime_pay) ?  $client->overtime_pay : 'N/A' }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <label>Night Differential Pay</label>
+                        <p>{{ ($client->night_differential_pay) ?  $client->night_differential_pay : 'N/A' }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>COLA</label>
+                        <p>{{ ($client->cola) ?  $client->cola : 'N/A' }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <label>5 Days Incentive Pay</label>
+                        <p>{{ ($client->five_days_incentive_pay) ?  $client->five_days_incentive_pay : 'N/A' }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Uniform Allowance</label>
+                        <p>{{ ($client->uniform_allowance) ?  $client->uniform_allowance : 'N/A' }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <label>13th Month Pay</label>
+                        <p>{{ ($client->thirteen_month_pay) ?  $client->thirteen_month_pay : 'N/A' }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>SSS Premium</label>
+                        <p>{{ ($client->sss_premium) ?  $client->sss_premium : 'N/A' }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <label>PHILHEALTH</label>
+                        <p>{{ ($client->philhealth) ?  $client->philhealth : 'N/A' }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Insurance Fund</label>
+                        <p>{{ ($client->insurance_fund) ?  $client->insurance_fund : 'N/A' }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <label>Pag Ibig Fund</label>
+                        <p>{{ ($client->pag_ibig_fund) ?  $client->pag_ibig_fund : 'N/A' }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card card-default">
+            <div class="card-header">
+                <h3 class="card-title">Payroll Details</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-widget="collapse"><i
+                            class="fa fa-minus"></i></button>
+                    <button type="button" class="btn btn-tool" data-widget="remove"><i
+                            class="fa fa-remove"></i></button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Schedule of Cut-off</label>
+                        <p>{{ ($client->schedule_of_cut_off) ?  $client->insurance_fund : 'N/A' }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <label>Schedule of Payroll</label>
+                        <p>{{ ($client->schedule_of_payroll) ?  $client->pag_ibig_fund : 'N/A' }}</p>
+                    </div>
                 </div>
             </div>
         </div>

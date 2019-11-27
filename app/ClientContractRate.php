@@ -9,6 +9,6 @@ class ClientContractRate extends Model
     //
     public function Client() 
     {
-        return $this->belongsTo('App\Client');
+        return $this->belongsTo('App\Client', 'id');
     }
 }

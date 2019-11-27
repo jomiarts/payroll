@@ -14,6 +14,6 @@ class Client extends Model
 
     public function client_contract_rates() 
     {
-        return $this->hasMany('App\ClientContractRate');
+        return $this->hasOne('App\ClientContractRate');
     }
 }

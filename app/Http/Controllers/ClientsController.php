@@ -132,9 +132,12 @@ class ClientsController extends Controller
     public function show($id)
     {
         //
+
         $client = Client::find($id);
-       
-        return view('dashboard.clients.show')->with('client', $client);
+        return view('dashboard.clients.show')
+        ->with('client', $client)
+        ->with('client_contact_persons', $client->client_contact_persons)
+        ->with('client_contract_rates', $client->client_contract_rates);
     }
 
     /**

@@ -33,12 +33,10 @@
 
     <!-- Main content -->
     <section class="content">
-
+        <a href="#"><button class="btn btn-primary">Add New</button></a>
         @if(count($clients) > 0)
         <div class="card">
-            <div class="card-header">
-                <a href="#"><button class="btn btn-primary">Add New</button></a>
-            </div>
+
             <div class="card-body">
                 <div class="table-responsive">
                     <table id="client_table" class="table table-bordered table-striped">
