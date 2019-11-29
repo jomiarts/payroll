@@ -163,6 +163,8 @@ class ClientsController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+        
        
        return $id;
     }

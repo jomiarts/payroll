@@ -35,7 +35,6 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            {{$client->id}}
             <!-- SELECT2 EXAMPLE -->
             <form action="{{ route('clients.update', $client->id) }}" method="POST" id="add_client_form">
                 @method('PATCH')
@@ -63,7 +62,8 @@
                                             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                         </div>
                                         <input type="text" class="form-control" data-inputmask="'alias': 'yyyy-mm-dd'"
-                                            data-mask id="date_of_contract" name="date_of_contract" />
+                                            data-mask id="date_of_contract" name="date_of_contract"
+                                            value="{{$client->date_of_contract}}" />
                                     </div>
                                     <!-- /.input group -->
                                     <small class="text-danger">{{ $errors->first('date_of_contract') }}</small>
@@ -83,7 +83,8 @@
                                             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                         </div>
                                         <input type="text" class="form-control" data-inputmask="'alias': 'yyyy-mm-dd'"
-                                            data-mask id="date_of_termination" name="date_of_termination" />
+                                            data-mask id="date_of_termination" name="date_of_termination"
+                                            value="{{$client->date_of_termination}}" />
                                     </div>
                                     <!-- /.input group -->
                                     <small class="text-danger">{{ $errors->first('date_of_termination') }}</small>
@@ -99,7 +100,7 @@
                                 <div class="form-group">
                                     <label>Company Name</label>
                                     <input type="text" class="form-control" placeholder="Enter ..." name="company_name"
-                                        id="company_name" />
+                                        id="company_name" value="{{$client->company_name}}" />
                                     <small class="text-danger">{{ $errors->first('company_name') }}</small>
                                 </div>
 
@@ -108,7 +109,8 @@
                                 <div class="form-group">
                                     <label>Company Address</label>
                                     <input type="text" class="form-control" placeholder="Enter ..."
-                                        name="company_address" id="company_address" />
+                                        name="company_address" id="company_address"
+                                        value="{{$client->company_address}}" />
                                     <small class="text-danger">{{ $errors->first('company_address') }}</small>
                                 </div>
                             </div>
@@ -118,7 +120,7 @@
                                 <div class="form-group">
                                     <label>BIR TIN Number</label>
                                     <input type="text" class="form-control" placeholder="Enter ..." id="bir_tin_number"
-                                        name="bir_tin_number" />
+                                        name="bir_tin_number" value="{{$client->bir_tin_number}}" />
                                     <small class="text-danger">{{ $errors->first('bir_tin_number') }}</small>
                                 </div>
                             </div>
@@ -126,7 +128,7 @@
                                 <div class="form-group">
                                     <label>PEZA Number</label>
                                     <input type="text" class="form-control" placeholder="Enter ..." id="peza_number"
-                                        name="peza_number" />
+                                        name="peza_number" value="{{$client->peza_number}}" />
                                     <small class="text-danger">{{ $errors->first('peza_number') }}</small>
                                 </div>
                             </div>
@@ -136,7 +138,8 @@
                                 <div class="form-group">
                                     <label>Official Company No</label>
                                     <input type="text" class="form-control" placeholder="Enter ..."
-                                        id="official_company_no" name="official_company_no" />
+                                        id="official_company_no" name="official_company_no"
+                                        value="{{$client->official_company_no}}" />
                                     <small class="text-danger">{{ $errors->first('official_company_no') }}</small>
                                 </div>
                             </div>
@@ -144,7 +147,8 @@
                                 <div class="form-group">
                                     <label for="company_email">Company Email</label>
                                     <input type="email" class="form-control" id="company_email"
-                                        placeholder="Enter email" name="company_email" id="company_email" />
+                                        placeholder="Enter email" name="company_email"
+                                        value="{{$client->company_email}}" />
                                     <small class="text-danger">{{ $errors->first('company_email') }}</small>
                                 </div>
                             </div>
