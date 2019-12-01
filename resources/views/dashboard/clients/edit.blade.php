@@ -168,9 +168,54 @@
                     </div><!-- /.card-header -->
                     <div class="card-body">
                         <div class="field_wrapper">
-                            <div class="dynamic-more">
-                                <a href="javascript:void(0);" class="add_button" title="Add field">Add Fields</a>
-                            </div>
+                            <a href="javascript:void(0);" class="add_button" title="Add field">Add Fields</a>
+                            @if(count($client_contact_persons) >= 1)
+                                @php($x=0)
+                                @foreach($client_contact_persons as $client_contact_person)
+                                    <div class="dynamic-more">
+                                        <input type="hidden" name="contact_person[{{$x}}][client_contact_person_id]" value="{{$client_contact_person->id}}" id="client_contact_person_id" class="client_contact_person_id" />
+                                        <input type="hidden" name="contact_person[{{$x}}][client_contact_person_status]" value="0" id="client_contact_person_status" class="client_contact_person_status" />
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Name</label>
+                                                    <input type="text" class="form-control contact_person_name" placeholder="Enter ..." id="name" name="contact_person[{{$x}}][name]" value="{{$client_contact_person->name}}"/> <small class="text-danger">{{$errors->first("name")}}</small>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Position</label>
+                                                    <input type="text" class="form-control contact_person_position" placeholder="Enter ..." id="position" name="contact_person[{{$x}}][position]" value="{{$client_contact_person->position}}"/> <small class="text-danger">{{$errors->first("position")}}</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Department</label>
+                                                    <input type="text" class="form-control contact_person_department" placeholder="Enter ..." id="department" name="contact_person[{{$x}}][department]" value="{{$client_contact_person->department}}"/> <small class="text-danger">{{$errors->first("department")}}</small>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Email Address</label>
+                                                    <input type="text" class="form-control contact_person_email" placeholder="Enter ..." id="email_address" name="contact_person[{{$x}}][email_address]" value="{{$client_contact_person->email}}"/> <small class="text-danger">{{$errors->first("email_address")}}</small> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Contact Number</label>
+                                                    <input type="text" class="form-control contact_person_number" placeholder="Enter ..." id="contact_number" name="contact_person[{{$x}}][contact_number]" value="{{$client_contact_person->contact_number}}"/> <small class="text-danger">{{$errors->first("contact_number")}}</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a href="javascript:void(0);" class="remove_button">Remove Fields</a>
+                                    </div>
+                                    @php($x++)
+                                @endforeach
+                            @endif
                         </div>
                         <!--field_wrapper-->
                     </div>
@@ -192,8 +237,8 @@
                                     <label>Contract Type</label>
                                     <select class="form-control select2" style="width: 100%;" name="contract_type">
                                         <option selected="selected">--Select Option--</option>
-                                        <option value>A</option>
-                                        <option>B</option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
                                     </select>
                                     <small class="text-danger">{{ $errors->first('contract_type') }}</small>
                                 </div>
@@ -203,7 +248,7 @@
                                 <div class="form-group">
                                     <label>Basic Pay</label>
                                     <input type="text" name="basic_pay" id="basic_pay" placeholder="Enter ..."
-                                        class="form-control money_format">
+                                        class="form-control money_format" value="{{$client_contract_rates->basic_pay}}">
                                     <small class="text-danger">{{ $errors->first('basic_pay') }}</small>
                                 </div>
                             </div>
@@ -213,7 +258,7 @@
                                 <div class="form-group">
                                     <label>Overtime Pay</label>
                                     <input type="text" name="overtime_pay" id="overtime_pay" placeholder="Enter ..."
-                                        class="form-control money_format">
+                                        class="form-control money_format" value="{{$client_contract_rates->overtime_pay}}">
                                     <small class="text-danger">{{ $errors->first('overtime_pay') }}</small>
                                 </div>
                             </div>
@@ -221,7 +266,7 @@
                                 <div class="form-group">
                                     <label>Night Differential Pay</label>
                                     <input type="text" name="night_differential_pay" id="night_differential_pay"
-                                        placeholder="Enter ..." class="form-control money_format">
+                                        placeholder="Enter ..." class="form-control money_format" value="{{$client_contract_rates->night_differential_pay}}">
                                     <small class="text-danger">{{ $errors->first('night_differential_pay') }}</small>
                                 </div>
                             </div>
@@ -231,7 +276,7 @@
                                 <div class="form-group">
                                     <label>COLA</label>
                                     <input type="text" name="cola" id="cola" placeholder="Enter ..."
-                                        class="form-control money_format">
+                                        class="form-control money_format" value="{{$client_contract_rates->cola}}">
                                     <small class="text-danger">{{ $errors->first('cola') }}</small>
                                 </div>
                             </div>
@@ -417,7 +462,7 @@
         });
 
             dynimic_more_fix();
-            //field_validation();
+            field_validation();
               
     });
 
@@ -426,7 +471,7 @@
         var addButton = $('.add_button'); //Add button selector
         var wrapper = $('.field_wrapper'); //Input field wrapper
         //var fieldHTML = '<div class="dynamic-more"> <div class="row"> <div class="col-md-6"> <div class="form-group"> <label>Name</label> <input type="text" class="form-control" placeholder="Enter ..." id="name" name="name[]"/> <small class="text-danger">{{$errors->first("name")}}</small> </div></div><div class="col-md-6"> <div class="form-group"> <label>Position</label> <input type="text" class="form-control" placeholder="Enter ..." id="position" name="position[]"/> <small class="text-danger">{{$errors->first("position")}}</small> </div></div></div><div class="row"> <div class="col-md-6"> <div class="form-group"> <label>Department</label> <input type="text" class="form-control" placeholder="Enter ..." id="department" name="department[]"/> <small class="text-danger">{{$errors->first("department")}}</small> </div></div><div class="col-md-6"> <div class="form-group"> <label>Email Address</label> <input type="text" class="form-control" placeholder="Enter ..." id="email_address" name="email_address[]"/> <small class="text-danger">{{$errors->first("email_address")}}</small> </div></div></div><div class="row"> <div class="col-md-6"> <div class="form-group"> <label>Contact Number</label> <input type="text" class="form-control" placeholder="Enter ..." id="contact_number" name="contact_number[]"/> <small class="text-danger">{{$errors->first("contact_number")}}</small> </div></div></div><a href="javascript:void(0);" class="remove_button">Remove Fields</a></div>'; //New input field html 
-        var x = 0; //Initial field counter is 1
+        var x = {{$contact_persons_last_index}}
 
 
         //Once add button is clicked
@@ -435,9 +480,9 @@
             //Check maximum number of input fields
             
             if(x < maxField){
-
-                $(wrapper).append('<div class="dynamic-more"> <div class="row"> <div class="col-md-6"> <div class="form-group"> <label>Name</label> <input type="text" class="form-control contact_person_name" placeholder="Enter ..." id="name" name="contact_person['+ x +'][name]" /> <small class="text-danger">{{$errors->first("name")}}</small> </div></div><div class="col-md-6"> <div class="form-group"> <label>Position</label> <input type="text" class="form-control contact_person_position" placeholder="Enter ..." id="position" name="contact_person['+ x +'][position]"/> <small class="text-danger">{{$errors->first("position")}}</small> </div></div></div><div class="row"> <div class="col-md-6"> <div class="form-group"> <label>Department</label> <input type="text" class="form-control contact_person_department" placeholder="Enter ..." id="department" name="contact_person['+ x +'][department]"/> <small class="text-danger">{{$errors->first("department")}}</small> </div></div><div class="col-md-6"> <div class="form-group"> <label>Email Address</label> <input type="text" class="form-control contact_person_email" placeholder="Enter ..." id="email_address" name="contact_person['+ x +'][email_address]"/> <small class="text-danger">{{$errors->first("email_address")}}</small> </div></div></div><div class="row"> <div class="col-md-6"> <div class="form-group"> <label>Contact Number</label> <input type="text" class="form-control contact_person_number" placeholder="Enter ..." id="contact_number" name="contact_person['+ x +'][contact_number]"/> <small class="text-danger">{{$errors->first("contact_number")}}</small> </div></div></div><a href="javascript:void(0);" class="remove_button">Remove Fields</a></div>'); //Add field html
                 x++; //Increment field counter
+                $(wrapper).append('<div class="dynamic-more"><input type="hidden" name="contact_person['+x+'][client_contact_person_id]" value="{{$client_contact_person->id}}" id="client_contact_person_id" class="client_contact_person_id" /><input type="hidden" name="contact_person['+x+'][client_contact_person_status]" value="1" id="client_contact_person_status" class="client_contact_person_status" /><div class="row"> <div class="col-md-6"> <div class="form-group"> <label>Name</label> <input type="text" class="form-control contact_person_name" placeholder="Enter ..." id="name" name="contact_person['+ x +'][name]" /> <small class="text-danger">{{$errors->first("name")}}</small> </div></div><div class="col-md-6"> <div class="form-group"> <label>Position</label> <input type="text" class="form-control contact_person_position" placeholder="Enter ..." id="position" name="contact_person['+ x +'][position]"/> <small class="text-danger">{{$errors->first("position")}}</small> </div></div></div><div class="row"> <div class="col-md-6"> <div class="form-group"> <label>Department</label> <input type="text" class="form-control contact_person_department" placeholder="Enter ..." id="department" name="contact_person['+ x +'][department]"/> <small class="text-danger">{{$errors->first("department")}}</small> </div></div><div class="col-md-6"> <div class="form-group"> <label>Email Address</label> <input type="text" class="form-control contact_person_email" placeholder="Enter ..." id="email_address" name="contact_person['+ x +'][email_address]"/> <small class="text-danger">{{$errors->first("email_address")}}</small> </div></div></div><div class="row"> <div class="col-md-6"> <div class="form-group"> <label>Contact Number</label> <input type="text" class="form-control contact_person_number" placeholder="Enter ..." id="contact_number" name="contact_person['+ x +'][contact_number]"/> <small class="text-danger">{{$errors->first("contact_number")}}</small> </div></div></div><a href="javascript:void(0);" class="remove_button">Remove Fields</a></div>'); //Add field html
+                
             }
 
            
@@ -447,8 +492,9 @@
         $(wrapper).on('click', '.remove_button', function(e)
         {
             e.preventDefault();
-            $(this).parent('div').remove(); //Remove field html
-            x--; //Decrement field counter
+            $(this).parent('div').hide();
+            $(this).parent('div').find('.client_contact_person_status').attr('value',"2");
+            x--;
         });
 
     }
@@ -479,14 +525,7 @@
 
             }
         });
-
-    
-
     }
-  
-
 </script>
-
-
 
 @stop

@@ -161,11 +161,9 @@
                         </div>
                     </div><!-- /.card-header -->
                     <div class="card-body">
-                        <div class="field_wrapper">
-                            <div class="dynamic-more">
+                            <div class="field_wrapper">
                                 <a href="javascript:void(0);" class="add_button" title="Add field">Add Fields</a>
                             </div>
-                        </div>
                         <!--field_wrapper-->
                     </div>
                 </div><!-- /.card -->
