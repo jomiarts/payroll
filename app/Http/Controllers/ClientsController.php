@@ -249,20 +249,20 @@ class ClientsController extends Controller
             $ClientContractRate = new ClientContractRate;
             $ClientContractRate->client_id = $id;
             
-        } 
-        dd(floatval(preg_replace('/[^\d.]/', '', $request->input('basic_pay'))));
+        }
+         
         $ClientContractRate->contract_rate_type = $request->input('contract_type');
-        $ClientContractRate->basic_pay = $request->input('basic_pay');
-        $ClientContractRate->overtime_pay = $request->input('overtime_pay');
-        $ClientContractRate->night_differential_pay = $request->input('night_differential_pay');
-        $ClientContractRate->cola = $request->input('cola');
-        $ClientContractRate->five_days_incentive_pay = $request->input('five_days_incentive_pay');
-        $ClientContractRate->uniform_allowance = $request->input('uniform_allowance');
-        $ClientContractRate->uniform_allowance = $request->input('thirteen_month_pay');
-        $ClientContractRate->sss_premium = $request->input('sss_premium');
-        $ClientContractRate->philhealth = $request->input('philhealth');
-        $ClientContractRate->insurance_fund = $request->input('insurance_fund');
-        $ClientContractRate->insurance_fund = $request->input('pag_ibig_fund');
+        $ClientContractRate->basic_pay = $ClientContractRate->getPriceNumericValue($request->input('basic_pay'));
+        $ClientContractRate->overtime_pay = $ClientContractRate->getPriceNumericValue($request->input('overtime_pay'));
+        $ClientContractRate->night_differential_pay = $ClientContractRate->getPriceNumericValue($request->input('night_differential_pay'));
+        $ClientContractRate->cola = $ClientContractRate->getPriceNumericValue($request->input('cola'));
+        $ClientContractRate->five_days_incentive_pay = $ClientContractRate->getPriceNumericValue($request->input('five_days_incentive_pay'));
+        $ClientContractRate->uniform_allowance = $ClientContractRate->getPriceNumericValue($request->input('uniform_allowance'));
+        $ClientContractRate->uniform_allowance = $ClientContractRate->getPriceNumericValue($request->input('thirteen_month_pay'));
+        $ClientContractRate->sss_premium = $ClientContractRate->getPriceNumericValue($request->input('sss_premium'));
+        $ClientContractRate->philhealth = $ClientContractRate->getPriceNumericValue($request->input('philhealth'));
+        $ClientContractRate->insurance_fund = $ClientContractRate->getPriceNumericValue($request->input('insurance_fund'));
+        $ClientContractRate->insurance_fund = $ClientContractRate->getPriceNumericValue($request->input('pag_ibig_fund'));
         $ClientContractRate->save();
 
        return redirect('dashboard/clients');

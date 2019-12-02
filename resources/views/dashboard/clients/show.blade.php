@@ -148,61 +148,73 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label>Contract Type</label>
-                        <p>{{ ($client_contract_rates->contract_rate_type) ?  $client_contract_rates->contract_rate_type : 'N/A' }}</p>
+                        <p>{{ ($client_contract_rates->contract_rate_type) ?  $client_contract_rates->contract_rate_type : 'N/A' }}
+                        </p>
                     </div>
                     <div class="col-md-6">
                         <label>Basic Pay</label>
-                        <p>{{ ($client_contract_rates->basic_pay) ?  $client_contract_rates->basic_pay : 'N/A' }}</p>
+                        <p>{{ ($client_contract_rates->basic_pay) ?  number_format($client_contract_rates->basic_pay, 2) : 'N/A' }}
+                        </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <label>Overtime Pay</label>
-                        <p>{{ ($client_contract_rates->overtime_pay) ?  $client_contract_rates->overtime_pay : 'N/A' }}</p>
+                        <p>{{ ($client_contract_rates->overtime_pay) ?  number_format($client_contract_rates->overtime_pay, 2) : 'N/A' }}
+                        </p>
                     </div>
                     <div class="col-md-6">
                         <label>Night Differential Pay</label>
-                        <p>{{ ($client_contract_rates->night_differential_pay) ?  $client_contract_rates->night_differential_pay : 'N/A' }}</p>
+                        <p>{{ ($client_contract_rates->night_differential_pay) ?  number_format($client_contract_rates->night_differential_pay, 2) : 'N/A' }}
+                        </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <label>COLA</label>
-                        <p>{{ ($client_contract_rates->cola) ?  $client_contract_rates->cola : 'N/A' }}</p>
+                        <p>{{ ($client_contract_rates->cola) ?  number_format($client_contract_rates->cola, 2) : 'N/A' }}
+                        </p>
                     </div>
                     <div class="col-md-6">
                         <label>5 Days Incentive Pay</label>
-                        <p>{{ ($client_contract_rates->five_days_incentive_pay) ?  $client_contract_rates->five_days_incentive_pay : 'N/A' }}</p>
+                        <p>{{ ($client_contract_rates->five_days_incentive_pay) ?  number_format($client_contract_rates->five_days_incentive_pay, 2) : 'N/A' }}
+                        </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <label>Uniform Allowance</label>
-                        <p>{{ ($client_contract_rates->uniform_allowance) ?  $client_contract_rates->uniform_allowance : 'N/A' }}</p>
+                        <p>{{ ($client_contract_rates->uniform_allowance) ?  number_format($client_contract_rates->uniform_allowance, 2) : 'N/A' }}
+                        </p>
                     </div>
                     <div class="col-md-6">
                         <label>13th Month Pay</label>
-                        <p>{{ ($client_contract_rates->thirteen_month_pay) ?  $client_contract_rates->thirteen_month_pay : 'N/A' }}</p>
+                        <p>{{ ($client_contract_rates->thirteen_month_pay) ?  number_format($client_contract_rates->thirteen_month_pay, 2) : 'N/A' }}
+                        </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <label>SSS Premium</label>
-                        <p>{{ ($client_contract_rates->sss_premium) ?  $client_contract_rates->sss_premium : 'N/A' }}</p>
+                        <p>{{ ($client_contract_rates->sss_premium) ?  number_format($client_contract_rates->sss_premium, 2) : 'N/A' }}
+                        </p>
                     </div>
                     <div class="col-md-6">
                         <label>PHILHEALTH</label>
-                        <p>{{ ($client_contract_rates->philhealth) ?  $client_contract_rates->philhealth : 'N/A' }}</p>
+                        <p>{{ ($client_contract_rates->philhealth) ?  number_format($client_contract_rates->philhealth, 2) : 'N/A' }}
+                        </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <label>Insurance Fund</label>
-                        <p>{{ ($client_contract_rates->insurance_fund) ?  $client_contract_rates->insurance_fund : 'N/A' }}</p>
+                        <p>{{ ($client_contract_rates->insurance_fund) ?  number_format($client_contract_rates->insurance_fund, 2) : 'N/A' }}
+                        </p>
                     </div>
                     <div class="col-md-6">
                         <label>Pag Ibig Fund</label>
-                        <p>{{ ($client_contract_rates->pag_ibig_fund) ?  $client_contract_rates->pag_ibig_fund : 'N/A' }}</p>
+                        <p>{{ ($client_contract_rates->pag_ibig_fund) ?  number_format($client_contract_rates->pag_ibig_fund, 2) : 'N/A' }}
+                        </p>
                     </div>
                 </div>
             </div>

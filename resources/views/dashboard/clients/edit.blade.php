@@ -170,51 +170,73 @@
                         <div class="field_wrapper">
                             <a href="javascript:void(0);" class="add_button" title="Add field">Add Fields</a>
                             @if(count($client_contact_persons) >= 1)
-                                @php($x=0)
-                                @foreach($client_contact_persons as $client_contact_person)
-                                    <div class="dynamic-more">
-                                        <input type="hidden" name="contact_person[{{$x}}][client_contact_person_id]" value="{{$client_contact_person->id}}" id="client_contact_person_id" class="client_contact_person_id" />
-                                        <input type="hidden" name="contact_person[{{$x}}][client_contact_person_status]" value="0" id="client_contact_person_status" class="client_contact_person_status" />
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Name</label>
-                                                    <input type="text" class="form-control contact_person_name" placeholder="Enter ..." id="name" name="contact_person[{{$x}}][name]" value="{{$client_contact_person->name}}"/> <small class="text-danger">{{$errors->first("name")}}</small>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Position</label>
-                                                    <input type="text" class="form-control contact_person_position" placeholder="Enter ..." id="position" name="contact_person[{{$x}}][position]" value="{{$client_contact_person->position}}"/> <small class="text-danger">{{$errors->first("position")}}</small>
-                                                </div>
-                                            </div>
+                            @php($x=0)
+                            @foreach($client_contact_persons as $client_contact_person)
+                            <div class="dynamic-more">
+                                <input type="hidden" name="contact_person[{{$x}}][client_contact_person_id]"
+                                    value="{{$client_contact_person->id}}" id="client_contact_person_id"
+                                    class="client_contact_person_id" />
+                                <input type="hidden" name="contact_person[{{$x}}][client_contact_person_status]"
+                                    value="0" id="client_contact_person_status" class="client_contact_person_status" />
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Name</label>
+                                            <input type="text" class="form-control contact_person_name"
+                                                placeholder="Enter ..." id="name" name="contact_person[{{$x}}][name]"
+                                                value="{{$client_contact_person->name}}" /> <small
+                                                class="text-danger">{{$errors->first("name")}}</small>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Department</label>
-                                                    <input type="text" class="form-control contact_person_department" placeholder="Enter ..." id="department" name="contact_person[{{$x}}][department]" value="{{$client_contact_person->department}}"/> <small class="text-danger">{{$errors->first("department")}}</small>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Email Address</label>
-                                                    <input type="text" class="form-control contact_person_email" placeholder="Enter ..." id="email_address" name="contact_person[{{$x}}][email_address]" value="{{$client_contact_person->email}}"/> <small class="text-danger">{{$errors->first("email_address")}}</small> 
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Contact Number</label>
-                                                    <input type="text" class="form-control contact_person_number" placeholder="Enter ..." id="contact_number" name="contact_person[{{$x}}][contact_number]" value="{{$client_contact_person->contact_number}}"/> <small class="text-danger">{{$errors->first("contact_number")}}</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <a href="javascript:void(0);" class="remove_button">Remove Fields</a>
                                     </div>
-                                    @php($x++)
-                                @endforeach
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Position</label>
+                                            <input type="text" class="form-control contact_person_position"
+                                                placeholder="Enter ..." id="position"
+                                                name="contact_person[{{$x}}][position]"
+                                                value="{{$client_contact_person->position}}" /> <small
+                                                class="text-danger">{{$errors->first("position")}}</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Department</label>
+                                            <input type="text" class="form-control contact_person_department"
+                                                placeholder="Enter ..." id="department"
+                                                name="contact_person[{{$x}}][department]"
+                                                value="{{$client_contact_person->department}}" /> <small
+                                                class="text-danger">{{$errors->first("department")}}</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Email Address</label>
+                                            <input type="text" class="form-control contact_person_email"
+                                                placeholder="Enter ..." id="email_address"
+                                                name="contact_person[{{$x}}][email_address]"
+                                                value="{{$client_contact_person->email}}" /> <small
+                                                class="text-danger">{{$errors->first("email_address")}}</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Contact Number</label>
+                                            <input type="text" class="form-control contact_person_number"
+                                                placeholder="Enter ..." id="contact_number"
+                                                name="contact_person[{{$x}}][contact_number]"
+                                                value="{{$client_contact_person->contact_number}}" /> <small
+                                                class="text-danger">{{$errors->first("contact_number")}}</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="javascript:void(0);" class="remove_button">Remove Fields</a>
+                            </div>
+                            @php($x++)
+                            @endforeach
                             @endif
                         </div>
                         <!--field_wrapper-->
@@ -248,7 +270,8 @@
                                 <div class="form-group">
                                     <label>Basic Pay</label>
                                     <input type="text" name="basic_pay" id="basic_pay" placeholder="Enter ..."
-                                        class="form-control money_format" value="{{$client_contract_rates->basic_pay}}">
+                                        class="form-control money_format"
+                                        value="{{number_format($client_contract_rates->basic_pay, 2)}}">
                                     <small class="text-danger">{{ $errors->first('basic_pay') }}</small>
                                 </div>
                             </div>
@@ -258,7 +281,8 @@
                                 <div class="form-group">
                                     <label>Overtime Pay</label>
                                     <input type="text" name="overtime_pay" id="overtime_pay" placeholder="Enter ..."
-                                        class="form-control money_format" value="{{$client_contract_rates->overtime_pay}}">
+                                        class="form-control money_format"
+                                        value="{{number_format($client_contract_rates->overtime_pay, 2)}}">
                                     <small class="text-danger">{{ $errors->first('overtime_pay') }}</small>
                                 </div>
                             </div>
@@ -266,7 +290,8 @@
                                 <div class="form-group">
                                     <label>Night Differential Pay</label>
                                     <input type="text" name="night_differential_pay" id="night_differential_pay"
-                                        placeholder="Enter ..." class="form-control money_format" value="{{$client_contract_rates->night_differential_pay}}">
+                                        placeholder="Enter ..." class="form-control money_format"
+                                        value="{{number_format($client_contract_rates->night_differential_pay, 2)}}">
                                     <small class="text-danger">{{ $errors->first('night_differential_pay') }}</small>
                                 </div>
                             </div>
@@ -276,7 +301,8 @@
                                 <div class="form-group">
                                     <label>COLA</label>
                                     <input type="text" name="cola" id="cola" placeholder="Enter ..."
-                                        class="form-control money_format" value="{{$client_contract_rates->cola}}">
+                                        class="form-control money_format"
+                                        value="{{number_format($client_contract_rates->cola, 2)}}">
                                     <small class="text-danger">{{ $errors->first('cola') }}</small>
                                 </div>
                             </div>
@@ -284,7 +310,8 @@
                                 <div class="form-group">
                                     <label>5 Days Incentive Pay</label>
                                     <input type="text" name="five_days_incentive_pay" id="five_days_incentive_pay"
-                                        placeholder="Enter ..." class="form-control money_format">
+                                        placeholder="Enter ..." class="form-control money_format"
+                                        value="{{$client_contract_rates->five_days_incentive_pay}}" />
                                     <small class="text-danger">{{ $errors->first('five_days_incentive_pay') }}</small>
                                 </div>
                             </div>
@@ -294,7 +321,8 @@
                                 <div class="form-group">
                                     <label>Uniform Allowance</label>
                                     <input type="text" name="uniform_allowance" id="uniform_allowance"
-                                        placeholder="Enter ..." class="form-control money_format">
+                                        placeholder="Enter ..." class="form-control money_format"
+                                        value="{{$client_contract_rates->uniform_allowance}}" />
                                     <small class="text-danger">{{ $errors->first('uniform_allowance') }}</small>
                                 </div>
                             </div>
@@ -302,7 +330,8 @@
                                 <div class="form-group">
                                     <label>13th Month Pay</label>
                                     <input type="text" name="thth_month_pay" id="thth_month_pay" placeholder="Enter ..."
-                                        class="form-control money_format">
+                                        class="form-control money_format"
+                                        value="{{$client_contract_rates->thirteen_month_pay}}" />
                                     <small class="text-danger">{{ $errors->first('thth_month_pay') }}</small>
                                 </div>
                             </div>
@@ -312,7 +341,8 @@
                                 <div class="form-group">
                                     <label>SSS Premium</label>
                                     <input type="text" name="sss_premium" id="sss_premium" placeholder="Enter ..."
-                                        class="form-control money_format">
+                                        class="form-control money_format"
+                                        value="{{$client_contract_rates->sss_premium}}" />
                                     <small class="text-danger">{{ $errors->first('sss_premium') }}</small>
                                 </div>
                             </div>
@@ -320,7 +350,8 @@
                                 <div class="form-group">
                                     <label>PHILHEALTH</label>
                                     <input type="text" name="philhealth" id="philhealth" placeholder="Enter ..."
-                                        class="form-control money_format">
+                                        class="form-control money_format"
+                                        value="{{$client_contract_rates->philhealth}}" />
                                     <small class="text-danger">{{ $errors->first('philhealth') }}</small>
                                 </div>
                             </div>
@@ -330,7 +361,8 @@
                                 <div class="form-group">
                                     <label>Insurance Fund</label>
                                     <input type="text" name="insurance_fund" id="insurance_fund" placeholder="Enter ..."
-                                        class="form-control money_format">
+                                        class="form-control money_format"
+                                        value="{{$client_contract_rates->insurance_fund}}" />
                                     <small class="text-danger">{{ $errors->first('insurance_fund') }}</small>
                                 </div>
                             </div>
@@ -338,7 +370,8 @@
                                 <div class="form-group">
                                     <label>Pag Ibig Fund</label>
                                     <input type="text" name="pag_ibig_fund" id="pag_ibig_fund" placeholder="Enter ..."
-                                        class="form-control money_format">
+                                        class="form-control money_format"
+                                        value="{{$client_contract_rates->pag_ibig_fund}}" />
                                     <small class="text-danger">{{ $errors->first('pag_ibig_fund') }}</small>
                                 </div>
                             </div>

@@ -11,4 +11,10 @@ class ClientContractRate extends Model
     {
         return $this->belongsTo('App\Client', 'id');
     }
+
+    public function getPriceNumericValue($input) {
+        return floatval(preg_replace('/[^\d.]/', '', $input));
+    }
+
+
 }
