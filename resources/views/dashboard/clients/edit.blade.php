@@ -258,9 +258,15 @@
                                 <div class="form-group">
                                     <label>Contract Type</label>
                                     <select class="form-control select2" style="width: 100%;" name="contract_type">
-                                        <option selected="selected">--Select Option--</option>
-                                        <option value="A">A</option>
-                                        <option value="B">B</option>
+                                        <option selected="selected" value=""
+                                            {{ ($client_contract_rates->contract_rate_type == '') ? 'selected="selected"' : '' }}>
+                                            --Select Option--</option>
+                                        <option value="A"
+                                            {{ ($client_contract_rates->contract_rate_type == 'A') ? 'selected="selected"' : '' }}>
+                                            A</option>
+                                        <option value="B"
+                                            {{ ($client_contract_rates->contract_rate_type == 'B') ? 'selected="selected"' : '' }}>
+                                            B</option>
                                     </select>
                                     <small class="text-danger">{{ $errors->first('contract_type') }}</small>
                                 </div>
@@ -269,9 +275,10 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Basic Pay</label>
-                                    <input type="text" name="basic_pay" id="basic_pay" placeholder="Enter ..."
+                                    <input type="text" id="basic_pay" placeholder="Enter ..."
                                         class="form-control money_format"
-                                        value="{{number_format($client_contract_rates->basic_pay, 2)}}">
+                                        value="{{number_format($client_contract_rates->basic_pay, 2)}}" />
+                                    <input type="hidden" name="basic_pay" />
                                     <small class="text-danger">{{ $errors->first('basic_pay') }}</small>
                                 </div>
                             </div>
@@ -280,18 +287,20 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Overtime Pay</label>
-                                    <input type="text" name="overtime_pay" id="overtime_pay" placeholder="Enter ..."
+                                    <input type="text" id="overtime_pay" placeholder="Enter ..."
                                         class="form-control money_format"
                                         value="{{number_format($client_contract_rates->overtime_pay, 2)}}">
+                                    <input type="hidden" name="overtime_pay" />
                                     <small class="text-danger">{{ $errors->first('overtime_pay') }}</small>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Night Differential Pay</label>
-                                    <input type="text" name="night_differential_pay" id="night_differential_pay"
-                                        placeholder="Enter ..." class="form-control money_format"
-                                        value="{{number_format($client_contract_rates->night_differential_pay, 2)}}">
+                                    <input type="text" id="night_differential_pay" placeholder="Enter ..."
+                                        class="form-control money_format"
+                                        value="{{number_format($client_contract_rates->night_differential_pay, 2)}}" />
+                                    <input type="hidden" name="night_differential_pay" />
                                     <small class="text-danger">{{ $errors->first('night_differential_pay') }}</small>
                                 </div>
                             </div>
@@ -300,18 +309,20 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>COLA</label>
-                                    <input type="text" name="cola" id="cola" placeholder="Enter ..."
+                                    <input type="text" id="cola" placeholder="Enter ..."
                                         class="form-control money_format"
-                                        value="{{number_format($client_contract_rates->cola, 2)}}">
+                                        value="{{number_format($client_contract_rates->cola, 2)}}" />
+                                    <input type="hidden" name="cola" />
                                     <small class="text-danger">{{ $errors->first('cola') }}</small>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>5 Days Incentive Pay</label>
-                                    <input type="text" name="five_days_incentive_pay" id="five_days_incentive_pay"
-                                        placeholder="Enter ..." class="form-control money_format"
+                                    <input type="text" id="five_days_incentive_pay" placeholder="Enter ..."
+                                        class="form-control money_format"
                                         value="{{$client_contract_rates->five_days_incentive_pay}}" />
+                                    <input type="hidden" name="five_days_incentive_pay" />
                                     <small class="text-danger">{{ $errors->first('five_days_incentive_pay') }}</small>
                                 </div>
                             </div>
@@ -320,18 +331,20 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Uniform Allowance</label>
-                                    <input type="text" name="uniform_allowance" id="uniform_allowance"
-                                        placeholder="Enter ..." class="form-control money_format"
+                                    <input type="text" id="uniform_allowance" placeholder="Enter ..."
+                                        class="form-control money_format"
                                         value="{{$client_contract_rates->uniform_allowance}}" />
+                                    <input type="hidden" name="uniform_allowance" />
                                     <small class="text-danger">{{ $errors->first('uniform_allowance') }}</small>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>13th Month Pay</label>
-                                    <input type="text" name="thth_month_pay" id="thth_month_pay" placeholder="Enter ..."
+                                    <input type="text" id="thth_month_pay" placeholder="Enter ..."
                                         class="form-control money_format"
                                         value="{{$client_contract_rates->thirteen_month_pay}}" />
+                                    <input type="hidden" name="thth_month_pay" />
                                     <small class="text-danger">{{ $errors->first('thth_month_pay') }}</small>
                                 </div>
                             </div>
@@ -340,18 +353,20 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>SSS Premium</label>
-                                    <input type="text" name="sss_premium" id="sss_premium" placeholder="Enter ..."
+                                    <input type="text" id="sss_premium" placeholder="Enter ..."
                                         class="form-control money_format"
                                         value="{{$client_contract_rates->sss_premium}}" />
+                                    <input type="hidden" name="sss_premium" />
                                     <small class="text-danger">{{ $errors->first('sss_premium') }}</small>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>PHILHEALTH</label>
-                                    <input type="text" name="philhealth" id="philhealth" placeholder="Enter ..."
+                                    <input type="text" id="philhealth" placeholder="Enter ..."
                                         class="form-control money_format"
                                         value="{{$client_contract_rates->philhealth}}" />
+                                    <input type="hidden" name="philhealth" />
                                     <small class="text-danger">{{ $errors->first('philhealth') }}</small>
                                 </div>
                             </div>
@@ -360,18 +375,20 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Insurance Fund</label>
-                                    <input type="text" name="insurance_fund" id="insurance_fund" placeholder="Enter ..."
+                                    <input type="text" id="insurance_fund" placeholder="Enter ..."
                                         class="form-control money_format"
                                         value="{{$client_contract_rates->insurance_fund}}" />
+                                    <input type="hidden" name="insurance_fund" />
                                     <small class="text-danger">{{ $errors->first('insurance_fund') }}</small>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Pag Ibig Fund</label>
-                                    <input type="text" name="pag_ibig_fund" id="pag_ibig_fund" placeholder="Enter ..."
+                                    <input type="text" id="pag_ibig_fund" placeholder="Enter ..."
                                         class="form-control money_format"
                                         value="{{$client_contract_rates->pag_ibig_fund}}" />
+                                    <input type="hidden" name="pag_ibig_fund" />
                                     <small class="text-danger">{{ $errors->first('pag_ibig_fund') }}</small>
                                 </div>
                             </div>
@@ -496,6 +513,7 @@
 
             dynimic_more_fix();
             field_validation();
+            setOriginalValueInHiddenInput();
               
     });
 
@@ -559,6 +577,27 @@
             }
         });
     }
+
+    function getConvertedNumericValue(currency) 
+    {  
+        var temp = currency.replace(/[^0-9.-]+/g,""); 
+        return parseFloat(temp); 
+      
+    } 
+
+    function setOriginalValueInHiddenInput() 
+    {
+        $('.money_format').each(function (index,element) {
+            $val = $(this).val();
+            $(this).next().attr('value', getConvertedNumericValue($val));
+        }).on('blur', function() {
+            $val = $(this).val();
+            $(this).next().attr('value', getConvertedNumericValue($val));
+        });
+
+    }
+
+   
 </script>
 
 @stop

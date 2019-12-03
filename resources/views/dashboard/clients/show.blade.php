@@ -233,11 +233,11 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label>Schedule of Cut-off</label>
-                        <p>{{ ($client->schedule_of_cut_off) ?  $client->insurance_fund : 'N/A' }}</p>
+                        <p>{{ ($client->schedule_of_cut_off) ?  $client->schedule_of_cut_off : 'N/A' }}</p>
                     </div>
                     <div class="col-md-6">
                         <label>Schedule of Payroll</label>
-                        <p>{{ ($client->schedule_of_payroll) ?  $client->pag_ibig_fund : 'N/A' }}</p>
+                        <p>{{ ($client->schedule_of_payroll) ?  $client->schedule_of_payroll : 'N/A' }}</p>
                     </div>
                 </div>
             </div>

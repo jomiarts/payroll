@@ -65,7 +65,6 @@ class ClientsController extends Controller
             'schedule_of_cut_off' => 'nullable|date',
             'schedule_of_payroll' => 'nullable|date'
         ]);
-    
 
         $client = new Client;
         $client->date_of_contract = $request->input('date_of_contract');
@@ -103,21 +102,22 @@ class ClientsController extends Controller
                 } 
            }
 
-           $ClientContractRate = new ClientContractRate;
-           $ClientContractRate->client_id = $current_client_id;
-           $ClientContractRate->contract_rate_type = $request->input('contract_type');
-           $ClientContractRate->basic_pay = $request->input('basic_pay');
-           $ClientContractRate->overtime_pay = $request->input('overtime_pay');
-           $ClientContractRate->night_differential_pay = $request->input('night_differential_pay');
-           $ClientContractRate->cola = $request->input('cola');
-           $ClientContractRate->five_days_incentive_pay = $request->input('five_days_incentive_pay');
-           $ClientContractRate->uniform_allowance = $request->input('uniform_allowance');
-           $ClientContractRate->uniform_allowance = $request->input('thirteen_month_pay');
-           $ClientContractRate->sss_premium = $request->input('sss_premium');
-           $ClientContractRate->philhealth = $request->input('philhealth');
-           $ClientContractRate->insurance_fund = $request->input('insurance_fund');
-           $ClientContractRate->insurance_fund = $request->input('pag_ibig_fund');
-           $ClientContractRate->save();
+            $ClientContractRate = new ClientContractRate;
+            $ClientContractRate->client_id = $current_client_id;
+            $ClientContractRate->contract_rate_type = $request->input('contract_type');
+            $ClientContractRate->basic_pay = $ClientContractRate->getMoneyNumericValue($request->input('basic_pay'));
+            $ClientContractRate->overtime_pay = $ClientContractRate->getMoneyNumericValue($request->input('overtime_pay'));
+            $ClientContractRate->night_differential_pay = $ClientContractRate->getMoneyNumericValue($request->input('night_differential_pay'));
+            $ClientContractRate->cola = $ClientContractRate->getMoneyNumericValue($request->input('cola'));
+            $ClientContractRate->five_days_incentive_pay = $ClientContractRate->getMoneyNumericValue($request->input('five_days_incentive_pay'));
+            $ClientContractRate->uniform_allowance = $ClientContractRate->getMoneyNumericValue($request->input('uniform_allowance'));
+            $ClientContractRate->thirteen_month_pay = $ClientContractRate->getMoneyNumericValue($request->input('thth_month_pay'));
+            $ClientContractRate->sss_premium = $ClientContractRate->getMoneyNumericValue($request->input('sss_premium'));
+            $ClientContractRate->philhealth = $ClientContractRate->getMoneyNumericValue($request->input('philhealth'));
+            $ClientContractRate->insurance_fund = $ClientContractRate->getMoneyNumericValue($request->input('insurance_fund'));
+            $ClientContractRate->pag_ibig_fund = $ClientContractRate->getMoneyNumericValue($request->input('pag_ibig_fund'));
+            $ClientContractRate->save();
+
        }     
        
         return redirect('dashboard/clients')->with('success', 'Client Added');
@@ -167,8 +167,7 @@ class ClientsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        /*
+      
         $this->validate($request, [
             'date_of_contract' => 'required|date',
             'date_of_termination' => 'required|date',
@@ -190,7 +189,7 @@ class ClientsController extends Controller
             'schedule_of_payroll' => 'nullable|date'
         ]);
 
-        $client = Client::find(id);
+        $client = Client::find($id);
         $client->date_of_contract = $request->input('date_of_contract');
         $client->date_of_termination = $request->input('date_of_termination');
         $client->company_name = $request->input('company_name');
@@ -202,15 +201,13 @@ class ClientsController extends Controller
         $client->schedule_of_cut_off = $request->input('schedule_of_cut_off');
         $client->schedule_of_payroll = $request->input('schedule_of_payroll');
         $client->save();
-        */
+        
 
         if($request->input('contact_person')) {
             
             foreach($request->input('contact_person') as $contact_person) {
 
-                //0 edit
-                //1 add
-                //2 Delete
+                
                 $ClientContactPerson = ClientContactPerson::find($contact_person['client_contact_person_id']);
 
                 if($contact_person['client_contact_person_status'] == 0) {
@@ -252,20 +249,20 @@ class ClientsController extends Controller
         }
          
         $ClientContractRate->contract_rate_type = $request->input('contract_type');
-        $ClientContractRate->basic_pay = $ClientContractRate->getPriceNumericValue($request->input('basic_pay'));
-        $ClientContractRate->overtime_pay = $ClientContractRate->getPriceNumericValue($request->input('overtime_pay'));
-        $ClientContractRate->night_differential_pay = $ClientContractRate->getPriceNumericValue($request->input('night_differential_pay'));
-        $ClientContractRate->cola = $ClientContractRate->getPriceNumericValue($request->input('cola'));
-        $ClientContractRate->five_days_incentive_pay = $ClientContractRate->getPriceNumericValue($request->input('five_days_incentive_pay'));
-        $ClientContractRate->uniform_allowance = $ClientContractRate->getPriceNumericValue($request->input('uniform_allowance'));
-        $ClientContractRate->uniform_allowance = $ClientContractRate->getPriceNumericValue($request->input('thirteen_month_pay'));
-        $ClientContractRate->sss_premium = $ClientContractRate->getPriceNumericValue($request->input('sss_premium'));
-        $ClientContractRate->philhealth = $ClientContractRate->getPriceNumericValue($request->input('philhealth'));
-        $ClientContractRate->insurance_fund = $ClientContractRate->getPriceNumericValue($request->input('insurance_fund'));
-        $ClientContractRate->insurance_fund = $ClientContractRate->getPriceNumericValue($request->input('pag_ibig_fund'));
+        $ClientContractRate->basic_pay = $ClientContractRate->getMoneyNumericValue($request->input('basic_pay'));
+        $ClientContractRate->overtime_pay = $ClientContractRate->getMoneyNumericValue($request->input('overtime_pay'));
+        $ClientContractRate->night_differential_pay = $ClientContractRate->getMoneyNumericValue($request->input('night_differential_pay'));
+        $ClientContractRate->cola = $ClientContractRate->getMoneyNumericValue($request->input('cola'));
+        $ClientContractRate->five_days_incentive_pay = $ClientContractRate->getMoneyNumericValue($request->input('five_days_incentive_pay'));
+        $ClientContractRate->uniform_allowance = $ClientContractRate->getMoneyNumericValue($request->input('uniform_allowance'));
+        $ClientContractRate->thirteen_month_pay = $ClientContractRate->getMoneyNumericValue($request->input('thth_month_pay'));
+        $ClientContractRate->sss_premium = $ClientContractRate->getMoneyNumericValue($request->input('sss_premium'));
+        $ClientContractRate->philhealth = $ClientContractRate->getMoneyNumericValue($request->input('philhealth'));
+        $ClientContractRate->insurance_fund = $ClientContractRate->getMoneyNumericValue($request->input('insurance_fund'));
+        $ClientContractRate->pag_ibig_fund = $ClientContractRate->getMoneyNumericValue($request->input('pag_ibig_fund'));
         $ClientContractRate->save();
 
-       return redirect('dashboard/clients');
+       return redirect('dashboard/clients')->with('success', 'Record Updated!');
     }
 
     /**
