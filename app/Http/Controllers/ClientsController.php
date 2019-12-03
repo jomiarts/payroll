@@ -44,27 +44,29 @@ class ClientsController extends Controller
     public function store(Request $request)
     {
 
-    
+        //dd($request->input('basic_pay'));
         $this->validate($request, [
             'date_of_contract' => 'required|date',
             'date_of_termination' => 'required|date',
             'company_name' => 'required',
             'company_address' => 'required',
             'company_email' => 'required|email',
-            'basic_pay' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
-            'overtime_pay' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
-            'night_differential_pay' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
-            'cola' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
-            'five_days_incentive_pay' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
-            'uniform_allowance' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
-            'thth_month_pay' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
-            'sss_premium' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
-            'philhealth' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
-            'insurance_fund' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
-            'pag_ibig_fund' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
+            'basic_pay' => 'nullable|regex:/^\d(\d|\,\d{3}|,\d.+$)?$/',
+            'overtime_pay' => 'nullable|regex:/^\d{1,13}(\.\d{1,2})?$/',
+            'night_differential_pay' => 'nullable|regex:/^\d{1,13}(\.\d{1,2})?$/',
+            'cola' => 'nullable|regex:/^\d{1,13}(\.\d{1,2})?$/',
+            'five_days_incentive_pay' => 'nullable|regex:/^\d{1,13}(\.\d{1,2})?$/',
+            'uniform_allowance' => 'nullable|regex:/^\d{1,13}(\.\d{1,2})?$/',
+            'thth_month_pay' => 'nullable|regex:/^\d{1,13}(\.\d{1,2})?$/',
+            'sss_premium' => 'nullable|regex:/^\d{1,13}(\.\d{1,2})?$/',
+            'philhealth' => 'nullable|regex:/^\d{1,13}(\.\d{1,2})?$/',
+            'insurance_fund' => 'nullable|regex:/^\d{1,13}(\.\d{1,2})?$/',
+            'pag_ibig_fund' => 'nullable|regex:/^\d{1,13}(\.\d{1,2})?$/',
             'schedule_of_cut_off' => 'nullable|date',
             'schedule_of_payroll' => 'nullable|date'
         ]);
+
+        return 'Working at this point';
     
 
         $client = new Client;
@@ -175,17 +177,17 @@ class ClientsController extends Controller
             'company_name' => 'required',
             'company_address' => 'required',
             'company_email' => 'required|email',
-            'basic_pay' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
-            'overtime_pay' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
-            'night_differential_pay' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
-            'cola' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
-            'five_days_incentive_pay' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
-            'uniform_allowance' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
-            'thth_month_pay' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
-            'sss_premium' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
-            'philhealth' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
-            'insurance_fund' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
-            'pag_ibig_fund' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
+            'basic_pay' => 'nullable|regex:/^\d{1,13}(\.\d{1,2})?$/',
+            'overtime_pay' => 'nullable|regex:/^\d{1,13}(\.\d{1,2})?$/',
+            'night_differential_pay' => 'nullable|regex:/^\d{1,13}(\.\d{1,2})?$/',
+            'cola' => 'nullable|regex:/^\d{1,13}(\.\d{1,2})?$/',
+            'five_days_incentive_pay' => 'nullable|regex:/^\d{1,13}(\.\d{1,2})?$/',
+            'uniform_allowance' => 'nullable|regex:/^\d{1,13}(\.\d{1,2})?$/',
+            'thth_month_pay' => 'nullable|regex:/^\d{1,13}(\.\d{1,2})?$/',
+            'sss_premium' => 'nullable|regex:/^\d{1,13}(\.\d{1,2})?$/',
+            'philhealth' => 'nullable|regex:/^\d{1,13}(\.\d{1,2})?$/',
+            'insurance_fund' => 'nullable|regex:/^\d{1,13}(\.\d{1,2})?$/',
+            'pag_ibig_fund' => 'nullable|regex:/^\d{1,13}(\.\d{1,2})?$/',
             'schedule_of_cut_off' => 'nullable|date',
             'schedule_of_payroll' => 'nullable|date'
         ]);

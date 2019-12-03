@@ -448,6 +448,18 @@
 
     function field_validation() 
     {
+        jQuery.validator.addMethod(
+            "money",
+            function(value, element) {
+                var isValidMoney = /^\d{0,4}(\.\d{0,2})?$/.test(value);
+                return this.optional(element) || isValidMoney;
+            },
+            "Invalid Format "
+        );
+
+        jQuery.validator.addClassRules('money_format', {
+            money: true
+        });
 
         jQuery.validator.addClassRules('contact_person_name', {
             required: true
@@ -460,8 +472,14 @@
 
         $('#add_client_form').validate({
             rules: {
-                date_of_contract : 'required',
-                date_of_termination : 'required',
+                date_of_contract : {
+                    required: true,
+                    date: true
+                },
+                date_of_termination : {
+                    required: true,
+                    date: true
+                },
                 company_name : 'required',
                 company_address : 'required',
                 company_email : {
@@ -469,6 +487,9 @@
                     email: true
                 },
 
+                schedule_of_cut_off: 'date',
+                schedule_of_payroll : 'date'
+                
             }
         });
 
