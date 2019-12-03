@@ -176,8 +176,10 @@
                                 <input type="hidden" name="contact_person[{{$x}}][client_contact_person_id]"
                                     value="{{$client_contact_person->id}}" id="client_contact_person_id"
                                     class="client_contact_person_id" />
+
                                 <input type="hidden" name="contact_person[{{$x}}][client_contact_person_status]"
                                     value="0" id="client_contact_person_status" class="client_contact_person_status" />
+
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -258,9 +260,15 @@
                                 <div class="form-group">
                                     <label>Contract Type</label>
                                     <select class="form-control select2" style="width: 100%;" name="contract_type">
-                                        <option selected="selected">--Select Option--</option>
-                                        <option value="A">A</option>
-                                        <option value="B">B</option>
+                                        <option selected="selected" value=""
+                                            {{ ($client_contract_rates->contract_rate_type == '') ? 'selected="selected"' : '' }}>
+                                            --Select Option--</option>
+                                        <option value="A"
+                                            {{ ($client_contract_rates->contract_rate_type == 'A') ? 'selected="selected"' : '' }}>
+                                            A</option>
+                                        <option value="B"
+                                            {{ ($client_contract_rates->contract_rate_type == 'B') ? 'selected="selected"' : '' }}>
+                                            B</option>
                                     </select>
                                     <small class="text-danger">{{ $errors->first('contract_type') }}</small>
                                 </div>
@@ -271,7 +279,7 @@
                                     <label>Basic Pay</label>
                                     <input type="text" name="basic_pay" id="basic_pay" placeholder="Enter ..."
                                         class="form-control money_format"
-                                        value="{{number_format($client_contract_rates->basic_pay, 2)}}">
+                                        value="{{ $client_contract_rates->basic_pay }}" />
                                     <small class="text-danger">{{ $errors->first('basic_pay') }}</small>
                                 </div>
                             </div>
@@ -282,16 +290,16 @@
                                     <label>Overtime Pay</label>
                                     <input type="text" name="overtime_pay" id="overtime_pay" placeholder="Enter ..."
                                         class="form-control money_format"
-                                        value="{{number_format($client_contract_rates->overtime_pay, 2)}}">
+                                        value="{{ $client_contract_rates->overtime_pay }}">
                                     <small class="text-danger">{{ $errors->first('overtime_pay') }}</small>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Night Differential Pay</label>
-                                    <input type="text" name="night_differential_pay" id="night_differential_pay"
-                                        placeholder="Enter ..." class="form-control money_format"
-                                        value="{{number_format($client_contract_rates->night_differential_pay, 2)}}">
+                                    <input type="text" name="night_differential_pay" id="night_differential_pay" placeholder="Enter ..."
+                                        class="form-control money_format"
+                                        value="{{ $client_contract_rates->night_differential_pay }}" />
                                     <small class="text-danger">{{ $errors->first('night_differential_pay') }}</small>
                                 </div>
                             </div>
@@ -302,16 +310,16 @@
                                     <label>COLA</label>
                                     <input type="text" name="cola" id="cola" placeholder="Enter ..."
                                         class="form-control money_format"
-                                        value="{{number_format($client_contract_rates->cola, 2)}}">
+                                        value="{{ $client_contract_rates->cola }}" />
                                     <small class="text-danger">{{ $errors->first('cola') }}</small>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>5 Days Incentive Pay</label>
-                                    <input type="text" name="five_days_incentive_pay" id="five_days_incentive_pay"
-                                        placeholder="Enter ..." class="form-control money_format"
-                                        value="{{$client_contract_rates->five_days_incentive_pay}}" />
+                                    <input type="text" name="five_days_incentive_pay" id="five_days_incentive_pay" placeholder="Enter ..."
+                                        class="form-control money_format"
+                                        value="{{ $client_contract_rates->five_days_incentive_pay }}" />
                                     <small class="text-danger">{{ $errors->first('five_days_incentive_pay') }}</small>
                                 </div>
                             </div>
@@ -320,9 +328,9 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Uniform Allowance</label>
-                                    <input type="text" name="uniform_allowance" id="uniform_allowance"
-                                        placeholder="Enter ..." class="form-control money_format"
-                                        value="{{$client_contract_rates->uniform_allowance}}" />
+                                    <input type="text" name="uniform_allowance" id="uniform_allowance" placeholder="Enter ..."
+                                        class="form-control money_format"
+                                        value="{{ $client_contract_rates->uniform_allowance }}" />
                                     <small class="text-danger">{{ $errors->first('uniform_allowance') }}</small>
                                 </div>
                             </div>
@@ -331,7 +339,7 @@
                                     <label>13th Month Pay</label>
                                     <input type="text" name="thth_month_pay" id="thth_month_pay" placeholder="Enter ..."
                                         class="form-control money_format"
-                                        value="{{$client_contract_rates->thirteen_month_pay}}" />
+                                        value="{{ $client_contract_rates->thirteen_month_pay }}" />
                                     <small class="text-danger">{{ $errors->first('thth_month_pay') }}</small>
                                 </div>
                             </div>
@@ -342,7 +350,7 @@
                                     <label>SSS Premium</label>
                                     <input type="text" name="sss_premium" id="sss_premium" placeholder="Enter ..."
                                         class="form-control money_format"
-                                        value="{{$client_contract_rates->sss_premium}}" />
+                                        value="{{ $client_contract_rates->sss_premium }}" />
                                     <small class="text-danger">{{ $errors->first('sss_premium') }}</small>
                                 </div>
                             </div>
@@ -351,7 +359,7 @@
                                     <label>PHILHEALTH</label>
                                     <input type="text" name="philhealth" id="philhealth" placeholder="Enter ..."
                                         class="form-control money_format"
-                                        value="{{$client_contract_rates->philhealth}}" />
+                                        value="{{ $client_contract_rates->philhealth }}" />
                                     <small class="text-danger">{{ $errors->first('philhealth') }}</small>
                                 </div>
                             </div>
@@ -362,7 +370,7 @@
                                     <label>Insurance Fund</label>
                                     <input type="text" name="insurance_fund" id="insurance_fund" placeholder="Enter ..."
                                         class="form-control money_format"
-                                        value="{{$client_contract_rates->insurance_fund}}" />
+                                        value="{{ $client_contract_rates->insurance_fund }}" />
                                     <small class="text-danger">{{ $errors->first('insurance_fund') }}</small>
                                 </div>
                             </div>
@@ -371,7 +379,7 @@
                                     <label>Pag Ibig Fund</label>
                                     <input type="text" name="pag_ibig_fund" id="pag_ibig_fund" placeholder="Enter ..."
                                         class="form-control money_format"
-                                        value="{{$client_contract_rates->pag_ibig_fund}}" />
+                                        value="{{ $client_contract_rates->pag_ibig_fund }}" />
                                     <small class="text-danger">{{ $errors->first('pag_ibig_fund') }}</small>
                                 </div>
                             </div>
@@ -399,7 +407,7 @@
                                             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                         </div>
                                         <input type="text" class="form-control" data-inputmask="'alias': 'yyyy-mm-dd'"
-                                            data-mask id="schedule_of_cut_off" name="schedule_of_cut_off" />
+                                            data-mask id="schedule_of_cut_off" name="schedule_of_cut_off" value="{{ $client->schedule_of_cut_off }}"/>
                                     </div>
                                     <!-- /.input group -->
                                     <small class="text-danger">{{ $errors->first('schedule_of_cut_off') }}</small>
@@ -415,7 +423,7 @@
                                             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                         </div>
                                         <input type="text" class="form-control" data-inputmask="'alias': 'yyyy-mm-dd'"
-                                            data-mask id="schedule_of_payroll" name="schedule_of_payroll" />
+                                            data-mask id="schedule_of_payroll" name="schedule_of_payroll" value="{{ $client->schedule_of_payroll }}" />
                                     </div>
                                     <!-- /.input group -->
                                     <small class="text-danger">{{ $errors->first('schedule_of_payroll') }}</small>
@@ -489,15 +497,8 @@
     $(function() 
     {
         $('[data-mask]').inputmask('yyyy-mm-dd', { 'placeholder': 'yyyy-mm-dd' });
-        $('.money_format').blur(function() {
-            $('.money_format').formatCurrency({
-                symbol: ''
-            });
-        });
-
-            dynimic_more_fix();
-            field_validation();
-              
+        dynimic_more_fix();
+        field_validation();  
     });
 
     function dynimic_more_fix() 
@@ -505,22 +506,24 @@
         var maxField = 10; //Input fields increment limitation
         var addButton = $('.add_button'); //Add button selector
         var wrapper = $('.field_wrapper'); //Input field wrapper
-        //var fieldHTML = '<div class="dynamic-more"> <div class="row"> <div class="col-md-6"> <div class="form-group"> <label>Name</label> <input type="text" class="form-control" placeholder="Enter ..." id="name" name="name[]"/> <small class="text-danger">{{$errors->first("name")}}</small> </div></div><div class="col-md-6"> <div class="form-group"> <label>Position</label> <input type="text" class="form-control" placeholder="Enter ..." id="position" name="position[]"/> <small class="text-danger">{{$errors->first("position")}}</small> </div></div></div><div class="row"> <div class="col-md-6"> <div class="form-group"> <label>Department</label> <input type="text" class="form-control" placeholder="Enter ..." id="department" name="department[]"/> <small class="text-danger">{{$errors->first("department")}}</small> </div></div><div class="col-md-6"> <div class="form-group"> <label>Email Address</label> <input type="text" class="form-control" placeholder="Enter ..." id="email_address" name="email_address[]"/> <small class="text-danger">{{$errors->first("email_address")}}</small> </div></div></div><div class="row"> <div class="col-md-6"> <div class="form-group"> <label>Contact Number</label> <input type="text" class="form-control" placeholder="Enter ..." id="contact_number" name="contact_number[]"/> <small class="text-danger">{{$errors->first("contact_number")}}</small> </div></div></div><a href="javascript:void(0);" class="remove_button">Remove Fields</a></div>'; //New input field html 
-        var x = {{$contact_persons_last_index}}
-
+        @if(count($client_contact_persons) >= 1)
+            var x = {{$contact_persons_last_index}}0;
+        @else
+            var x = 0;
+        @endif
 
         //Once add button is clicked
         $(addButton).click(function()
         {
             //Check maximum number of input fields
-            
             if(x < maxField){
                 x++; //Increment field counter
-                $(wrapper).append('<div class="dynamic-more"><input type="hidden" name="contact_person['+x+'][client_contact_person_id]" value="{{$client_contact_person->id}}" id="client_contact_person_id" class="client_contact_person_id" /><input type="hidden" name="contact_person['+x+'][client_contact_person_status]" value="1" id="client_contact_person_status" class="client_contact_person_status" /><div class="row"> <div class="col-md-6"> <div class="form-group"> <label>Name</label> <input type="text" class="form-control contact_person_name" placeholder="Enter ..." id="name" name="contact_person['+ x +'][name]" /> <small class="text-danger">{{$errors->first("name")}}</small> </div></div><div class="col-md-6"> <div class="form-group"> <label>Position</label> <input type="text" class="form-control contact_person_position" placeholder="Enter ..." id="position" name="contact_person['+ x +'][position]"/> <small class="text-danger">{{$errors->first("position")}}</small> </div></div></div><div class="row"> <div class="col-md-6"> <div class="form-group"> <label>Department</label> <input type="text" class="form-control contact_person_department" placeholder="Enter ..." id="department" name="contact_person['+ x +'][department]"/> <small class="text-danger">{{$errors->first("department")}}</small> </div></div><div class="col-md-6"> <div class="form-group"> <label>Email Address</label> <input type="text" class="form-control contact_person_email" placeholder="Enter ..." id="email_address" name="contact_person['+ x +'][email_address]"/> <small class="text-danger">{{$errors->first("email_address")}}</small> </div></div></div><div class="row"> <div class="col-md-6"> <div class="form-group"> <label>Contact Number</label> <input type="text" class="form-control contact_person_number" placeholder="Enter ..." id="contact_number" name="contact_person['+ x +'][contact_number]"/> <small class="text-danger">{{$errors->first("contact_number")}}</small> </div></div></div><a href="javascript:void(0);" class="remove_button">Remove Fields</a></div>'); //Add field html
-                
+                @if(count($client_contact_persons) >= 1)
+                    $(wrapper).append('<div class="dynamic-more"><input type="hidden" name="contact_person['+x+'][client_contact_person_id]" value="{{$client_contact_person->id}}" id="client_contact_person_id" class="client_contact_person_id" /><input type="hidden" name="contact_person['+x+'][client_contact_person_status]" value="1" id="client_contact_person_status" class="client_contact_person_status" /><div class="row"> <div class="col-md-6"> <div class="form-group"> <label>Name</label> <input type="text" class="form-control contact_person_name" placeholder="Enter ..." id="name" name="contact_person['+ x +'][name]" /> <small class="text-danger">{{$errors->first("name")}}</small> </div></div><div class="col-md-6"> <div class="form-group"> <label>Position</label> <input type="text" class="form-control contact_person_position" placeholder="Enter ..." id="position" name="contact_person['+ x +'][position]"/> <small class="text-danger">{{$errors->first("position")}}</small> </div></div></div><div class="row"> <div class="col-md-6"> <div class="form-group"> <label>Department</label> <input type="text" class="form-control contact_person_department" placeholder="Enter ..." id="department" name="contact_person['+ x +'][department]"/> <small class="text-danger">{{$errors->first("department")}}</small> </div></div><div class="col-md-6"> <div class="form-group"> <label>Email Address</label> <input type="text" class="form-control contact_person_email" placeholder="Enter ..." id="email_address" name="contact_person['+ x +'][email_address]"/> <small class="text-danger">{{$errors->first("email_address")}}</small> </div></div></div><div class="row"> <div class="col-md-6"> <div class="form-group"> <label>Contact Number</label> <input type="text" class="form-control contact_person_number" placeholder="Enter ..." id="contact_number" name="contact_person['+ x +'][contact_number]"/> <small class="text-danger">{{$errors->first("contact_number")}}</small> </div></div></div><a href="javascript:void(0);" class="remove_button">Remove Fields</a></div>'); //Add field html
+                @else
+                    $(wrapper).append('<div class="dynamic-more"><input type="hidden" name="contact_person['+x+'][client_contact_person_id]" id="client_contact_person_id" class="client_contact_person_id" /><input type="hidden" name="contact_person['+x+'][client_contact_person_status]" value="1" id="client_contact_person_status" class="client_contact_person_status" /><div class="row"> <div class="col-md-6"> <div class="form-group"> <label>Name</label> <input type="text" class="form-control contact_person_name" placeholder="Enter ..." id="name" name="contact_person['+ x +'][name]" /> <small class="text-danger">{{$errors->first("name")}}</small> </div></div><div class="col-md-6"> <div class="form-group"> <label>Position</label> <input type="text" class="form-control contact_person_position" placeholder="Enter ..." id="position" name="contact_person['+ x +'][position]"/> <small class="text-danger">{{$errors->first("position")}}</small> </div></div></div><div class="row"> <div class="col-md-6"> <div class="form-group"> <label>Department</label> <input type="text" class="form-control contact_person_department" placeholder="Enter ..." id="department" name="contact_person['+ x +'][department]"/> <small class="text-danger">{{$errors->first("department")}}</small> </div></div><div class="col-md-6"> <div class="form-group"> <label>Email Address</label> <input type="text" class="form-control contact_person_email" placeholder="Enter ..." id="email_address" name="contact_person['+ x +'][email_address]"/> <small class="text-danger">{{$errors->first("email_address")}}</small> </div></div></div><div class="row"> <div class="col-md-6"> <div class="form-group"> <label>Contact Number</label> <input type="text" class="form-control contact_person_number" placeholder="Enter ..." id="contact_number" name="contact_person['+ x +'][contact_number]"/> <small class="text-danger">{{$errors->first("contact_number")}}</small> </div></div></div><a href="javascript:void(0);" class="remove_button">Remove Fields</a></div>'); //Add field html
+                @endif;
             }
-
-           
         });
 
         //Once remove button is clicked
@@ -537,19 +540,12 @@
 
     function field_validation() 
     {
-        jQuery.validator.addMethod(
-            "money",
-            function(value, element) {
-                var isValidMoney = /^\d{0,4}(\.\d{0,2})?$/.test(value);
-                return this.optional(element) || isValidMoney;
-            },
-            "Invalid Format "
-        );
+        $.validator.addMethod("currency", function (value, element) {
+            var isValidMoney = /^\d{0,10}(\.\d{0,2})?$/.test(value);
+            return this.optional(element) || isValidMoney;
+        }, "Please specify a valid amount");
 
-        jQuery.validator.addClassRules('money_format', {
-            money: true
-        });
-
+        
         jQuery.validator.addClassRules('contact_person_name', {
             required: true
         });
@@ -557,6 +553,10 @@
         jQuery.validator.addClassRules('contact_person_email', {
             required: true,
             email: true
+        });
+
+        jQuery.validator.addClassRules('money_format', {
+            currency: true,
         });
 
         $('#add_client_form').validate({

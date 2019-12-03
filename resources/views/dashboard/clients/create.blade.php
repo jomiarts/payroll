@@ -161,9 +161,9 @@
                         </div>
                     </div><!-- /.card-header -->
                     <div class="card-body">
-                            <div class="field_wrapper">
-                                <a href="javascript:void(0);" class="add_button" title="Add field">Add Fields</a>
-                            </div>
+                        <div class="field_wrapper">
+                            <a href="javascript:void(0);" class="add_button" title="Add field">Add Fields</a>
+                        </div>
                         <!--field_wrapper-->
                     </div>
                 </div><!-- /.card -->
@@ -183,7 +183,7 @@
                                 <div class="form-group">
                                     <label>Contract Type</label>
                                     <select class="form-control select2" style="width: 100%;" name="contract_type">
-                                        <option selected="selected">--Select Option--</option>
+                                        <option selected="selected" value="">--Select Option--</option>
                                         <option value>A</option>
                                         <option>B</option>
                                     </select>
@@ -195,7 +195,7 @@
                                 <div class="form-group">
                                     <label>Basic Pay</label>
                                     <input type="text" name="basic_pay" id="basic_pay" placeholder="Enter ..."
-                                        class="form-control money_format">
+                                        class="form-control money_format" />
                                     <small class="text-danger">{{ $errors->first('basic_pay') }}</small>
                                 </div>
                             </div>
@@ -205,7 +205,7 @@
                                 <div class="form-group">
                                     <label>Overtime Pay</label>
                                     <input type="text" name="overtime_pay" id="overtime_pay" placeholder="Enter ..."
-                                        class="form-control money_format">
+                                        class="form-control money_format" />
                                     <small class="text-danger">{{ $errors->first('overtime_pay') }}</small>
                                 </div>
                             </div>
@@ -213,7 +213,7 @@
                                 <div class="form-group">
                                     <label>Night Differential Pay</label>
                                     <input type="text" name="night_differential_pay" id="night_differential_pay"
-                                        placeholder="Enter ..." class="form-control money_format">
+                                        placeholder="Enter ..." class="form-control money_format" />
                                     <small class="text-danger">{{ $errors->first('night_differential_pay') }}</small>
                                 </div>
                             </div>
@@ -223,15 +223,15 @@
                                 <div class="form-group">
                                     <label>COLA</label>
                                     <input type="text" name="cola" id="cola" placeholder="Enter ..."
-                                        class="form-control money_format">
+                                        class="form-control money_format" />
                                     <small class="text-danger">{{ $errors->first('cola') }}</small>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>5 Days Incentive Pay</label>
-                                    <input type="text" name="five_days_incentive_pay" id="five_days_incentive_pay"
-                                        placeholder="Enter ..." class="form-control money_format">
+                                    <input type="text" name="five_days_incentive_pay" id="five_days_incentive_pay" placeholder="Enter ..."
+                                        class="form-control money_format">
                                     <small class="text-danger">{{ $errors->first('five_days_incentive_pay') }}</small>
                                 </div>
                             </div>
@@ -240,8 +240,8 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Uniform Allowance</label>
-                                    <input type="text" name="uniform_allowance" id="uniform_allowance"
-                                        placeholder="Enter ..." class="form-control money_format">
+                                    <input type="text" name="uniform_allowance" id="uniform_allowance" placeholder="Enter ..."
+                                        class="form-control money_format" />
                                     <small class="text-danger">{{ $errors->first('uniform_allowance') }}</small>
                                 </div>
                             </div>
@@ -249,7 +249,7 @@
                                 <div class="form-group">
                                     <label>13th Month Pay</label>
                                     <input type="text" name="thth_month_pay" id="thth_month_pay" placeholder="Enter ..."
-                                        class="form-control money_format">
+                                        class="form-control money_format" />
                                     <small class="text-danger">{{ $errors->first('thth_month_pay') }}</small>
                                 </div>
                             </div>
@@ -260,6 +260,7 @@
                                     <label>SSS Premium</label>
                                     <input type="text" name="sss_premium" id="sss_premium" placeholder="Enter ..."
                                         class="form-control money_format">
+                                    <input type="hidden" name="sss_premium" />
                                     <small class="text-danger">{{ $errors->first('sss_premium') }}</small>
                                 </div>
                             </div>
@@ -267,7 +268,7 @@
                                 <div class="form-group">
                                     <label>PHILHEALTH</label>
                                     <input type="text" name="philhealth" id="philhealth" placeholder="Enter ..."
-                                        class="form-control money_format">
+                                        class="form-control money_format" />
                                     <small class="text-danger">{{ $errors->first('philhealth') }}</small>
                                 </div>
                             </div>
@@ -285,7 +286,7 @@
                                 <div class="form-group">
                                     <label>Pag Ibig Fund</label>
                                     <input type="text" name="pag_ibig_fund" id="pag_ibig_fund" placeholder="Enter ..."
-                                        class="form-control money_format">
+                                        class="form-control money_format" />
                                     <small class="text-danger">{{ $errors->first('pag_ibig_fund') }}</small>
                                 </div>
                             </div>
@@ -401,16 +402,10 @@
 
 <script>
     $(function() {
+        
         $('[data-mask]').inputmask('yyyy-mm-dd', { 'placeholder': 'yyyy-mm-dd' });
-        $('.money_format').blur(function() {
-            $('.money_format').formatCurrency({
-                symbol: ''
-            });
-        });
-
-            dynimic_more_fix();
-            field_validation();
-              
+        dynimic_more_fix();
+        field_validation();   
     });
 
     function dynimic_more_fix() {
@@ -445,22 +440,13 @@
 
     }
 
-
     function field_validation() 
     {
-        jQuery.validator.addMethod(
-            "money",
-            function(value, element) {
-                var isValidMoney = /^\d{0,4}(\.\d{0,2})?$/.test(value);
-                return this.optional(element) || isValidMoney;
-            },
-            "Invalid Format "
-        );
-
-        jQuery.validator.addClassRules('money_format', {
-            money: true
-        });
-
+        $.validator.addMethod("currency", function (value, element) {
+            var isValidMoney = /^\d{0,10}(\.\d{0,2})?$/.test(value);
+            return this.optional(element) || isValidMoney;
+        }, "Please specify a valid amount");
+        
         jQuery.validator.addClassRules('contact_person_name', {
             required: true
         });
@@ -468,6 +454,10 @@
         jQuery.validator.addClassRules('contact_person_email', {
             required: true,
             email: true
+        });
+
+        jQuery.validator.addClassRules('money_format', {
+            currency: true,
         });
 
         $('#add_client_form').validate({
@@ -496,7 +486,6 @@
     
 
     }
-  
 
 </script>
 

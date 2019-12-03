@@ -87,53 +87,55 @@
                 </div>
             </div>
         </div>
-        <div class="card card-default">
-            <div class="card-header">
-                <h3 class="card-title">Contact Person</h3>
-                <div class="card-tools">
-                    <button type="button" class="btn btn-tool" data-widget="collapse"><i
-                            class="fa fa-minus"></i></button>
-                    <button type="button" class="btn btn-tool" data-widget="remove"><i
-                            class="fa fa-remove"></i></button>
+        @if(count($client_contact_persons) > 0)
+            <div class="card card-default">
+                <div class="card-header">
+                    <h3 class="card-title">Contact Person</h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-widget="collapse"><i
+                                class="fa fa-minus"></i></button>
+                        <button type="button" class="btn btn-tool" data-widget="remove"><i
+                                class="fa fa-remove"></i></button>
+                    </div>
                 </div>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table id="client_table" class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Department</th>
-                                <th>Email</th>
-                                <th>Contact Number</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($client_contact_persons as $client_contact_person)
-                            <tr>
-                                <td>{{$client_contact_person->name}}</td>
-                                <td>{{$client_contact_person->position}}</td>
-                                <td>{{$client_contact_person->department}}</td>
-                                <td>{{$client_contact_person->email}}</td>
-                                <td>{{$client_contact_person->contact_number}}</td>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="client_table" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Position</th>
+                                    <th>Department</th>
+                                    <th>Email</th>
+                                    <th>Contact Number</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($client_contact_persons as $client_contact_person)
+                                <tr>
+                                    <td>{{$client_contact_person->name}}</td>
+                                    <td>{{$client_contact_person->position}}</td>
+                                    <td>{{$client_contact_person->department}}</td>
+                                    <td>{{$client_contact_person->email}}</td>
+                                    <td>{{$client_contact_person->contact_number}}</td>
 
-                            </tr>
-                            @endforeach
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Department</th>
-                                <th>Email</th>
-                                <th>Contact Number</th>
-                            </tr>
+                                </tr>
+                                @endforeach
                             </tbody>
-                    </table>
+                            <tfoot>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Position</th>
+                                    <th>Department</th>
+                                    <th>Email</th>
+                                    <th>Contact Number</th>
+                                </tr>
+                                </tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </div><!--//card card-default-->
+        @endif
         <div class="card card-default">
             <div class="card-header">
                 <h3 class="card-title">Contract Rate</h3>
@@ -233,11 +235,11 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label>Schedule of Cut-off</label>
-                        <p>{{ ($client->schedule_of_cut_off) ?  $client->insurance_fund : 'N/A' }}</p>
+                        <p>{{ ($client->schedule_of_cut_off) ?  $client->schedule_of_cut_off : 'N/A' }}</p>
                     </div>
                     <div class="col-md-6">
                         <label>Schedule of Payroll</label>
-                        <p>{{ ($client->schedule_of_payroll) ?  $client->pag_ibig_fund : 'N/A' }}</p>
+                        <p>{{ ($client->schedule_of_payroll) ?  $client->schedule_of_payroll : 'N/A' }}</p>
                     </div>
                 </div>
             </div>
