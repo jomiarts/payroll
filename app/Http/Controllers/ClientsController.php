@@ -274,5 +274,16 @@ class ClientsController extends Controller
     public function destroy($id)
     {
         //
+        $client = Client::find($id);
+        $client->delete();
+
+        $ClientContactPersons = ClientContactPerson::where('client_id',$id);
+        $ClientContactPersons->delete();
+
+        $ClientContractRate = ClientContractRate::where('client_id',$id);
+        $ClientContractRate->delete();
+
+        return redirect('dashboard/clients')->with('success', 'Record Remove!');
+        
     }
 }

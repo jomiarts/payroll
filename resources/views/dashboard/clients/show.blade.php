@@ -29,7 +29,11 @@
     <!-- Main content -->
     <section class="content">
         <a href="/dashboard/clients/{{$client->id}}/edit"><button class="btn btn-primary">Edit</button></a>
-        <a href="#"><button class="btn btn-danger">Delete</button></a>
+        <form action="{{ route('clients.destroy', $client->id) }}" method="POST">
+            @method('DELETE')
+            @csrf
+            <input type="submit" class="btn btn-danger" value="Delete" name="delete" />
+        </form>
         <div class="card card-default">
             <div class="card-header">
                 <h3 class="card-title">Client</h3>
@@ -88,53 +92,54 @@
             </div>
         </div>
         @if(count($client_contact_persons) > 0)
-            <div class="card card-default">
-                <div class="card-header">
-                    <h3 class="card-title">Contact Person</h3>
-                    <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-widget="collapse"><i
-                                class="fa fa-minus"></i></button>
-                        <button type="button" class="btn btn-tool" data-widget="remove"><i
-                                class="fa fa-remove"></i></button>
-                    </div>
+        <div class="card card-default">
+            <div class="card-header">
+                <h3 class="card-title">Contact Person</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-widget="collapse"><i
+                            class="fa fa-minus"></i></button>
+                    <button type="button" class="btn btn-tool" data-widget="remove"><i
+                            class="fa fa-remove"></i></button>
                 </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table id="client_table" class="table table-bordered table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Department</th>
-                                    <th>Email</th>
-                                    <th>Contact Number</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($client_contact_persons as $client_contact_person)
-                                <tr>
-                                    <td>{{$client_contact_person->name}}</td>
-                                    <td>{{$client_contact_person->position}}</td>
-                                    <td>{{$client_contact_person->department}}</td>
-                                    <td>{{$client_contact_person->email}}</td>
-                                    <td>{{$client_contact_person->contact_number}}</td>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="client_table" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Position</th>
+                                <th>Department</th>
+                                <th>Email</th>
+                                <th>Contact Number</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($client_contact_persons as $client_contact_person)
+                            <tr>
+                                <td>{{$client_contact_person->name}}</td>
+                                <td>{{$client_contact_person->position}}</td>
+                                <td>{{$client_contact_person->department}}</td>
+                                <td>{{$client_contact_person->email}}</td>
+                                <td>{{$client_contact_person->contact_number}}</td>
 
-                                </tr>
-                                @endforeach
+                            </tr>
+                            @endforeach
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Name</th>
+                                <th>Position</th>
+                                <th>Department</th>
+                                <th>Email</th>
+                                <th>Contact Number</th>
+                            </tr>
                             </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Department</th>
-                                    <th>Email</th>
-                                    <th>Contact Number</th>
-                                </tr>
-                                </tbody>
-                        </table>
-                    </div>
+                    </table>
                 </div>
-            </div><!--//card card-default-->
+            </div>
+        </div>
+        <!--//card card-default-->
         @endif
         <div class="card card-default">
             <div class="card-header">
