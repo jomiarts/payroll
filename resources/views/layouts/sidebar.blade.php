@@ -22,26 +22,7 @@
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <li class="nav-item has-treeview {!! classActivePath(1,'dashboard') !!}">
-          <a href="{!! route('dashboard') !!}" class="nav-link {!! classActiveSegment(1, 'dashboard') !!}">
-            <i class="nav-icon fas fa-tachometer-alt"></i>
-            <p>
-              Dashboard
-              <i class="right fa fa-angle-left"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="{{ route('dashboard') }}" class="nav-link {!! classActiveSegment(2, 'dashboard') !!}">
-                <i class="fas fa-circle"></i>
-                <p>Dashboard v1</p>
-              </a>
-            </li>
-          </ul>
-        </li>
-
-
-        <li class="nav-item has-treeview">
-          <a href="#" class="nav-link">
+          <a href="#" class="nav-link {!! classActiveSegment(1, 'dashboard') !!}">
             <i class="nav-icon fas fa-chart-pie"></i>
             <p>
               Clients
@@ -50,14 +31,14 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="/dashboard/clients" class="nav-link">
+              <a href="/dashboard/clients" class="nav-link {!! classActiveSegment(2, 'dashboard') !!}">
                 <i class="fa fa-circle-o nav-icon"></i>
                 <p>All Clients</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="/dashboard/clients/create" class="nav-link">
-                <i class="fa fa-circle-o nav-icon"></i>
+                <i class="fa fa-circle-o nav-icon {!! classActiveSegment(2, 'dashboard') !!}"></i>
                 <p>Add New</p>
               </a>
             </li>
