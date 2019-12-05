@@ -14,13 +14,13 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Clients</h1>
+                    <h1 class="m-0 text-dark">{{__('Clients')}}</h1>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard v1</li>
+                        <li class="breadcrumb-item"><a href="/dashboard">{{__('Home')}}</a></li>
+                        <li class="breadcrumb-item active">{{__('Clients')}}</li>
                     </ol>
                 </div>
                 <!-- /.col -->
@@ -33,22 +33,21 @@
 
     <!-- Main content -->
     <section class="content">
-        <a href="#"><button class="btn btn-primary">Add New</button></a>
+        <div class="btn-container">
+            <a href="/dashboard/clients/create"><button class="btn btn-primary">{{__('Add New')}}</button></a>
+        </div>
         @if(count($clients) > 0)
         <div class="card">
-
             <div class="card-body">
                 <div class="table-responsive">
                     <table id="client_table" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Client ID</th>
-                                <th>Company name</th>
-                                <th>Date of Contract</th>
-                                <th>Date of Termination</th>
-                                <th>Company Email</th>
-
-
+                                <th>{{__('Client ID')}}</th>
+                                <th>{{__('Company name')}}</th>
+                                <th>{{__('Date of Contract')}}</th>
+                                <th>{{__('Date of Termination')}}</th>
+                                <th>{{__('Company Email')}}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -66,11 +65,11 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>Client ID</th>
-                                <th>Company name</th>
-                                <th>Date of Contract</th>
-                                <th>Date of Termination</th>
-                                <th>Company Address</th>
+                                <th>{{__('Client ID')}}</th>
+                                <th>{{__('Company name')}}</th>
+                                <th>{{__('Date of Contract')}}</th>
+                                <th>{{__('Date of Termination')}}</th>
+                                <th>{{__('Company Email')}}</th>
                             </tr>
                         </tfoot>
                     </table>
@@ -79,11 +78,10 @@
         </div>
 
         @else
-        <h3>No Records</h3>
+        <h3>{{__('No Records')}}</h3>
         @endif
     </section>
     <!-- / Main content -->
-
 </div>
 
 @endsection()

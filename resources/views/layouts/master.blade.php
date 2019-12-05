@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <!--
 This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
@@ -38,7 +39,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="/dist/plugins/datatables/dataTables.bootstrap4.css" />
     <link rel="stylesheet" href="/dist/plugins/datatables/jquery.dataTables.min.css" />
     <!-- IonIcons -->
-    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />  
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -47,7 +48,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Header -->
         @include('layouts.header')
         <!-- Sidebar -->
-        @include('layouts.sidebar') 
+        @include('layouts.sidebar')
         @yield('content')
         <!-- Footer -->
         @include('layouts.footer')

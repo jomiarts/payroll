@@ -14,8 +14,9 @@
                 <!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard v1</li>
+                        <li class="breadcrumb-item"><a href="/dashboard">{{__('Home')}}</a></li>
+                        <li class="breadcrumb-item">{{__('Dashboard')}}</li>
+                        <li class="breadcrumb-item active">{{__('Client')}}</li>
                     </ol>
                 </div>
                 <!-- /.col -->
@@ -27,16 +28,19 @@
     <!-- /.content-header -->
 
     <!-- Main content -->
-    <section class="content">
-        <a href="/dashboard/clients/{{$client->id}}/edit"><button class="btn btn-primary">Edit</button></a>
-        <form action="{{ route('clients.destroy', $client->id) }}" method="POST">
-            @method('DELETE')
-            @csrf
-            <input type="submit" class="btn btn-danger" value="Delete" name="delete" />
-        </form>
+    <section class="content client edit">
+        <div class="btn-container">
+            <a href="/dashboard/clients/{{$client->id}}/edit"><button
+                    class="btn btn-primary">{{__('Edit')}}</button></a>
+            <form action="{{ route('clients.destroy', $client->id) }}" method="POST">
+                @method('DELETE')
+                @csrf
+                <input type="submit" class="btn btn-danger" value="Delete" name="delete" />
+            </form>
+        </div>
         <div class="card card-default">
             <div class="card-header">
-                <h3 class="card-title">Client</h3>
+                <h3 class="card-title">{{__('Client')}}</h3>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-widget="collapse"><i
                             class="fa fa-minus"></i></button>
@@ -47,22 +51,22 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6">
-                        <label>Date of Contract</label>
+                        <label>{{__('Date of Contract')}}</label>
                         <p>{{ ($client->date_of_contract) ? $client->date_of_contract : 'N/A' }}</p>
                     </div>
                     <div class="col-md-6">
-                        <label>Date of Termination</label>
+                        <label>{{__('Date of Termination')}}</label>
                         <p>{{ ($client->date_of_termination) ?  $client->date_of_termination : 'N/A' }}</p>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-6">
-                        <label>Company Name</label>
+                        <label>{{__('Company Name')}}</label>
                         <p>{{ ($client->company_name) ? $client->company_name : 'N/A' }}</p>
                     </div>
                     <div class="col-md-6">
-                        <label for="company_address">Company Address</label>
+                        <label for="company_address">{{__('Company Address')}}</label>
                         <p>{{ ($client->company_address) ?  $client->company_address : 'N/A' }}</p>
 
                     </div>
@@ -70,22 +74,22 @@
 
                 <div class="row">
                     <div class="col-md-6">
-                        <label for="bir_tin_number">Bir Tin Number</label>
+                        <label for="bir_tin_number">{{__('Bir Tin Number')}}</label>
                         <p>{{ ($client->bir_tin_number) ?  $client->bir_tin_number : 'N/A' }}</p>
                     </div>
                     <div class="col-md-6">
-                        <label for="bir_tin_number">Peza Number</label>
+                        <label for="bir_tin_number">{{__('Peza Number')}}</label>
                         <p>{{ ($client->peza_number) ?  $client->peza_number : 'N/A' }}</p>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-6">
-                        <label for="official_company_no">Official Company No.</label>
+                        <label for="official_company_no">{{__('Official Company No.')}}</label>
                         <p>{{ ($client->official_company_no) ?  $client->official_company_no : 'N/A' }}</p>
                     </div>
                     <div class="col-md-6">
-                        <label for="company_email">Company Email</label>
+                        <label for="company_email">{{__('Company Email')}}</label>
                         <p>{{ ($client->company_email) ?  $client->company_email : 'N/A' }}</p>
                     </div>
                 </div>
@@ -94,7 +98,7 @@
         @if(count($client_contact_persons) > 0)
         <div class="card card-default">
             <div class="card-header">
-                <h3 class="card-title">Contact Person</h3>
+                <h3 class="card-title">{{__('Contact Person')}}</h3>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-widget="collapse"><i
                             class="fa fa-minus"></i></button>
@@ -107,11 +111,11 @@
                     <table id="client_table" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Department</th>
-                                <th>Email</th>
-                                <th>Contact Number</th>
+                                <th>{{__('Name')}}</th>
+                                <th>{{__('Position')}}</th>
+                                <th>{{__('Department')}}</th>
+                                <th>{{__('Email')}}</th>
+                                <th>{{__('Contact Number')}}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -128,11 +132,11 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Department</th>
-                                <th>Email</th>
-                                <th>Contact Number</th>
+                                <th>{{__('Name')}}</th>
+                                <th>{{__('Position')}}</th>
+                                <th>{{__('Department')}}</th>
+                                <th>{{__('Email')}}</th>
+                                <th>{{__('Contact Number')}}</th>
                             </tr>
                             </tbody>
                     </table>
@@ -143,7 +147,7 @@
         @endif
         <div class="card card-default">
             <div class="card-header">
-                <h3 class="card-title">Contract Rate</h3>
+                <h3 class="card-title">{{__('Contract Rate')}}</h3>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-widget="collapse"><i
                             class="fa fa-minus"></i></button>
@@ -154,72 +158,72 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6">
-                        <label>Contract Type</label>
+                        <label>{{__('Contract Type')}}</label>
                         <p>{{ ($client_contract_rates->contract_rate_type) ?  $client_contract_rates->contract_rate_type : 'N/A' }}
                         </p>
                     </div>
                     <div class="col-md-6">
-                        <label>Basic Pay</label>
+                        <label>{{__('Basic Pay')}}</label>
                         <p>{{ ($client_contract_rates->basic_pay) ?  number_format($client_contract_rates->basic_pay, 2) : 'N/A' }}
                         </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <label>Overtime Pay</label>
+                        <label>{{__('Overtime Pay')}}</label>
                         <p>{{ ($client_contract_rates->overtime_pay) ?  number_format($client_contract_rates->overtime_pay, 2) : 'N/A' }}
                         </p>
                     </div>
                     <div class="col-md-6">
-                        <label>Night Differential Pay</label>
+                        <label>{{__('Night Differential Pay')}}</label>
                         <p>{{ ($client_contract_rates->night_differential_pay) ?  number_format($client_contract_rates->night_differential_pay, 2) : 'N/A' }}
                         </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <label>COLA</label>
+                        <label>{{__('COLA')}}</label>
                         <p>{{ ($client_contract_rates->cola) ?  number_format($client_contract_rates->cola, 2) : 'N/A' }}
                         </p>
                     </div>
                     <div class="col-md-6">
-                        <label>5 Days Incentive Pay</label>
+                        <label>{{__('5 Days Incentive Pay')}}</label>
                         <p>{{ ($client_contract_rates->five_days_incentive_pay) ?  number_format($client_contract_rates->five_days_incentive_pay, 2) : 'N/A' }}
                         </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <label>Uniform Allowance</label>
+                        <label>{{__('Uniform Allowance')}}</label>
                         <p>{{ ($client_contract_rates->uniform_allowance) ?  number_format($client_contract_rates->uniform_allowance, 2) : 'N/A' }}
                         </p>
                     </div>
                     <div class="col-md-6">
-                        <label>13th Month Pay</label>
+                        <label>{{__('13th Month Pay')}}</label>
                         <p>{{ ($client_contract_rates->thirteen_month_pay) ?  number_format($client_contract_rates->thirteen_month_pay, 2) : 'N/A' }}
                         </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <label>SSS Premium</label>
+                        <label>{{__('SSS Premium')}}</label>
                         <p>{{ ($client_contract_rates->sss_premium) ?  number_format($client_contract_rates->sss_premium, 2) : 'N/A' }}
                         </p>
                     </div>
                     <div class="col-md-6">
-                        <label>PHILHEALTH</label>
+                        <label>{{__('PHILHEALTH')}}</label>
                         <p>{{ ($client_contract_rates->philhealth) ?  number_format($client_contract_rates->philhealth, 2) : 'N/A' }}
                         </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <label>Insurance Fund</label>
+                        <label>{{__('Insurance Fund')}}</label>
                         <p>{{ ($client_contract_rates->insurance_fund) ?  number_format($client_contract_rates->insurance_fund, 2) : 'N/A' }}
                         </p>
                     </div>
                     <div class="col-md-6">
-                        <label>Pag Ibig Fund</label>
+                        <label>{{__('Pag Ibig Fund')}}</label>
                         <p>{{ ($client_contract_rates->pag_ibig_fund) ?  number_format($client_contract_rates->pag_ibig_fund, 2) : 'N/A' }}
                         </p>
                     </div>
@@ -228,7 +232,7 @@
         </div>
         <div class="card card-default">
             <div class="card-header">
-                <h3 class="card-title">Payroll Details</h3>
+                <h3 class="card-title">{{__('Payroll Details')}}</h3>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-widget="collapse"><i
                             class="fa fa-minus"></i></button>
@@ -239,11 +243,11 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6">
-                        <label>Schedule of Cut-off</label>
+                        <label>{{__('Schedule of Cut-off')}}</label>
                         <p>{{ ($client->schedule_of_cut_off) ?  $client->schedule_of_cut_off : 'N/A' }}</p>
                     </div>
                     <div class="col-md-6">
-                        <label>Schedule of Payroll</label>
+                        <label>{{__('Schedule of Payroll')}}</label>
                         <p>{{ ($client->schedule_of_payroll) ?  $client->schedule_of_payroll : 'N/A' }}</p>
                     </div>
                 </div>

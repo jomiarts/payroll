@@ -2,7 +2,39 @@
     margin-top: 20px;
 }
 
-form.cmxform label.error, label.error {
+form.cmxform label.error,
+label.error {
     width: 100%;
     font-size: 14px;
+}
+
+.content {
+    .btn-container {
+        margin-bottom: 20px;
+        a {
+            display: inline;
+        }
+        form {
+            display: inline;
+        }
+    }
+    label {
+        margin-bottom: 5px;
+        margin-top: 10px;
+    }
+    .add-field-container {
+        margin-bottom: 10px;
+    }
+    .dynamic-more {
+        border-bottom: 2px dotted #ccc;
+        padding-bottom: 20px;
+        margin-bottom: 50px;
+    }
+}
+
+.btn-submit-container {
+    float: right;
+    margin-top: 12px;
+    margin-bottom: 50px;
+    margin-right: 50px;
 }

@@ -14,13 +14,15 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Edit Client</h1>
+                    <h1 class="m-0 text-dark">{{__('Edit Client')}}</h1>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard v1</li>
+                        <li class="breadcrumb-item"><a href="/dashboard">{{__('Home')}}</a></li>
+                        <li class="breadcrumb-item active">{{__('Dashboard')}}</li>
+                        <li class="breadcrumb-item">{{__('Client')}}</li>
+                        <li class="breadcrumb-item">{{__('Edit')}}</li>
                     </ol>
                 </div>
                 <!-- /.col -->
@@ -73,10 +75,9 @@
                             </div>
 
                             <div class="col-md-6">
-
                                 <!-- Date dd/mm/yyyy -->
                                 <div class="form-group">
-                                    <label>Date of Termination</label>
+                                    <label>{{__('Date of Termination')}}</label>
 
                                     <div class="input-group">
                                         <div class="input-group-prepend">
@@ -98,7 +99,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Company Name</label>
+                                    <label>{{__('Company Name')}}</label>
                                     <input type="text" class="form-control" placeholder="Enter ..." name="company_name"
                                         id="company_name" value="{{$client->company_name}}" />
                                     <small class="text-danger">{{ $errors->first('company_name') }}</small>
@@ -107,7 +108,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Company Address</label>
+                                    <label>{{__('Company Address')}}</label>
                                     <input type="text" class="form-control" placeholder="Enter ..."
                                         name="company_address" id="company_address"
                                         value="{{$client->company_address}}" />
@@ -118,7 +119,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>BIR TIN Number</label>
+                                    <label>{{__('BIR TIN Number')}}</label>
                                     <input type="text" class="form-control" placeholder="Enter ..." id="bir_tin_number"
                                         name="bir_tin_number" value="{{$client->bir_tin_number}}" />
                                     <small class="text-danger">{{ $errors->first('bir_tin_number') }}</small>
@@ -126,7 +127,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>PEZA Number</label>
+                                    <label>{{__('PEZA Number')}}</label>
                                     <input type="text" class="form-control" placeholder="Enter ..." id="peza_number"
                                         name="peza_number" value="{{$client->peza_number}}" />
                                     <small class="text-danger">{{ $errors->first('peza_number') }}</small>
@@ -136,7 +137,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Official Company No</label>
+                                    <label>{{__('Official Company No')}}</label>
                                     <input type="text" class="form-control" placeholder="Enter ..."
                                         id="official_company_no" name="official_company_no"
                                         value="{{$client->official_company_no}}" />
@@ -145,7 +146,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="company_email">Company Email</label>
+                                    <label for="company_email">{{__('Company Email')}}</label>
                                     <input type="email" class="form-control" id="company_email"
                                         placeholder="Enter email" name="company_email"
                                         value="{{$client->company_email}}" />
@@ -158,7 +159,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <h3 class="card-title">Contact Person</h3>
+                        <h3 class="card-title">{{__('Contact Person')}}</h3>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-widget="collapse"><i
                                     class="fa fa-minus"></i></button>
@@ -168,7 +169,9 @@
                     </div><!-- /.card-header -->
                     <div class="card-body">
                         <div class="field_wrapper">
-                            <a href="javascript:void(0);" class="add_button" title="Add field">Add Fields</a>
+                            <div class="add-field-container">
+                                <a href="javascript:void(0);" class="add_button" title="Add field">Add Fields</a>
+                            </div>
                             @if(count($client_contact_persons) >= 1)
                             @php($x=0)
                             @foreach($client_contact_persons as $client_contact_person)
@@ -183,7 +186,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Name</label>
+                                            <label>{{__('Name')}}</label>
                                             <input type="text" class="form-control contact_person_name"
                                                 placeholder="Enter ..." id="name" name="contact_person[{{$x}}][name]"
                                                 value="{{$client_contact_person->name}}" /> <small
@@ -192,7 +195,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Position</label>
+                                            <label>{{__('Position')}}</label>
                                             <input type="text" class="form-control contact_person_position"
                                                 placeholder="Enter ..." id="position"
                                                 name="contact_person[{{$x}}][position]"
@@ -204,7 +207,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Department</label>
+                                            <label>{{__('Department')}}</label>
                                             <input type="text" class="form-control contact_person_department"
                                                 placeholder="Enter ..." id="department"
                                                 name="contact_person[{{$x}}][department]"
@@ -214,7 +217,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Email Address</label>
+                                            <label>{{__('Email Address')}}</label>
                                             <input type="text" class="form-control contact_person_email"
                                                 placeholder="Enter ..." id="email_address"
                                                 name="contact_person[{{$x}}][email_address]"
@@ -226,7 +229,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Contact Number</label>
+                                            <label>{{__('Contact Number')}}</label>
                                             <input type="text" class="form-control contact_person_number"
                                                 placeholder="Enter ..." id="contact_number"
                                                 name="contact_person[{{$x}}][contact_number]"
@@ -235,7 +238,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="javascript:void(0);" class="remove_button">Remove Fields</a>
+                                <a href="javascript:void(0);" class="remove_button">{{__('Remove Fields')}}</a>
                             </div>
                             @php($x++)
                             @endforeach
@@ -246,7 +249,7 @@
                 </div><!-- /.card -->
                 <div class="card card-default">
                     <div class="card-header">
-                        <h3 class="card-title">Contract Rate</h3>
+                        <h3 class="card-title">{{__('Contract Rate')}}</h3>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-widget="collapse"><i
                                     class="fa fa-minus"></i></button>
@@ -258,17 +261,17 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Contract Type</label>
+                                    <label>{{__('Contract Type')}}</label>
                                     <select class="form-control select2" style="width: 100%;" name="contract_type">
                                         <option selected="selected" value=""
                                             {{ ($client_contract_rates->contract_rate_type == '') ? 'selected="selected"' : '' }}>
-                                            --Select Option--</option>
+                                            {{__('--Select Option--')}}</option>
                                         <option value="A"
                                             {{ ($client_contract_rates->contract_rate_type == 'A') ? 'selected="selected"' : '' }}>
-                                            A</option>
+                                            {{'A'}}</option>
                                         <option value="B"
                                             {{ ($client_contract_rates->contract_rate_type == 'B') ? 'selected="selected"' : '' }}>
-                                            B</option>
+                                            {{'B'}}</option>
                                     </select>
                                     <small class="text-danger">{{ $errors->first('contract_type') }}</small>
                                 </div>
@@ -276,7 +279,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Basic Pay</label>
+                                    <label>{{__('Basic Pay')}}</label>
                                     <input type="text" name="basic_pay" id="basic_pay" placeholder="Enter ..."
                                         class="form-control money_format"
                                         value="{{ $client_contract_rates->basic_pay }}" />
@@ -287,7 +290,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Overtime Pay</label>
+                                    <label>{{__('Overtime Pay')}}</label>
                                     <input type="text" name="overtime_pay" id="overtime_pay" placeholder="Enter ..."
                                         class="form-control money_format"
                                         value="{{ $client_contract_rates->overtime_pay }}">
@@ -296,9 +299,9 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Night Differential Pay</label>
-                                    <input type="text" name="night_differential_pay" id="night_differential_pay" placeholder="Enter ..."
-                                        class="form-control money_format"
+                                    <label>{{__('Night Differential Pay')}}</label>
+                                    <input type="text" name="night_differential_pay" id="night_differential_pay"
+                                        placeholder="Enter ..." class="form-control money_format"
                                         value="{{ $client_contract_rates->night_differential_pay }}" />
                                     <small class="text-danger">{{ $errors->first('night_differential_pay') }}</small>
                                 </div>
@@ -307,18 +310,17 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>COLA</label>
+                                    <label>{{__('COLA')}}</label>
                                     <input type="text" name="cola" id="cola" placeholder="Enter ..."
-                                        class="form-control money_format"
-                                        value="{{ $client_contract_rates->cola }}" />
+                                        class="form-control money_format" value="{{ $client_contract_rates->cola }}" />
                                     <small class="text-danger">{{ $errors->first('cola') }}</small>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>5 Days Incentive Pay</label>
-                                    <input type="text" name="five_days_incentive_pay" id="five_days_incentive_pay" placeholder="Enter ..."
-                                        class="form-control money_format"
+                                    <label>{{__('5 Days Incentive Pay')}}</label>
+                                    <input type="text" name="five_days_incentive_pay" id="five_days_incentive_pay"
+                                        placeholder="Enter ..." class="form-control money_format"
                                         value="{{ $client_contract_rates->five_days_incentive_pay }}" />
                                     <small class="text-danger">{{ $errors->first('five_days_incentive_pay') }}</small>
                                 </div>
@@ -327,16 +329,16 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Uniform Allowance</label>
-                                    <input type="text" name="uniform_allowance" id="uniform_allowance" placeholder="Enter ..."
-                                        class="form-control money_format"
+                                    <label>{{__('Uniform Allowance')}}</label>
+                                    <input type="text" name="uniform_allowance" id="uniform_allowance"
+                                        placeholder="Enter ..." class="form-control money_format"
                                         value="{{ $client_contract_rates->uniform_allowance }}" />
                                     <small class="text-danger">{{ $errors->first('uniform_allowance') }}</small>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>13th Month Pay</label>
+                                    <label>{{__('13th Month Pay')}}</label>
                                     <input type="text" name="thth_month_pay" id="thth_month_pay" placeholder="Enter ..."
                                         class="form-control money_format"
                                         value="{{ $client_contract_rates->thirteen_month_pay }}" />
@@ -347,7 +349,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>SSS Premium</label>
+                                    <label>{{__('SSS Premium')}}</label>
                                     <input type="text" name="sss_premium" id="sss_premium" placeholder="Enter ..."
                                         class="form-control money_format"
                                         value="{{ $client_contract_rates->sss_premium }}" />
@@ -356,7 +358,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>PHILHEALTH</label>
+                                    <label>{{__('PHILHEALTH')}}</label>
                                     <input type="text" name="philhealth" id="philhealth" placeholder="Enter ..."
                                         class="form-control money_format"
                                         value="{{ $client_contract_rates->philhealth }}" />
@@ -367,7 +369,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Insurance Fund</label>
+                                    <label>{{__('Insurance Fund')}}</label>
                                     <input type="text" name="insurance_fund" id="insurance_fund" placeholder="Enter ..."
                                         class="form-control money_format"
                                         value="{{ $client_contract_rates->insurance_fund }}" />
@@ -376,7 +378,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Pag Ibig Fund</label>
+                                    <label>{{__('Pag Ibig Fund')}}</label>
                                     <input type="text" name="pag_ibig_fund" id="pag_ibig_fund" placeholder="Enter ..."
                                         class="form-control money_format"
                                         value="{{ $client_contract_rates->pag_ibig_fund }}" />
@@ -388,7 +390,7 @@
                 </div>
                 <div class="card card-default">
                     <div class="card-header">
-                        <h3 class="card-title">Payroll Details</h3>
+                        <h3 class="card-title">{{__('Payroll Details')}}</h3>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-widget="collapse"><i
                                     class="fa fa-minus"></i></button>
@@ -401,13 +403,14 @@
                             <div class="col-md-6">
                                 <!-- Date dd/mm/yyyy -->
                                 <div class="form-group">
-                                    <label>Schedule of Cut-off</label>
+                                    <label>{{__('Schedule of Cut-off')}}</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                         </div>
                                         <input type="text" class="form-control" data-inputmask="'alias': 'yyyy-mm-dd'"
-                                            data-mask id="schedule_of_cut_off" name="schedule_of_cut_off" value="{{ $client->schedule_of_cut_off }}"/>
+                                            data-mask id="schedule_of_cut_off" name="schedule_of_cut_off"
+                                            value="{{ $client->schedule_of_cut_off }}" />
                                     </div>
                                     <!-- /.input group -->
                                     <small class="text-danger">{{ $errors->first('schedule_of_cut_off') }}</small>
@@ -417,13 +420,14 @@
                             <div class="col-md-6">
                                 <!-- Date dd/mm/yyyy -->
                                 <div class="form-group">
-                                    <label>Schedule of Payroll</label>
+                                    <label>{{__('Schedule of Payroll')}}</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                         </div>
                                         <input type="text" class="form-control" data-inputmask="'alias': 'yyyy-mm-dd'"
-                                            data-mask id="schedule_of_payroll" name="schedule_of_payroll" value="{{ $client->schedule_of_payroll }}" />
+                                            data-mask id="schedule_of_payroll" name="schedule_of_payroll"
+                                            value="{{ $client->schedule_of_payroll }}" />
                                     </div>
                                     <!-- /.input group -->
                                     <small class="text-danger">{{ $errors->first('schedule_of_payroll') }}</small>
@@ -433,7 +437,9 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="btn-submit-container">
+                    <button type="submit" class="btn btn-primary">{{__('Submit')}}</button>
+                </div>
             </form>
         </div><!-- /.container-fluid -->
     </section>

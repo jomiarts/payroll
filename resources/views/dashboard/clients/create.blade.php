@@ -14,13 +14,16 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Add New Client</h1>
+                    <h1 class="m-0 text-dark">{{__('Add New Client')}}</h1>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard v1</li>
+                        <li class="breadcrumb-item"><a href="/dashboard">{{__('Home')}}</a></li>
+                        <li class="breadcrumb-item">{{__('Dashboard')}}</li>
+                        <li class="breadcrumb-item">{{__('Clients')}}</li>
+                        <li class="breadcrumb-item active">{{__('Create')}}</li>
+
                     </ol>
                 </div>
                 <!-- /.col -->
@@ -40,7 +43,7 @@
                 {{ csrf_field() }}
                 <div class="card card-default">
                     <div class="card-header">
-                        <h3 class="card-title">Client</h3>
+                        <h3 class="card-title">{{__('Client')}}</h3>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-widget="collapse"><i
                                     class="fa fa-minus"></i></button>
@@ -55,7 +58,7 @@
 
                                 <!-- Date dd/mm/yyyy -->
                                 <div class="form-group">
-                                    <label>Date of Contract</label>
+                                    <label>{{__('Date of Contract')}}</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
@@ -74,7 +77,7 @@
 
                                 <!-- Date dd/mm/yyyy -->
                                 <div class="form-group">
-                                    <label>Date of Termination</label>
+                                    <label>{{__('Date of Termination')}}</label>
 
                                     <div class="input-group">
                                         <div class="input-group-prepend">
@@ -95,7 +98,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Company Name</label>
+                                    <label>{{__('Company Name')}}</label>
                                     <input type="text" class="form-control" placeholder="Enter ..." name="company_name"
                                         id="company_name" />
                                     <small class="text-danger">{{ $errors->first('company_name') }}</small>
@@ -104,7 +107,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Company Address</label>
+                                    <label>{{__('Company Address')}}</label>
                                     <input type="text" class="form-control" placeholder="Enter ..."
                                         name="company_address" id="company_address" />
                                     <small class="text-danger">{{ $errors->first('company_address') }}</small>
@@ -114,7 +117,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>BIR TIN Number</label>
+                                    <label>{{__('BIR TIN Number')}}</label>
                                     <input type="text" class="form-control" placeholder="Enter ..." id="bir_tin_number"
                                         name="bir_tin_number" />
                                     <small class="text-danger">{{ $errors->first('bir_tin_number') }}</small>
@@ -122,7 +125,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>PEZA Number</label>
+                                    <label>{{__('PEZA Number')}}</label>
                                     <input type="text" class="form-control" placeholder="Enter ..." id="peza_number"
                                         name="peza_number" />
                                     <small class="text-danger">{{ $errors->first('peza_number') }}</small>
@@ -132,7 +135,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Official Company No</label>
+                                    <label>{{__('Official Company No')}}</label>
                                     <input type="text" class="form-control" placeholder="Enter ..."
                                         id="official_company_no" name="official_company_no" />
                                     <small class="text-danger">{{ $errors->first('official_company_no') }}</small>
@@ -140,7 +143,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="company_email">Company Email</label>
+                                    <label for="company_email">{{__('Company Email')}}</label>
                                     <input type="email" class="form-control" id="company_email"
                                         placeholder="Enter email" name="company_email" id="company_email" />
                                     <small class="text-danger">{{ $errors->first('company_email') }}</small>
@@ -152,7 +155,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <h3 class="card-title">Contact Person</h3>
+                        <h3 class="card-title">{{__('Contact Person')}}</h3>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-widget="collapse"><i
                                     class="fa fa-minus"></i></button>
@@ -162,14 +165,17 @@
                     </div><!-- /.card-header -->
                     <div class="card-body">
                         <div class="field_wrapper">
-                            <a href="javascript:void(0);" class="add_button" title="Add field">Add Fields</a>
+                            <div class="add-field-container">
+                                <a href="javascript:void(0);" class="add_button"
+                                    title="Add field">{{__('Add Fields')}}</a>
+                            </div>
                         </div>
                         <!--field_wrapper-->
                     </div>
                 </div><!-- /.card -->
                 <div class="card card-default">
                     <div class="card-header">
-                        <h3 class="card-title">Contract Rate</h3>
+                        <h3 class="card-title">{{__('Contract Rate')}}</h3>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-widget="collapse"><i
                                     class="fa fa-minus"></i></button>
@@ -183,9 +189,9 @@
                                 <div class="form-group">
                                     <label>Contract Type</label>
                                     <select class="form-control select2" style="width: 100%;" name="contract_type">
-                                        <option selected="selected" value="">--Select Option--</option>
-                                        <option value>A</option>
-                                        <option>B</option>
+                                        <option selected="selected" value="">{{__('--Select Option--')}}</option>
+                                        <option value="A">{{__('A')}}</option>
+                                        <option value="B">{{__('B')}}</option>
                                     </select>
                                     <small class="text-danger">{{ $errors->first('contract_type') }}</small>
                                 </div>
@@ -193,7 +199,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Basic Pay</label>
+                                    <label>{{__('Basic Pay')}}</label>
                                     <input type="text" name="basic_pay" id="basic_pay" placeholder="Enter ..."
                                         class="form-control money_format" />
                                     <small class="text-danger">{{ $errors->first('basic_pay') }}</small>
@@ -203,7 +209,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Overtime Pay</label>
+                                    <label>{{__('Overtime Pay')}}</label>
                                     <input type="text" name="overtime_pay" id="overtime_pay" placeholder="Enter ..."
                                         class="form-control money_format" />
                                     <small class="text-danger">{{ $errors->first('overtime_pay') }}</small>
@@ -211,7 +217,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Night Differential Pay</label>
+                                    <label>{{__('Night Differential Pay')}}</label>
                                     <input type="text" name="night_differential_pay" id="night_differential_pay"
                                         placeholder="Enter ..." class="form-control money_format" />
                                     <small class="text-danger">{{ $errors->first('night_differential_pay') }}</small>
@@ -221,7 +227,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>COLA</label>
+                                    <label>{{__('COLA')}}</label>
                                     <input type="text" name="cola" id="cola" placeholder="Enter ..."
                                         class="form-control money_format" />
                                     <small class="text-danger">{{ $errors->first('cola') }}</small>
@@ -229,9 +235,9 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>5 Days Incentive Pay</label>
-                                    <input type="text" name="five_days_incentive_pay" id="five_days_incentive_pay" placeholder="Enter ..."
-                                        class="form-control money_format">
+                                    <label>{{__('5 Days Incentive Pay')}}</label>
+                                    <input type="text" name="five_days_incentive_pay" id="five_days_incentive_pay"
+                                        placeholder="Enter ..." class="form-control money_format">
                                     <small class="text-danger">{{ $errors->first('five_days_incentive_pay') }}</small>
                                 </div>
                             </div>
@@ -239,15 +245,15 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Uniform Allowance</label>
-                                    <input type="text" name="uniform_allowance" id="uniform_allowance" placeholder="Enter ..."
-                                        class="form-control money_format" />
+                                    <label>{{__('Uniform Allowance')}}</label>
+                                    <input type="text" name="uniform_allowance" id="uniform_allowance"
+                                        placeholder="Enter ..." class="form-control money_format" />
                                     <small class="text-danger">{{ $errors->first('uniform_allowance') }}</small>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>13th Month Pay</label>
+                                    <label>{{__('13th Month Pay')}}</label>
                                     <input type="text" name="thth_month_pay" id="thth_month_pay" placeholder="Enter ..."
                                         class="form-control money_format" />
                                     <small class="text-danger">{{ $errors->first('thth_month_pay') }}</small>
@@ -257,7 +263,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>SSS Premium</label>
+                                    <label>{{__('SSS Premium')}}</label>
                                     <input type="text" name="sss_premium" id="sss_premium" placeholder="Enter ..."
                                         class="form-control money_format">
                                     <input type="hidden" name="sss_premium" />
@@ -266,7 +272,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>PHILHEALTH</label>
+                                    <label>{{__('PHILHEALTH')}}</label>
                                     <input type="text" name="philhealth" id="philhealth" placeholder="Enter ..."
                                         class="form-control money_format" />
                                     <small class="text-danger">{{ $errors->first('philhealth') }}</small>
@@ -276,7 +282,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Insurance Fund</label>
+                                    <label>{{__('Insurance Fund')}}</label>
                                     <input type="text" name="insurance_fund" id="insurance_fund" placeholder="Enter ..."
                                         class="form-control money_format">
                                     <small class="text-danger">{{ $errors->first('insurance_fund') }}</small>
@@ -284,7 +290,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Pag Ibig Fund</label>
+                                    <label>{{__('Pag Ibig Fund')}}</label>
                                     <input type="text" name="pag_ibig_fund" id="pag_ibig_fund" placeholder="Enter ..."
                                         class="form-control money_format" />
                                     <small class="text-danger">{{ $errors->first('pag_ibig_fund') }}</small>
@@ -295,7 +301,7 @@
                 </div>
                 <div class="card card-default">
                     <div class="card-header">
-                        <h3 class="card-title">Payroll Details</h3>
+                        <h3 class="card-title">{{__('Payroll Details')}}</h3>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-widget="collapse"><i
                                     class="fa fa-minus"></i></button>
@@ -308,7 +314,7 @@
                             <div class="col-md-6">
                                 <!-- Date dd/mm/yyyy -->
                                 <div class="form-group">
-                                    <label>Schedule of Cut-off</label>
+                                    <label>{{__('Schedule of Cut-off')}}</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
@@ -324,7 +330,7 @@
                             <div class="col-md-6">
                                 <!-- Date dd/mm/yyyy -->
                                 <div class="form-group">
-                                    <label>Schedule of Payroll</label>
+                                    <label>{{__('Schedule of Payroll')}}</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
@@ -340,7 +346,9 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="btn-submit-container">
+                    <button type="submit" class="btn btn-primary">{{__('Submit')}}</button>
+                </div>
             </form>
         </div><!-- /.container-fluid -->
     </section>
