@@ -44,6 +44,31 @@
             </li>
           </ul>
         </li>
+
+
+        <li class="nav-item has-treeview {!! classActivePath(1,'dashboard') !!}">
+          <a href="#" class="nav-link {!! classActiveSegment(1, 'dashboard') !!}">
+            <i class="nav-icon fas fa-chart-pie"></i>
+            <p>
+              Users
+              <i class="right fa fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="/dashboard/clients" class="nav-link {!! classActiveSegment(2, 'dashboard') !!}">
+                <i class="fa fa-circle-o nav-icon"></i>
+                <p>All Users</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/register" class="nav-link">
+                <i class="fa fa-circle-o nav-icon {!! classActiveSegment(2, 'dashboard') !!}"></i>
+                <p>Add New</p>
+              </a>
+            </li>
+          </ul>
+        </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
