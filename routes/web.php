@@ -22,3 +22,5 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/dashboard', 'DashboardController@versionone')->name('dashboard');
 
 Route::resource('/dashboard/clients', 'ClientsController');
+
+Route::get('/dashboard/users', 'UsersController@index');
