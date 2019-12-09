@@ -57,7 +57,7 @@
 
               <div class="col-md-6">
                 <div class="form-group">
-                  <label>{{__('Full Name')}}</label>
+                  <label>{{__('Email')}}</label>
                   <input id="email" type="email" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
                     name="email" value="{{ old('email') }}" />
                   @if ($errors->has('email'))
@@ -86,6 +86,21 @@
                 </div>
               </div>
             </div><!-- /. row -->
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Role</label>
+                  <select class="form-control select2" style="width: 100%;" name="role">
+                    <option selected="selected" value="">{{__('--Select Option--')}}</option>
+                    <option value="admin">{{__('Admin')}}</option>
+                    <option value="employee">{{__('Employee')}}</option>
+                  </select>
+                  <small class="text-danger">{{ $errors->first('contract_type') }}</small>
+                </div>
+                <!-- /.form-group -->
+              </div>
+              <div class="col-md-6"></div>
+            </div>
           </div>
         </div>
         <div class="btn-submit-container">
