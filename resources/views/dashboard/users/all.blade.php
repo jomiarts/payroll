@@ -14,13 +14,13 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">{{__('Clients')}}</h1>
+                    <h1 class="m-0 text-dark">{{__('Users')}}</h1>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/dashboard">{{__('Home')}}</a></li>
-                        <li class="breadcrumb-item active">{{__('Clients')}}</li>
+                        <li class="breadcrumb-item active">{{__('Users')}}</li>
                     </ol>
                 </div>
                 <!-- /.col -->
@@ -36,40 +36,38 @@
         <div class="btn-container">
             <a href="/dashboard/clients/create"><button class="btn btn-primary">{{__('Add New')}}</button></a>
         </div>
-        @if(count($clients) > 0)
+        @if(count($users) > 0)
         <div class="card">
             <div class="card-body">
                 <div class="table-responsive">
                     <table id="client_table" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>{{__('Client ID')}}</th>
-                                <th>{{__('Company name')}}</th>
-                                <th>{{__('Date of Contract')}}</th>
-                                <th>{{__('Date of Termination')}}</th>
-                                <th>{{__('Company Email')}}</th>
+                                <th>{{__('ID')}}</th>
+                                <th>{{__('Name')}}</th>
+                                <th>{{__('Email')}}</th>
+                                <th>{{__('password')}}</th>
                             </tr>
                         </thead>
                         <tbody>
 
-                            @foreach($clients as $client)
+                            @foreach($users as $user)
                             <tr>
-                                <td>{{$client->id}}</td>
-                                <td><a href="/dashboard/clients/{{$client->id}}">{{$client->company_name}}</a></td>
-                                <td>{{$client->date_of_contract}}</td>
-                                <td>{{$client->date_of_termination}}</td>
-                                <td>{{$client->company_email}}</td>
+                                <td>{{$user->id}}</td>
+                                <td><a href="/dashboard/users/{{$user->id}}">{{$user->name}}</a></td>
+                                <td>{{$user->email}}</td>
+                                <td>{{__('*********')}}</td>
+                              
                             </tr>
                             @endforeach
 
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>{{__('Client ID')}}</th>
-                                <th>{{__('Company name')}}</th>
-                                <th>{{__('Date of Contract')}}</th>
-                                <th>{{__('Date of Termination')}}</th>
-                                <th>{{__('Company Email')}}</th>
+                                <th>{{__('ID')}}</th>
+                                <th>{{__('Name')}}</th>
+                                <th>{{__('Email')}}</th>
+                                <th>{{__('password')}}</th>
                             </tr>
                         </tfoot>
                     </table>
