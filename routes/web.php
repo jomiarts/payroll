@@ -24,3 +24,5 @@ Route::get('/dashboard', 'DashboardController@versionone')->name('dashboard');
 Route::resource('/dashboard/clients', 'ClientsController');
 
 Route::get('/dashboard/users', 'UsersController@index');
+Route::get('dashboard/users/{user}', 'UsersController@show')->name('user.show');
+Route::get('/dashboard/users/{user}/edit', 'UsersController@edit')->name('user.edit');

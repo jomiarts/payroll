@@ -56,7 +56,7 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="/dashboard/clients" class="nav-link {!! classActiveSegment(2, 'dashboard') !!}">
+              <a href="/dashboard/users" class="nav-link {!! classActiveSegment(2, 'dashboard') !!}">
                 <i class="fa fa-circle-o nav-icon"></i>
                 <p>All Users</p>
               </a>
