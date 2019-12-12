@@ -78,9 +78,8 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>{{__('Password')}}</label>
-                                    <input type="password" class="form-control" placeholder="Enter ..." id="password"
-                                        name="password" value="{{$user->password}}" />
-                                    <small class="text-danger">{{ $errors->first('password') }}</small>
+                                    <p><a href="/dashboard/users/{{$user->id}}/edit"><button
+                                                class="btn btn-primary">{{__('Set Up')}}</button></a></p>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -158,9 +157,28 @@
     $(function() 
     {
         $('[data-mask]').inputmask('yyyy-mm-dd', { 'placeholder': 'yyyy-mm-dd' });
-        dynimic_more_fix();
-        
+        field_validation();
     });
+
+    function field_validation() 
+    {
+        
+
+        
+
+        
+
+        $('#add_client_form').validate({
+            rules: {
+               name: 'required',
+               email: {
+                   required: true,
+                   email: true
+               }
+                
+            }
+        });
+    }
 
 </script>
 
