@@ -95,6 +95,15 @@
                     <option value="admin">{{__('Admin')}}</option>
                     <option value="employee">{{__('Employee')}}</option>
                   </select>
+                  <select class="select2bs4" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+                    <option>Alabama</option>
+                    <option>Alaska</option>
+                    <option>California</option>
+                    <option>Delaware</option>
+                    <option>Tennessee</option>
+                    <option>Texas</option>
+                    <option>Washington</option>
+                  </select>
                   <small class="text-danger">{{ $errors->first('contract_type') }}</small>
                 </div>
                 <!-- /.form-group -->
@@ -166,7 +175,11 @@
 
 <script>
   $(function() {
-        field_validation();   
+        field_validation();
+        $('.select2').select2()
+        $('.select2bs4').select2({
+        theme: 'bootstrap4'
+        })
     });
 
     function field_validation() 

@@ -73,10 +73,9 @@
         <div class="top-right links">
             @auth
             <a href="{{ route('dashboard') }}">Dashbaord</a>
-            <a href="{{ route('logout') }}"
-            onclick="event.preventDefault();
+            <a href="{{ route('logout') }}" onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();">
-             {{ __('Logout') }}
+                {{ __('Logout') }}
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
@@ -90,7 +89,7 @@
 
         <div class="content">
             <div class="title m-b-md">
-                PAYROLL
+                {{__('PAYROLL')}}
             </div>
         </div>
     </div>
