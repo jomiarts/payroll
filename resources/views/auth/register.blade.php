@@ -90,19 +90,9 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label>Role</label>
-                  <select class="form-control select2" style="width: 100%;" name="role">
-                    <option selected="selected" value="">{{__('--Select Option--')}}</option>
+                  <select class="role" name="role[]" multiple="multiple" data-placeholder="Select a role" style="width: 100%;">
                     <option value="admin">{{__('Admin')}}</option>
                     <option value="employee">{{__('Employee')}}</option>
-                  </select>
-                  <select class="select2bs4" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
-                    <option>Alabama</option>
-                    <option>Alaska</option>
-                    <option>California</option>
-                    <option>Delaware</option>
-                    <option>Tennessee</option>
-                    <option>Texas</option>
-                    <option>Washington</option>
                   </select>
                   <small class="text-danger">{{ $errors->first('contract_type') }}</small>
                 </div>
@@ -138,6 +128,8 @@
 </script>
 <!-- Bootstrap 4 -->
 <script src="/dist/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Select2 -->
+<script src="/dist/plugins/select2/select2.full.min.js"></script>
 <!-- Morris.js charts -->
 <script src="/dist/plugins/jquery-validation/jquery.validate.min.js"></script>
 <!-- Morris.js charts -->
@@ -176,10 +168,7 @@
 <script>
   $(function() {
         field_validation();
-        $('.select2').select2()
-        $('.select2bs4').select2({
-        theme: 'bootstrap4'
-        })
+        $('.role').select2();
     });
 
     function field_validation() 
