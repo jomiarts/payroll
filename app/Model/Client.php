@@ -1,11 +1,12 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Client extends Model
 {
+    protected $table = 'clients';
     //
     public function client_contact_persons() 
     {

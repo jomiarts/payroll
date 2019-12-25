@@ -1,11 +1,12 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
 class ClientContractRate extends Model
 {
+    protected $table = 'client_contract_rates';
     //
     public function Client() 
     {

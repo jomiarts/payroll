@@ -1,21 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Client;
+use App\Model\Client;
 use App\ClientContactPerson;
 use App\ClientContractRate;
-
+use App\Http\Controllers\Controller;
 
 
 class ClientsController extends Controller
 {
 
-    public function __construct() 
-    {
-        $this->middleware('auth');
-    }
+   
     /**
      * Display a listing of the resource.
      *

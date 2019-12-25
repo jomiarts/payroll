@@ -17,8 +17,15 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
+Route::get('admin-login', 'Admin\Auth\AdminLoginController@showLoginForm');
+
+Route::post('admin-login', ['as'=>'admin-login','uses'=>'Admin\Auth\AdminLoginController@login']);
+
+
+
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-Route::get('/dashboard', 'DashboardController@versionone')->name('dashboard');
+Route::get('/dashboard', '\App\Http\Controllers\Admin\DashboardController@versionone')->name('dashboard');
 
-Route::resource('/dashboard/clients', 'ClientsController');
+Route::resource('/dashboard/clients', '\App\Http\Controllers\Admin\ClientsController');
