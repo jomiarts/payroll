@@ -2,7 +2,7 @@
 @section('content')
 <div class="login-box">
     <div class="login-logo">
-        Admin
+        {{ __('Employee') }}
     </div>
     <div class="card">
         <div class="card-body login-card-body">

@@ -17,15 +17,16 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::prefix('admin')->group(function(){
+    Route::get('/login', 'Admin\Auth\AdminLoginController@showLoginForm')->name('admin.login');
+    Route::post('/login', ['as'=>'admin-login','uses'=>'Admin\Auth\AdminLoginController@login'])->name('admin.login.submit');
+    Route::get('/dashboard', '\App\Http\Controllers\Admin\DashboardController@versionone')->name('admin.dashboard');
+    Route::resource('/dashboard/clients', '\App\Http\Controllers\Admin\ClientsController');
+});
 
-Route::get('admin-login', 'Admin\Auth\AdminLoginController@showLoginForm');
 
-Route::post('admin-login', ['as'=>'admin-login','uses'=>'Admin\Auth\AdminLoginController@login']);
 
 
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-Route::get('/dashboard', '\App\Http\Controllers\Admin\DashboardController@versionone')->name('dashboard');
-
-Route::resource('/dashboard/clients', '\App\Http\Controllers\Admin\ClientsController');

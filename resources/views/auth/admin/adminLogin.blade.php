@@ -2,13 +2,13 @@
 @section('content')
 <div class="login-box">
     <div class="login-logo">
-        Admin
+        {{ __('Admin') }}
     </div>
     <div class="card">
         <div class="card-body login-card-body">
             <p class="login-box-msg">{{ __('Login') }}</p>
 
-            <form action="{{ route('admin-login') }}" method="post">
+            <form action="{{ route('admin.login') }}" method="post">
                 @csrf
                 <div class="input-group mb-3">
                     <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"

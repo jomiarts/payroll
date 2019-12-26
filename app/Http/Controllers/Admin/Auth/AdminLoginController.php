@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 
 class AdminLoginController extends Controller
@@ -29,16 +30,7 @@ class AdminLoginController extends Controller
 
     */
 
- 
-
     use AuthenticatesUsers;
-
- 
-
-    protected $guard = 'admin';
-
- 
-
     /**
 
      * Where to redirect users after login.
@@ -49,7 +41,7 @@ class AdminLoginController extends Controller
 
      */
 
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/admin/dashboard';
 
  
 
@@ -64,38 +56,25 @@ class AdminLoginController extends Controller
      */
 
     public function __construct()
-
     {
 
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest:admin')->except('logout');
 
     }
 
  
 
     public function showLoginForm()
-
     {
 
         return view('auth.admin.adminLogin');
 
     }
 
- 
-
-    public function login(Request $request)
-
+    protected function guard()
     {
-
-        if (auth()->guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])) {
-
-            dd(auth()->guard('admin')->user());
-
-        }
-
- 
-
-        return back()->withErrors(['email' => 'Email or password are wrong.']);
-
+        return Auth::guard('admin');
     }
+
+  
 }
