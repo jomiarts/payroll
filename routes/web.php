@@ -22,11 +22,9 @@ Route::prefix('admin')->group(function(){
     Route::post('/login', ['as'=>'admin-login','uses'=>'Admin\Auth\AdminLoginController@login'])->name('admin.login.submit');
     Route::get('/dashboard', '\App\Http\Controllers\Admin\DashboardController@versionone')->name('admin.dashboard');
     Route::resource('/dashboard/clients', '\App\Http\Controllers\Admin\ClientsController');
+
+
+    
 });
 
-
-
-
-
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
-
