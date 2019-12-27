@@ -21,8 +21,8 @@
     <!-- Sidebar Menu -->
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        <li class="nav-item has-treeview {!! classActivePath(1,'dashboard') !!}">
-          <a href="#" class="nav-link {!! classActiveSegment(1, 'dashboard') !!}">
+        <li class="nav-item has-treeview {!! classActivePath(2,'dashboard') !!}">
+          <a href="/admin/dashboard/clients" class="nav-link {!! classActiveSegment(3, 'clients') !!}">
             <i class="nav-icon fas fa-chart-pie"></i>
             <p>
               Clients
@@ -31,14 +31,15 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="/dashboard/clients" class="nav-link {!! classActiveSegment(2, 'dashboard') !!}">
+              <a href="/admin/dashboard/clients" class="nav-link {!! classActiveHelper('admin/dashboard/clients') !!}">
                 <i class="fa fa-circle-o nav-icon"></i>
                 <p>All Clients</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="/dashboard/clients/create" class="nav-link">
-                <i class="fa fa-circle-o nav-icon {!! classActiveSegment(2, 'dashboard') !!}"></i>
+              <a href="/admin/dashboard/clients/create"
+                class="nav-link {!! classActiveHelper('admin/dashboard/clients/create') !!}">
+                <i class="fa fa-circle-o nav-icon"></i>
                 <p>Add New</p>
               </a>
             </li>
