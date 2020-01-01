@@ -24,7 +24,7 @@ Route::prefix('admin')->group(function(){
     Route::resource('/dashboard/clients', '\App\Http\Controllers\Admin\ClientsController');
 
 
-    
+    Route::resource('/dashboard/employees', '\App\Http\Controllers\Employee\EmployeeController');
 });
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');

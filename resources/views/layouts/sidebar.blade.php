@@ -49,7 +49,7 @@
 
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <li class="nav-item has-treeview {!! classActivePath(3,'users') !!}">
-          <a href="/admin/dashboard/clients" class="nav-link {!! classActiveSegment(3, 'users') !!}">
+          <a href="/admin/dashboard/users" class="nav-link {!! classActiveSegment(3, 'users') !!}">
             <i class="nav-icon fas fa-chart-pie"></i>
             <p>
               Users
@@ -58,16 +58,16 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="/admin/dashboard/clients" class="nav-link {!! classActiveHelper('admin/dashboard/users') !!}">
+              <a href="/admin/dashboard/users" class="nav-link {!! classActiveHelper('admin/dashboard/users') !!}">
                 <i class="fa fa-circle-o nav-icon"></i>
-                <p>All Users</p>
+                <p>{{__('Employee')}}</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="/admin/dashboard/clients/create"
+              <a href="/admin/dashboard/users/create"
                 class="nav-link {!! classActiveHelper('admin/dashboard/clients/users') !!}">
                 <i class="fa fa-circle-o nav-icon"></i>
-                <p>Add New</p>
+                <p>{{__('Admin')}}</p>
               </a>
             </li>
           </ul>
