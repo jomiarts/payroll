@@ -18,12 +18,18 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::prefix('admin')->group(function(){
+    //General Admin Route
     Route::get('/login', 'Admin\Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', ['as'=>'admin-login','uses'=>'Admin\Auth\AdminLoginController@login'])->name('admin.login.submit');
     Route::get('/dashboard', '\App\Http\Controllers\Admin\DashboardController@versionone')->name('admin.dashboard');
+
+    Route::resource('/dashboard/admins', '\App\Http\Controllers\Admin\AdminsController');
+
+
+    //Clients admin route
     Route::resource('/dashboard/clients', '\App\Http\Controllers\Admin\ClientsController');
 
-
+    //Employees admin route
     Route::resource('/dashboard/employees', '\App\Http\Controllers\Employee\EmployeeController');
 });
 

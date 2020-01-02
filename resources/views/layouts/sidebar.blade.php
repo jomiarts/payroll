@@ -25,7 +25,7 @@
           <a href="/admin/dashboard/clients" class="nav-link {!! classActiveSegment(3, 'clients') !!}">
             <i class="nav-icon fas fa-chart-pie"></i>
             <p>
-              Clients
+              {{__('Clients')}}
               <i class="right fa fa-angle-left"></i>
             </p>
           </a>
@@ -33,14 +33,14 @@
             <li class="nav-item">
               <a href="/admin/dashboard/clients" class="nav-link {!! classActiveHelper('admin/dashboard/clients') !!}">
                 <i class="fa fa-circle-o nav-icon"></i>
-                <p>All Clients</p>
+                <p>{{__('All Clients')}}</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="/admin/dashboard/clients/create"
                 class="nav-link {!! classActiveHelper('admin/dashboard/clients/create') !!}">
                 <i class="fa fa-circle-o nav-icon"></i>
-                <p>Add New</p>
+                <p>{{__('Add New')}}</p>
               </a>
             </li>
           </ul>
@@ -52,20 +52,20 @@
           <a href="/admin/dashboard/users" class="nav-link {!! classActiveSegment(3, 'users') !!}">
             <i class="nav-icon fas fa-chart-pie"></i>
             <p>
-              Users
-              <i class="right fa fa-angle-left"></i>
+              {{__('Users')}} <i class="right fa fa-angle-left"></i>
+
             </p>
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="/admin/dashboard/users" class="nav-link {!! classActiveHelper('admin/dashboard/users') !!}">
+              <a href="{{route('employees.index')}}"
+                class="nav-link {!! classActiveHelper('admin/dashboard/employees') !!}">
                 <i class="fa fa-circle-o nav-icon"></i>
                 <p>{{__('Employee')}}</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="/admin/dashboard/users/create"
-                class="nav-link {!! classActiveHelper('admin/dashboard/clients/users') !!}">
+              <a href="{{route('admins.index')}}" class="nav-link {!! classActiveHelper('admin/dashboard/admins') !!}">
                 <i class="fa fa-circle-o nav-icon"></i>
                 <p>{{__('Admin')}}</p>
               </a>

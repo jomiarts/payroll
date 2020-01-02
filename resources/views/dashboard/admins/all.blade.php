@@ -14,13 +14,13 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">{{__('Clients')}}</h1>
+                    <h1 class="m-0 text-dark">{{__('Admins')}}</h1>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/dashboard">{{__('Home')}}</a></li>
-                        <li class="breadcrumb-item active">{{__('Clients')}}</li>
+                        <li class="breadcrumb-item active">{{__('Admins')}}</li>
                     </ol>
                 </div>
                 <!-- /.col -->
@@ -34,53 +34,9 @@
     <!-- Main content -->
     <section class="content">
         <div class="btn-container">
-            <a href="{{ route('clients.create') }}"><button class="btn btn-primary">{{__('Add New')}}</button></a>
+            <a href="{{route('admins.create')}}"><button class="btn btn-primary">{{__('Add New')}}</button></a>
         </div>
-        @if(count($clients) > 0)
-        <div class="card">
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table id="client_table" class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th>{{__('Client ID')}}</th>
-                                <th>{{__('Company name')}}</th>
-                                <th>{{__('Date of Contract')}}</th>
-                                <th>{{__('Date of Termination')}}</th>
-                                <th>{{__('Company Email')}}</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            @foreach($clients as $client)
-                            <tr>
-                                <td>{{$client->id}}</td>
-                                <td><a href="/admin/dashboard/clients/{{$client->id}}">{{$client->company_name}}</a>
-                                </td>
-                                <td>{{$client->date_of_contract}}</td>
-                                <td>{{$client->date_of_termination}}</td>
-                                <td>{{$client->company_email}}</td>
-                            </tr>
-                            @endforeach
-
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>{{__('Client ID')}}</th>
-                                <th>{{__('Company name')}}</th>
-                                <th>{{__('Date of Contract')}}</th>
-                                <th>{{__('Date of Termination')}}</th>
-                                <th>{{__('Company Email')}}</th>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        @else
-        <h3>{{__('No Records')}}</h3>
-        @endif
+        <h3>{{__('This module is under construction')}}</h3>
     </section>
     <!-- / Main content -->
 </div>
@@ -131,20 +87,18 @@
 <!--Datatables-->
 <script src="/dist/js/plugins/datatables/dataTables.bootstrap4.min.js"></script>
 <script src="/dist/js/plugins/datatables/jquery.dataTables.min.js"></script>
-@if(count($clients) > 0)
 <script>
     $(function() {
-            $('#client_table').DataTable({
-                "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false
-            });
+        $('#client_table').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false
         });
+    });
 
 </script>
-@endif
 
 @stop

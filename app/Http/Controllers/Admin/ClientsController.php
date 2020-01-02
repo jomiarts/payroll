@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Model\Client;
-use App\ClientContactPerson;
-use App\ClientContractRate;
+use App\Model\ClientContactPerson;
+use App\Model\ClientContractRate;
 use App\Http\Controllers\Controller;
 
 
@@ -140,7 +140,9 @@ class ClientsController extends Controller
     {
         //
 
+        
         $client = Client::find($id);
+        dd($client->client_contact_persons->name);
         return view('dashboard.clients.show')
         ->with('client', $client)
         ->with('client_contact_persons', $client->client_contact_persons)
@@ -290,7 +292,7 @@ class ClientsController extends Controller
         $ClientContractRate = ClientContractRate::where('client_id',$id);
         $ClientContractRate->delete();
 
-        return redirect('dashboard/clients')->with('success', 'Record Remove!');
+        return redirect('admin/dashboard/clients')->with('success', 'Record Remove!');
         
     }
 }

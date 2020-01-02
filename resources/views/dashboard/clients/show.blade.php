@@ -159,6 +159,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label>{{__('Contract Type')}}</label>
+                        <?php var_dump($client_contract_rate); ?>
                         <p>{{ ($client_contract_rates->contract_rate_type) ?  $client_contract_rates->contract_rate_type : 'N/A' }}
                         </p>
                     </div>

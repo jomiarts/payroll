@@ -11,6 +11,6 @@ class ClientContactPerson extends Model
 
     public function Client() 
     {
-        return $this->belongsTo('App\Client', 'id');
+        return $this->belongsTo('App\Model\Client', 'id');
     }
 }

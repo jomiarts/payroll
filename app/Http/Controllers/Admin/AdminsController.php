@@ -1,18 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Employee;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class EmployeeController extends Controller
+class AdminsController extends Controller
 {
-
     public function __construct() 
     {
         $this->middleware('auth:admin');
     }
-
     /**
      * Display a listing of the resource.
      *
@@ -21,7 +19,7 @@ class EmployeeController extends Controller
     public function index()
     {
         //
-        return view('dashboard.employees.all');
+        return view('dashboard.admins.all');
     }
 
     /**
@@ -32,7 +30,7 @@ class EmployeeController extends Controller
     public function create()
     {
         //
-        return view('dashboard.employees.create');
+        return view('dashboard.admins.create');
     }
 
     /**
