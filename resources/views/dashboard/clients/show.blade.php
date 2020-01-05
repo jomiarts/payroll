@@ -15,7 +15,6 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/dashboard">{{__('Home')}}</a></li>
-                        <li class="breadcrumb-item">{{__('Dashboard')}}</li>
                         <li class="breadcrumb-item active">{{__('Client')}}</li>
                     </ol>
                 </div>
@@ -30,7 +29,7 @@
     <!-- Main content -->
     <section class="content client edit">
         <div class="btn-container">
-            <a href="/dashboard/clients/{{$client->id}}/edit"><button
+            <a href="/admin/dashboard/clients/{{$client->id}}/edit"><button
                     class="btn btn-primary">{{__('Edit')}}</button></a>
             <form action="{{ route('clients.destroy', $client->id) }}" method="POST">
                 @method('DELETE')
@@ -52,22 +51,22 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label>{{__('Date of Contract')}}</label>
-                        <p>{{ ($client->date_of_contract) ? $client->date_of_contract : 'N/A' }}</p>
+                        <p>{{ (!empty($client->date_of_contract) && isset($client->date_of_contract)) ? $client->date_of_contract : 'N/A' }}</p>
                     </div>
                     <div class="col-md-6">
                         <label>{{__('Date of Termination')}}</label>
-                        <p>{{ ($client->date_of_termination) ?  $client->date_of_termination : 'N/A' }}</p>
+                        <p>{{ (!empty($client->date_of_termination) && isset($client->date_of_termination)) ?  $client->date_of_termination : 'N/A' }}</p>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-6">
                         <label>{{__('Company Name')}}</label>
-                        <p>{{ ($client->company_name) ? $client->company_name : 'N/A' }}</p>
+                        <p>{{ (!empty($client->company_name) && isset($client->company_name)) ? $client->company_name : 'N/A' }}</p>
                     </div>
                     <div class="col-md-6">
                         <label for="company_address">{{__('Company Address')}}</label>
-                        <p>{{ ($client->company_address) ?  $client->company_address : 'N/A' }}</p>
+                        <p>{{ (!empty($client->company_address) && isset($client->company_address)) ?  $client->company_address : 'N/A' }}</p>
 
                     </div>
                 </div>
@@ -75,22 +74,22 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label for="bir_tin_number">{{__('Bir Tin Number')}}</label>
-                        <p>{{ ($client->bir_tin_number) ?  $client->bir_tin_number : 'N/A' }}</p>
+                        <p>{{ (!empty($client->bir_tin_number) && isset($client->bir_tin_number)) ?  $client->bir_tin_number : 'N/A' }}</p>
                     </div>
                     <div class="col-md-6">
                         <label for="bir_tin_number">{{__('Peza Number')}}</label>
-                        <p>{{ ($client->peza_number) ?  $client->peza_number : 'N/A' }}</p>
+                        <p>{{ (!empty($client->peza_number) && isset($client->peza_number)) ?  $client->peza_number : 'N/A' }}</p>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-6">
                         <label for="official_company_no">{{__('Official Company No.')}}</label>
-                        <p>{{ ($client->official_company_no) ?  $client->official_company_no : 'N/A' }}</p>
+                        <p>{{ (!empty($client->official_company_no) && isset($client->official_company_no)) ?  $client->official_company_no : 'N/A' }}</p>
                     </div>
                     <div class="col-md-6">
                         <label for="company_email">{{__('Company Email')}}</label>
-                        <p>{{ ($client->company_email) ?  $client->company_email : 'N/A' }}</p>
+                        <p>{{ (!empty($client->company_email) && isset($client->company_email)) ?  $client->company_email : 'N/A' }}</p>
                     </div>
                 </div>
             </div>
@@ -121,11 +120,11 @@
                         <tbody>
                             @foreach($client_contact_persons as $client_contact_person)
                             <tr>
-                                <td>{{$client_contact_person->name}}</td>
-                                <td>{{$client_contact_person->position}}</td>
-                                <td>{{$client_contact_person->department}}</td>
-                                <td>{{$client_contact_person->email}}</td>
-                                <td>{{$client_contact_person->contact_number}}</td>
+                                <td>{{ (!empty($client_contact_person->name) && isset($client_contact_person->name)) ?  $client_contact_person->name : 'N/A' }}</td>
+                                <td>{{ (!empty($client_contact_person->position) && isset($client_contact_person->position)) ?  $client_contact_person->position : 'N/A' }}</td>
+                                <td>{{ (!empty($client_contact_person->department) && isset($client_contact_person->department)) ?  $client_contact_person->department : 'N/A' }} </td>
+                                <td>{{ (!empty($client_contact_person->email) && isset($client_contact_person->email)) ?  $client_contact_person->department : 'N/A' }}</td>
+                                <td>{{ (!empty($client_contact_person->contact_number) && isset($client_contact_person->contact_number)) ?  $client_contact_person->contact_number : 'N/A' }}</td>
 
                             </tr>
                             @endforeach
@@ -159,73 +158,72 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label>{{__('Contract Type')}}</label>
-                        <?php var_dump($client_contract_rate); ?>
                         <p>{{ ($client_contract_rates->contract_rate_type) ?  $client_contract_rates->contract_rate_type : 'N/A' }}
                         </p>
                     </div>
                     <div class="col-md-6">
                         <label>{{__('Basic Pay')}}</label>
-                        <p>{{ ($client_contract_rates->basic_pay) ?  number_format($client_contract_rates->basic_pay, 2) : 'N/A' }}
+                        <p>{{ (!empty($client_contract_rates->basic_pay) && isset($client_contract_rates->basic_pay)) ?  number_format($client_contract_rates->basic_pay, 2) : 'N/A' }}
                         </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <label>{{__('Overtime Pay')}}</label>
-                        <p>{{ ($client_contract_rates->overtime_pay) ?  number_format($client_contract_rates->overtime_pay, 2) : 'N/A' }}
+                        <p>{{ (!empty($client_contract_rates->overtime_pay) && isset($client_contract_rates->overtime_pay)) ?  number_format($client_contract_rates->overtime_pay, 2) : 'N/A' }}
                         </p>
                     </div>
                     <div class="col-md-6">
                         <label>{{__('Night Differential Pay')}}</label>
-                        <p>{{ ($client_contract_rates->night_differential_pay) ?  number_format($client_contract_rates->night_differential_pay, 2) : 'N/A' }}
+                        <p>{{ (!empty($client_contract_rates->night_differential_pay) && isset($client_contract_rates->night_differential_pay)) ?  number_format($client_contract_rates->night_differential_pay, 2) : 'N/A' }}
                         </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <label>{{__('COLA')}}</label>
-                        <p>{{ ($client_contract_rates->cola) ?  number_format($client_contract_rates->cola, 2) : 'N/A' }}
+                        <p>{{ (!empty($client_contract_rates->cola) && isset($client_contract_rates->cola)) ?  number_format($client_contract_rates->cola, 2) : 'N/A' }}
                         </p>
                     </div>
                     <div class="col-md-6">
                         <label>{{__('5 Days Incentive Pay')}}</label>
-                        <p>{{ ($client_contract_rates->five_days_incentive_pay) ?  number_format($client_contract_rates->five_days_incentive_pay, 2) : 'N/A' }}
+                        <p>{{ (!empty($client_contract_rates->five_days_incentive_pay) && isset($client_contract_rates->five_days_incentive_pay)) ?  number_format($client_contract_rates->five_days_incentive_pay, 2) : 'N/A' }}
                         </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <label>{{__('Uniform Allowance')}}</label>
-                        <p>{{ ($client_contract_rates->uniform_allowance) ?  number_format($client_contract_rates->uniform_allowance, 2) : 'N/A' }}
+                        <p>{{ (!empty($client_contract_rates->uniform_allowance) && isset($client_contract_rates->uniform_allowance)) ?  number_format($client_contract_rates->uniform_allowance, 2) : 'N/A' }}
                         </p>
                     </div>
                     <div class="col-md-6">
                         <label>{{__('13th Month Pay')}}</label>
-                        <p>{{ ($client_contract_rates->thirteen_month_pay) ?  number_format($client_contract_rates->thirteen_month_pay, 2) : 'N/A' }}
+                        <p>{{ (!empty($client_contract_rates->thirteen_month_pay) && isset($client_contract_rates->thirteen_month_pay)) ?  number_format($client_contract_rates->thirteen_month_pay, 2) : 'N/A' }}
                         </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <label>{{__('SSS Premium')}}</label>
-                        <p>{{ ($client_contract_rates->sss_premium) ?  number_format($client_contract_rates->sss_premium, 2) : 'N/A' }}
+                        <p>{{ (!empty($client_contract_rates->sss_premium) && isset($client_contract_rates->sss_premium)) ?  number_format($client_contract_rates->sss_premium, 2) : 'N/A' }}
                         </p>
                     </div>
                     <div class="col-md-6">
                         <label>{{__('PHILHEALTH')}}</label>
-                        <p>{{ ($client_contract_rates->philhealth) ?  number_format($client_contract_rates->philhealth, 2) : 'N/A' }}
+                        <p>{{ (!empty($client_contract_rates->philhealth) && isset($client_contract_rates->philhealth)) ?  number_format($client_contract_rates->philhealth, 2) : 'N/A' }}
                         </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <label>{{__('Insurance Fund')}}</label>
-                        <p>{{ ($client_contract_rates->insurance_fund) ?  number_format($client_contract_rates->insurance_fund, 2) : 'N/A' }}
+                        <p>{{ (!empty($client_contract_rates->insurance_fund) && isset($client_contract_rates->insurance_fund)) ?  number_format($client_contract_rates->insurance_fund, 2) : 'N/A' }}
                         </p>
                     </div>
                     <div class="col-md-6">
                         <label>{{__('Pag Ibig Fund')}}</label>
-                        <p>{{ ($client_contract_rates->pag_ibig_fund) ?  number_format($client_contract_rates->pag_ibig_fund, 2) : 'N/A' }}
+                        <p>{{ (!empty($client_contract_rates->pag_ibig_fund) && isset($client_contract_rates->pag_ibig_fund)) ?  number_format($client_contract_rates->pag_ibig_fund, 2) : 'N/A' }}
                         </p>
                     </div>
                 </div>
@@ -245,11 +243,11 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label>{{__('Schedule of Cut-off')}}</label>
-                        <p>{{ ($client->schedule_of_cut_off) ?  $client->schedule_of_cut_off : 'N/A' }}</p>
+                        <p>{{ (!empty($client->schedule_of_cut_off) && isset($client->schedule_of_cut_off)) ?  $client->schedule_of_cut_off : 'N/A' }}</p>
                     </div>
                     <div class="col-md-6">
                         <label>{{__('Schedule of Payroll')}}</label>
-                        <p>{{ ($client->schedule_of_payroll) ?  $client->schedule_of_payroll : 'N/A' }}</p>
+                        <p>{{ (!empty($client->schedule_of_payroll) && isset($client->schedule_of_payroll)) ?  $client->schedule_of_payroll : 'N/A' }}</p>
                     </div>
                 </div>
             </div>

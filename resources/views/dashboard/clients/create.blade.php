@@ -20,7 +20,6 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/dashboard">{{__('Home')}}</a></li>
-                        <li class="breadcrumb-item">{{__('Dashboard')}}</li>
                         <li class="breadcrumb-item">{{__('Clients')}}</li>
                         <li class="breadcrumb-item active">{{__('Create')}}</li>
 
@@ -373,11 +372,8 @@
 </script>
 <!-- Bootstrap 4 -->
 <script src="/dist/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- Morris.js charts -->
+<!-- Jqeury Validation -->
 <script src="/dist/plugins/jquery-validation/jquery.validate.min.js"></script>
-<!-- Morris.js charts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="/dist/plugins/morris/morris.min.js"></script>
 <!-- Sparkline -->
 <script src="/dist/plugins/sparkline/jquery.sparkline.min.js"></script>
 <!-- jvectormap -->
@@ -403,8 +399,6 @@
 <script src="/dist/plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="/dist/js/adminlte.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/dist/js/demo.js"></script>
 

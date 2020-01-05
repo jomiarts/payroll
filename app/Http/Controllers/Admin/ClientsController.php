@@ -51,7 +51,6 @@ class ClientsController extends Controller
     public function store(Request $request)
     {
 
-        //dd($request->input('basic_pay'));
         $this->validate($request, [
             'date_of_contract' => 'required|date',
             'date_of_termination' => 'required|date',
@@ -127,7 +126,7 @@ class ClientsController extends Controller
 
        }     
        
-        return redirect('dashboard/clients')->with('success', 'Client Added');
+        return redirect('admin/dashboard/clients')->with('success', 'Client Added');
     }
 
     /**
@@ -139,10 +138,7 @@ class ClientsController extends Controller
     public function show($id)
     {
         //
-
-        
         $client = Client::find($id);
-        dd($client->client_contact_persons->name);
         return view('dashboard.clients.show')
         ->with('client', $client)
         ->with('client_contact_persons', $client->client_contact_persons)
@@ -271,7 +267,7 @@ class ClientsController extends Controller
         $ClientContractRate->pag_ibig_fund = $ClientContractRate->getMoneyNumericValue($request->input('pag_ibig_fund'));
         $ClientContractRate->save();
 
-       return redirect('dashboard/clients')->with('success', 'Record Updated!');
+       return redirect('admin/dashboard/clients')->with('success', 'Record Updated!');
     }
 
     /**

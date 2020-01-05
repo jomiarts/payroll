@@ -20,7 +20,6 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/dashboard">{{__('Home')}}</a></li>
-                        <li class="breadcrumb-item">{{__('Dashboard')}}</li>
                         <li class="breadcrumb-item">{{__('Employees')}}</li>
                         <li class="breadcrumb-item active">{{__('Create')}}</li>
                     </ol>
@@ -38,7 +37,7 @@
     <section class="content">
         <div class="container-fluid">
             <!-- SELECT2 EXAMPLE -->
-            <h3>{{__('Under Construction')}}</h3>
+            <h3>{{__('This module is under construction')}}</h3>
         </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->

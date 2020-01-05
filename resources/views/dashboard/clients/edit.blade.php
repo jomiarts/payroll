@@ -20,7 +20,6 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/dashboard">{{__('Home')}}</a></li>
-                        <li class="breadcrumb-item active">{{__('Dashboard')}}</li>
                         <li class="breadcrumb-item">{{__('Client')}}</li>
                         <li class="breadcrumb-item">{{__('Edit')}}</li>
                     </ol>
@@ -65,7 +64,7 @@
                                         </div>
                                         <input type="text" class="form-control" data-inputmask="'alias': 'yyyy-mm-dd'"
                                             data-mask id="date_of_contract" name="date_of_contract"
-                                            value="{{$client->date_of_contract}}" />
+                                            value="{{(!empty($client->date_of_contract) && isset($client->date_of_contract)) ? $client->date_of_contract : '' }}" />
                                     </div>
                                     <!-- /.input group -->
                                     <small class="text-danger">{{ $errors->first('date_of_contract') }}</small>
@@ -85,7 +84,7 @@
                                         </div>
                                         <input type="text" class="form-control" data-inputmask="'alias': 'yyyy-mm-dd'"
                                             data-mask id="date_of_termination" name="date_of_termination"
-                                            value="{{$client->date_of_termination}}" />
+                                            value="{{(!empty($client->date_of_termination) && isset($client->date_of_termination)) ? $client->date_of_termination : '' }}" />
                                     </div>
                                     <!-- /.input group -->
                                     <small class="text-danger">{{ $errors->first('date_of_termination') }}</small>
@@ -101,8 +100,8 @@
                                 <div class="form-group">
                                     <label>{{__('Company Name')}}</label>
                                     <input type="text" class="form-control" placeholder="Enter ..." name="company_name"
-                                        id="company_name" value="{{$client->company_name}}" />
-                                    <small class="text-danger">{{ $errors->first('company_name') }}</small>
+                                        id="company_name" value="{{(!empty($client->company_name) && isset($client->company_name)) ? $client->company_name : '' }}" />
+                                    <small class="text-danger">{{ $errors->first('company_name') }} </small>
                                 </div>
 
                             </div>
@@ -111,7 +110,7 @@
                                     <label>{{__('Company Address')}}</label>
                                     <input type="text" class="form-control" placeholder="Enter ..."
                                         name="company_address" id="company_address"
-                                        value="{{$client->company_address}}" />
+                                        value="{{(!empty($client->company_address) && isset($client->company_address)) ? $client->company_address : '' }}" />
                                     <small class="text-danger">{{ $errors->first('company_address') }}</small>
                                 </div>
                             </div>
@@ -121,7 +120,7 @@
                                 <div class="form-group">
                                     <label>{{__('BIR TIN Number')}}</label>
                                     <input type="text" class="form-control" placeholder="Enter ..." id="bir_tin_number"
-                                        name="bir_tin_number" value="{{$client->bir_tin_number}}" />
+                                        name="bir_tin_number" value="{{(!empty($client->bir_tin_number) && isset($client->bir_tin_number)) ? $client->bir_tin_number : '' }}" />
                                     <small class="text-danger">{{ $errors->first('bir_tin_number') }}</small>
                                 </div>
                             </div>
@@ -129,7 +128,7 @@
                                 <div class="form-group">
                                     <label>{{__('PEZA Number')}}</label>
                                     <input type="text" class="form-control" placeholder="Enter ..." id="peza_number"
-                                        name="peza_number" value="{{$client->peza_number}}" />
+                                        name="peza_number" value="{{(!empty($client->peza_number) && isset($client->peza_number)) ? $client->peza_number : '' }}" />
                                     <small class="text-danger">{{ $errors->first('peza_number') }}</small>
                                 </div>
                             </div>
@@ -140,7 +139,7 @@
                                     <label>{{__('Official Company No')}}</label>
                                     <input type="text" class="form-control" placeholder="Enter ..."
                                         id="official_company_no" name="official_company_no"
-                                        value="{{$client->official_company_no}}" />
+                                        value="{{(!empty($client->official_company_no) && isset($client->official_company_no)) ? $client->official_company_no : '' }}" />
                                     <small class="text-danger">{{ $errors->first('official_company_no') }}</small>
                                 </div>
                             </div>
@@ -149,7 +148,7 @@
                                     <label for="company_email">{{__('Company Email')}}</label>
                                     <input type="email" class="form-control" id="company_email"
                                         placeholder="Enter email" name="company_email"
-                                        value="{{$client->company_email}}" />
+                                        value="{{(!empty($client->company_email) && isset($client->company_email)) ? $client->company_email : '' }}" />
                                     <small class="text-danger">{{ $errors->first('company_email') }}</small>
                                 </div>
                             </div>
@@ -177,7 +176,7 @@
                             @foreach($client_contact_persons as $client_contact_person)
                             <div class="dynamic-more">
                                 <input type="hidden" name="contact_person[{{$x}}][client_contact_person_id]"
-                                    value="{{$client_contact_person->id}}" id="client_contact_person_id"
+                                    value="{{(!empty($client_contact_person->id) && isset($client_contact_person->id)) ? $client_contact_person->id : '' }}" id="client_contact_person_id"
                                     class="client_contact_person_id" />
 
                                 <input type="hidden" name="contact_person[{{$x}}][client_contact_person_status]"
@@ -189,7 +188,7 @@
                                             <label>{{__('Name')}}</label>
                                             <input type="text" class="form-control contact_person_name"
                                                 placeholder="Enter ..." id="name" name="contact_person[{{$x}}][name]"
-                                                value="{{$client_contact_person->name}}" /> <small
+                                                value="{{(!empty($client_contact_person->name) && isset($client_contact_person->name)) ? $client_contact_person->name : '' }}" /> <small
                                                 class="text-danger">{{$errors->first("name")}}</small>
                                         </div>
                                     </div>
@@ -199,7 +198,7 @@
                                             <input type="text" class="form-control contact_person_position"
                                                 placeholder="Enter ..." id="position"
                                                 name="contact_person[{{$x}}][position]"
-                                                value="{{$client_contact_person->position}}" /> <small
+                                                value="{{(!empty($client_contact_person->position) && isset($client_contact_person->position)) ? $client_contact_person->position : '' }}" /> <small
                                                 class="text-danger">{{$errors->first("position")}}</small>
                                         </div>
                                     </div>
@@ -211,7 +210,7 @@
                                             <input type="text" class="form-control contact_person_department"
                                                 placeholder="Enter ..." id="department"
                                                 name="contact_person[{{$x}}][department]"
-                                                value="{{$client_contact_person->department}}" /> <small
+                                                value="{{(!empty($client_contact_person->department) && isset($client_contact_person->department)) ? $client_contact_person->department : '' }}" /> <small
                                                 class="text-danger">{{$errors->first("department")}}</small>
                                         </div>
                                     </div>
@@ -221,7 +220,7 @@
                                             <input type="text" class="form-control contact_person_email"
                                                 placeholder="Enter ..." id="email_address"
                                                 name="contact_person[{{$x}}][email_address]"
-                                                value="{{$client_contact_person->email}}" /> <small
+                                                value="{{(!empty($client_contact_person->email) && isset($client_contact_person->email)) ? $client_contact_person->email : '' }}" /> <small
                                                 class="text-danger">{{$errors->first("email_address")}}</small>
                                         </div>
                                     </div>
@@ -233,7 +232,7 @@
                                             <input type="text" class="form-control contact_person_number"
                                                 placeholder="Enter ..." id="contact_number"
                                                 name="contact_person[{{$x}}][contact_number]"
-                                                value="{{$client_contact_person->contact_number}}" /> <small
+                                                value="{{(!empty($client_contact_person->contact_number) && isset($client_contact_person->contact_number)) ? $client_contact_person->contact_number : '' }}" /> <small
                                                 class="text-danger">{{$errors->first("contact_number")}}</small>
                                         </div>
                                     </div>
@@ -262,17 +261,19 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>{{__('Contract Type')}}</label>
-                                    <select class="form-control select2" style="width: 100%;" name="contract_type">
-                                        <option selected="selected" value=""
-                                            {{ ($client_contract_rates->contract_rate_type == '') ? 'selected="selected"' : '' }}>
-                                            {{__('--Select Option--')}}</option>
-                                        <option value="A"
-                                            {{ ($client_contract_rates->contract_rate_type == 'A') ? 'selected="selected"' : '' }}>
-                                            {{'A'}}</option>
-                                        <option value="B"
-                                            {{ ($client_contract_rates->contract_rate_type == 'B') ? 'selected="selected"' : '' }}>
-                                            {{'B'}}</option>
-                                    </select>
+                                    @if(!empty($client_contract_rates->contract_rate_type) && isset($client_contract_rates->contract_rate_type))
+                                        <select class="form-control select2" style="width: 100%;" name="contract_type">
+                                            <option selected="selected" value=""
+                                                {{ ($client_contract_rates->contract_rate_type == '') ? 'selected="selected"' : '' }}>
+                                                {{__('--Select Option--')}}</option>
+                                            <option value="A"
+                                                {{ ($client_contract_rates->contract_rate_type == 'A') ? 'selected="selected"' : '' }}>
+                                                {{'A'}}</option>
+                                            <option value="B"
+                                                {{ ($client_contract_rates->contract_rate_type == 'B') ? 'selected="selected"' : '' }}>
+                                                {{'B'}}</option>
+                                        </select>
+                                    @endif
                                     <small class="text-danger">{{ $errors->first('contract_type') }}</small>
                                 </div>
                                 <!-- /.form-group -->
@@ -282,7 +283,7 @@
                                     <label>{{__('Basic Pay')}}</label>
                                     <input type="text" name="basic_pay" id="basic_pay" placeholder="Enter ..."
                                         class="form-control money_format"
-                                        value="{{ $client_contract_rates->basic_pay }}" />
+                                        value="{{(!empty($client_contract_rates->basic_pay) && isset($client_contract_rates->basic_pay)) ? $client_contract_rates->basic_pay : '' }}" />
                                     <small class="text-danger">{{ $errors->first('basic_pay') }}</small>
                                 </div>
                             </div>
@@ -293,7 +294,7 @@
                                     <label>{{__('Overtime Pay')}}</label>
                                     <input type="text" name="overtime_pay" id="overtime_pay" placeholder="Enter ..."
                                         class="form-control money_format"
-                                        value="{{ $client_contract_rates->overtime_pay }}">
+                                        value="{{(!empty($client_contract_rates->overtime_pay) && isset($client_contract_rates->overtime_pay)) ? $client_contract_rates->overtime_pay : '' }}">
                                     <small class="text-danger">{{ $errors->first('overtime_pay') }}</small>
                                 </div>
                             </div>
@@ -302,7 +303,7 @@
                                     <label>{{__('Night Differential Pay')}}</label>
                                     <input type="text" name="night_differential_pay" id="night_differential_pay"
                                         placeholder="Enter ..." class="form-control money_format"
-                                        value="{{ $client_contract_rates->night_differential_pay }}" />
+                                        value="{{(!empty($client_contract_rates->night_differential_pay) && isset($client_contract_rates->night_differential_pay)) ? $client_contract_rates->night_differential_pay : '' }}" />
                                     <small class="text-danger">{{ $errors->first('night_differential_pay') }}</small>
                                 </div>
                             </div>
@@ -312,7 +313,7 @@
                                 <div class="form-group">
                                     <label>{{__('COLA')}}</label>
                                     <input type="text" name="cola" id="cola" placeholder="Enter ..."
-                                        class="form-control money_format" value="{{ $client_contract_rates->cola }}" />
+                                        class="form-control money_format" value="{{(!empty($client_contract_rates->cola) && isset($client_contract_rates->cola)) ? $client_contract_rates->cola : '' }}" />
                                     <small class="text-danger">{{ $errors->first('cola') }}</small>
                                 </div>
                             </div>
@@ -321,7 +322,7 @@
                                     <label>{{__('5 Days Incentive Pay')}}</label>
                                     <input type="text" name="five_days_incentive_pay" id="five_days_incentive_pay"
                                         placeholder="Enter ..." class="form-control money_format"
-                                        value="{{ $client_contract_rates->five_days_incentive_pay }}" />
+                                        value="{{(!empty($client_contract_rates->five_days_incentive_pay) && isset($client_contract_rates->five_days_incentive_pay)) ? $client_contract_rates->five_days_incentive_pay : '' }}" />
                                     <small class="text-danger">{{ $errors->first('five_days_incentive_pay') }}</small>
                                 </div>
                             </div>
@@ -332,7 +333,7 @@
                                     <label>{{__('Uniform Allowance')}}</label>
                                     <input type="text" name="uniform_allowance" id="uniform_allowance"
                                         placeholder="Enter ..." class="form-control money_format"
-                                        value="{{ $client_contract_rates->uniform_allowance }}" />
+                                        value="{{(!empty($client_contract_rates->uniform_allowance) && isset($client_contract_rates->uniform_allowance)) ? $client_contract_rates->uniform_allowance : '' }}" />
                                     <small class="text-danger">{{ $errors->first('uniform_allowance') }}</small>
                                 </div>
                             </div>
@@ -341,7 +342,7 @@
                                     <label>{{__('13th Month Pay')}}</label>
                                     <input type="text" name="thth_month_pay" id="thth_month_pay" placeholder="Enter ..."
                                         class="form-control money_format"
-                                        value="{{ $client_contract_rates->thirteen_month_pay }}" />
+                                        value="{{(!empty($client_contract_rates->thirteen_month_pay) && isset($client_contract_rates->thirteen_month_pay)) ? $client_contract_rates->thirteen_month_pay : '' }}" />
                                     <small class="text-danger">{{ $errors->first('thth_month_pay') }}</small>
                                 </div>
                             </div>
@@ -352,7 +353,7 @@
                                     <label>{{__('SSS Premium')}}</label>
                                     <input type="text" name="sss_premium" id="sss_premium" placeholder="Enter ..."
                                         class="form-control money_format"
-                                        value="{{ $client_contract_rates->sss_premium }}" />
+                                        value="{{(!empty($client_contract_rates->sss_premium) && isset($client_contract_rates->sss_premium)) ? $client_contract_rates->sss_premium : '' }}" />
                                     <small class="text-danger">{{ $errors->first('sss_premium') }}</small>
                                 </div>
                             </div>
@@ -361,7 +362,7 @@
                                     <label>{{__('PHILHEALTH')}}</label>
                                     <input type="text" name="philhealth" id="philhealth" placeholder="Enter ..."
                                         class="form-control money_format"
-                                        value="{{ $client_contract_rates->philhealth }}" />
+                                        value="{{(!empty($client_contract_rates->philhealth) && isset($client_contract_rates->philhealth)) ? $client_contract_rates->philhealth : '' }}" />
                                     <small class="text-danger">{{ $errors->first('philhealth') }}</small>
                                 </div>
                             </div>
@@ -372,7 +373,7 @@
                                     <label>{{__('Insurance Fund')}}</label>
                                     <input type="text" name="insurance_fund" id="insurance_fund" placeholder="Enter ..."
                                         class="form-control money_format"
-                                        value="{{ $client_contract_rates->insurance_fund }}" />
+                                        value="{{(!empty($client_contract_rates->insurance_fund) && isset($client_contract_rates->insurance_fund)) ? $client_contract_rates->insurance_fund : '' }}" />
                                     <small class="text-danger">{{ $errors->first('insurance_fund') }}</small>
                                 </div>
                             </div>
@@ -381,7 +382,7 @@
                                     <label>{{__('Pag Ibig Fund')}}</label>
                                     <input type="text" name="pag_ibig_fund" id="pag_ibig_fund" placeholder="Enter ..."
                                         class="form-control money_format"
-                                        value="{{ $client_contract_rates->pag_ibig_fund }}" />
+                                        value="{{(!empty($client_contract_rates->pag_ibig_fund) && isset($client_contract_rates->pag_ibig_fund)) ? $client_contract_rates->pag_ibig_fund : '' }}" />
                                     <small class="text-danger">{{ $errors->first('pag_ibig_fund') }}</small>
                                 </div>
                             </div>
@@ -410,7 +411,7 @@
                                         </div>
                                         <input type="text" class="form-control" data-inputmask="'alias': 'yyyy-mm-dd'"
                                             data-mask id="schedule_of_cut_off" name="schedule_of_cut_off"
-                                            value="{{ $client->schedule_of_cut_off }}" />
+                                            value="{{(!empty($client->schedule_of_cut_off) && isset($client->schedule_of_cut_off)) ? $client->schedule_of_cut_off : '' }}" />
                                     </div>
                                     <!-- /.input group -->
                                     <small class="text-danger">{{ $errors->first('schedule_of_cut_off') }}</small>
@@ -427,7 +428,7 @@
                                         </div>
                                         <input type="text" class="form-control" data-inputmask="'alias': 'yyyy-mm-dd'"
                                             data-mask id="schedule_of_payroll" name="schedule_of_payroll"
-                                            value="{{ $client->schedule_of_payroll }}" />
+                                            value="{{(!empty($client->schedule_of_payroll) && isset($client->schedule_of_payroll)) ? $client->schedule_of_payroll : '' }}" />
                                     </div>
                                     <!-- /.input group -->
                                     <small class="text-danger">{{ $errors->first('schedule_of_payroll') }}</small>
